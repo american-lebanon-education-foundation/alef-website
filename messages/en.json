@@ -1,4 +1,7 @@
 {
+  "SitewideRibbon": {
+    "text": "American Lebanon Education Foundation (ALEF) is a registered 501(c)(3) nonprofit organization. Tax ID: 41-3957218"
+  },
   "Navbar": {
     "home": "Home",
     "about": "About Us",
@@ -49,7 +52,10 @@
     "subtitle": "Educating to Eradicate Terrorism in Lebanon",
     "tagline": "Quality. Independence. Impact.",
     "joinUs": "JOIN US",
-    "watchVideo": "Watch Video"
+    "watchVideo": "Watch Video",
+    "reviewTitle": "ALEF, A NONPROFIT <br /> ADVANCING A FREE, SOVEREIGN <br /> & PROSPEROUS LEBANON",
+    "reviewSubtitle": "Advancing education, transparency, and civic engagement for the Lebanese people.",
+    "legalDisclaimer": "American Lebanon Education Foundation (ALEF) is a registered 501(c)(3) nonprofit organization. Tax ID: 41-3957218"
   },
   "PresidentialLetter": {
     "title": "PRESIDENTIAL CORRESPONDENCE",
@@ -99,7 +105,10 @@
       "title": "FUEL THE FIGHT FOR FREEDOM",
       "subtitle": "YOUR CONTRIBUTION DIRECTLY SUPPORTS OUR ADVOCACY FOR A SOVEREIGN LEBANON.",
       "button": "MAKE A DONATION",
-      "tag": "Urgent Action"
+      "tag": "Urgent Action",
+      "reviewTitle": "SUPPORT OUR MISSION",
+      "reviewSubtitle": "YOUR CONTRIBUTION DIRECTLY SUPPORTS ALEF'S EDUCATION, RESEARCH, AND CIVIC ENGAGEMENT PROGRAMS FOR A SOVEREIGN LEBANON.",
+      "reviewTag": "Support ALEF"
     },
     "subscribe": {
       "title": "STAY AHEAD OF THE WAVE",
@@ -126,6 +135,8 @@
   "AlliedOrganizations": {
     "title": "ALLIED ORGANIZATIONS",
     "subtitle": "STRATEGIC PARTNERS",
+    "reviewTitle": "POLICY & RESEARCH NETWORK",
+    "reviewSubtitle": "ACADEMIC & POLICY RESEARCH PARTNERS",
     "heritage": "Heritage Foundation",
     "aei": "American Enterprise Institute",
     "hudson": "Hudson Institute",
@@ -413,7 +424,8 @@
     "button": "JOIN THE MOVEMENT NOW"
   },
   "Footer": {
-    "description": "Educating communities and combating terrorism through research, awareness, and policy advocacy.",
+    "description": "Educating communities and advancing sovereignty, transparency, and civic engagement for Lebanon.",
+    "nonprofitDisclosure": "American Lebanon Education Foundation (ALEF) is a registered 501(c)(3) nonprofit organization. Tax ID: 41-3957218.",
     "explore": "EXPLORE",
     "resources": "RESOURCES",
     "contact": "CONTACT",
@@ -961,7 +973,7 @@
       "loginRequired": "You must be logged in to donate. Would you like to log in now?"
     },
     "footer": {
-      "taxInfo": "* ALEF is a registered 501(c)(3) non-profit organization. All donations are tax-deductible."
+      "taxInfo": "* ALEF is a registered 501(c)(3) non-profit organization (Tax ID: 41-3957218). All donations are tax-deductible to the full extent of the law."
     },
     "portal": {
       "title": "Manage Your Subscription",
@@ -3072,7 +3084,13 @@
     "p1": "Lebanon's economic collapse wasn't an accident—it was <span class='text-red'>engineered theft</span>.",
     "p2": "From embezzled public funds to offshore money laundering, from Ponzi schemes to infrastructure waste, the numbers tell a story of <span class='text-red'>systematic looting</span>.",
     "p3": "This is the full breakdown of how Lebanon's wealth was stolen, hidden, and lost.",
-    "button": "VIEW FULL AUDIT"
+    "button": "VIEW FULL AUDIT",
+    "reviewTitle": "FINANCIAL TRANSPARENCY RESEARCH",
+    "reviewCardTitle": "FINANCIAL TRANSPARENCY RESEARCH",
+    "reviewP1": "ALEF's research team tracks and documents Lebanon's economic losses through public records, financial disclosures, and independent reporting.",
+    "reviewP2": "Public financial data and independent audits point to systemic mismanagement, capital flight, and significant documented losses.",
+    "reviewP3": "Explore our comprehensive findings and economic analysis.",
+    "reviewButton": "EXPLORE FINDINGS"
   },
   "BookRecommendationsPage": {
     "title": "BOOK RECOMMENDATIONS",

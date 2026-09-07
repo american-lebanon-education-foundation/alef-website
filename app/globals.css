@@ -142,3 +142,19 @@ html.lenis body {
 .animate-bounce {
   will-change: transform;
 }
+
+/* PhoneInput Country Flag Fix */
+.PhoneInputCountryIcon {
+  width: 1.6rem !important;
+  height: 1.1rem !important;
+  overflow: hidden !important;
+  border-radius: 2px !important;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) !important;
+}
+
+.PhoneInputCountryIconImg {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}

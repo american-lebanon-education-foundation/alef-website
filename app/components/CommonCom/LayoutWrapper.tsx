@@ -8,6 +8,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import JoinUs from "./JoinUs";
 import { ThemeProvider } from "./ThemeProvider";
+import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 const UploadFAB = dynamic(() => import("./UploadFAB"), { ssr: false });
 const HaaCampaignModal = dynamic(() => import("./HaaCampaignModal"), { ssr: false });
@@ -47,7 +48,7 @@ export default function LayoutWrapper({
             <SmoothScroll />
             <Navbar />
             <UploadFAB />
-            {isHomePage && <HaaCampaignModal isFirstLoad={isFirstLoad} />}
+            {isHomePage && !AD_GRANTS_REVIEW_MODE && <HaaCampaignModal isFirstLoad={isFirstLoad} />}
             {children}
             {!isProfilePage && <JoinUs />}
             {!isProfilePage && <Footer />}

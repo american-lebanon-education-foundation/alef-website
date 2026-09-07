@@ -60,6 +60,9 @@ export default function Footer() {
                         <p className="text-white/60 text-sm font-oswald leading-relaxed max-w-xs">
                             {t('description')}
                         </p>
+                        <p className="text-white/60 text-sm font-oswald leading-relaxed max-w-xs border-t border-white/10 pt-3">
+                            {t('nonprofitDisclosure')}
+                        </p>
                         <div className="flex flex-wrap gap-3 pt-2">
                             <SocialButton icon={<Facebook className="w-4 h-4" />} href="https://www.facebook.com/share/g/1CAf9Dn4A3/" />
                             <SocialButton icon={<Linkedin className="w-4 h-4" />} href="https://www.linkedin.com/groups/16682004/" />

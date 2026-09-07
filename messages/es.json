@@ -1,4 +1,7 @@
 {
+  "SitewideRibbon": {
+    "text": "American Lebanon Education Foundation (ALEF) es una organización sin fines de lucro 501(c)(3) registrada. ID fiscal: 41-3957218"
+  },
   "Navbar": {
     "home": "Inicio",
     "about": "Nosotros",
@@ -49,7 +52,10 @@
     "subtitle": "Educando para Erradicar el Terrorismo en el Líbano",
     "tagline": "Calidad. Independencia. Impacto.",
     "joinUs": "ÚNETE A NOSOTROS",
-    "watchVideo": "Ver Video"
+    "watchVideo": "Ver Video",
+    "reviewTitle": "ALEF, ORGANIZACIÓN SIN FINES DE LUCRO <br /> PROMOVIENDO UN LÍBANO LIBRE, <br /> SOBERANO Y PRÓSPERO",
+    "reviewSubtitle": "Promoviendo la educación, la transparencia y la participación cívica para el pueblo libanés.",
+    "legalDisclaimer": "American Lebanon Education Foundation (ALEF) es una organización sin fines de lucro registrada 501(c)(3). Identificación fiscal: 41-3957218"
   },
   "PresidentialLetter": {
     "title": "CORRESPONDENCIA PRESIDENCIAL",
@@ -99,7 +105,10 @@
       "title": "ALIMENTA LA LUCHA POR LA LIBERTAD",
       "subtitle": "TU CONTRIBUCIÓN APOYA DIRECTAMENTE NUESTRA DEFENSA DE UN LÍBANO SOBERANO.",
       "button": "HACER UNA DONACIÓN",
-      "tag": "Acción Urgente"
+      "tag": "Acción Urgente",
+      "reviewTitle": "APOYA NUESTRA MISIÓN",
+      "reviewSubtitle": "TU CONTRIBUCIÓN APOYA DIRECTAMENTE LOS PROGRAMAS DE EDUCACIÓN, INVESTIGACIÓN Y PARTICIPACIÓN CÍVICA DE ALEF POR UN LÍBANO SOBERANO.",
+      "reviewTag": "Apoyar a ALEF"
     },
     "subscribe": {
       "title": "MANTENTE ADELANTE DE LA OLA",
@@ -126,6 +135,8 @@
   "AlliedOrganizations": {
     "title": "ORGANIZACIONES ALIADAS",
     "subtitle": "SOCIOS ESTRATÉGICOS",
+    "reviewTitle": "RED DE POLÍTICAS E INVESTIGACIÓN",
+    "reviewSubtitle": "SOCIOS ACADÉMICOS Y DE INVESTIGACIÓN POLÍTICA",
     "heritage": "Heritage Foundation",
     "aei": "American Enterprise Institute",
     "hudson": "Hudson Institute",
@@ -414,7 +425,8 @@
     "button": "ÚNETE AL MOVIMIENTO AHORA"
   },
   "Footer": {
-    "description": "Educando comunidades y combatiendo el terrorismo a través de la investigación, la concientización y la defensa de políticas.",
+    "description": "Educando comunidades y promoviendo la soberanía, la transparencia y el compromiso cívico para el Líbano.",
+    "nonprofitDisclosure": "American Lebanon Education Foundation (ALEF) es una organización sin fines de lucro 501(c)(3) registrada. ID fiscal: 41-3957218.",
     "explore": "EXPLORAR",
     "resources": "RECURSOS",
     "contact": "CONTACTO",
@@ -3056,7 +3068,13 @@
     "p1": "El colapso económico del Líbano no fue un accidente—fue un <span class='text-red'>robo orquestado</span>.",
     "p2": "Desde fondos públicos malversados hasta lavado de dinero offshore, desde esquemas Ponzi hasta desperdicio de infraestructura, los números cuentan una historia de <span class='text-red'>saqueo sistemático</span>.",
     "p3": "Este es el desglose completo de cómo se robó, ocultó y perdió la riqueza del Líbano.",
-    "button": "VER AUDITORÍA COMPLETA"
+    "button": "VER AUDITORÍA COMPLETA",
+    "reviewTitle": "INVESTIGACIÓN DE TRANSPARENCIA FINANCIERA",
+    "reviewCardTitle": "INVESTIGACIÓN DE TRANSPARENCIA FINANCIERA",
+    "reviewP1": "El equipo de investigación de ALEF rastrea y documenta las pérdidas económicas de Líbano mediante registros públicos, divulgaciones financieras e informes independientes.",
+    "reviewP2": "Los datos financieros públicos y las auditorías independientes señalan una mala gestión sistémica, fuga de capitales y pérdidas documentadas significativas.",
+    "reviewP3": "Explore nuestros hallazgos completos y análisis económico.",
+    "reviewButton": "EXPLORAR RESULTADOS"
   },
   "BookRecommendationsPage": {
     "title": "RECOMENDACIONES DE LIBROS",

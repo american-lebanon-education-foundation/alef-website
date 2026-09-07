@@ -14,11 +14,13 @@ import { usePathname, useRouter, Link } from "@/i18n/routing";
 import { useTranslations, useLocale } from "next-intl";
 import { sendGAEvent } from '@next/third-parties/google';
 import Image from "next/image";
+import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Navbar() {
     const navRef = useRef(null);
+    const tRibbon = useTranslations('SitewideRibbon');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isLangOpen, setIsLangOpen] = useState(false);
     const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
@@ -156,7 +158,8 @@ export default function Navbar() {
 
     return (
         <>
-            <nav ref={navRef} className="fixed top-0 z-50 w-full px-4 md:px-6 flex items-center justify-between bg-background navbar-container h-16 md:h-20 overflow-visible">
+            <header ref={navRef} className="fixed top-0 z-50 w-full pointer-events-none">
+                <nav className="w-full px-4 md:px-6 flex items-center justify-between bg-background navbar-container h-16 md:h-20 overflow-visible pointer-events-auto shadow-xs">
 
                 {/* Left: Logo */}
                 <div className="shrink-0 cursor-pointer relative z-50">
@@ -331,6 +334,15 @@ export default function Navbar() {
                     </button>
                 </div>
             </nav>
+
+            {AD_GRANTS_REVIEW_MODE && (
+                <div className="w-full bg-blue text-white py-1.5 px-4 text-center border-b border-white/10 shadow-sm pointer-events-auto">
+                    <p className="text-[11px] sm:text-xs md:text-sm font-oswald tracking-wide leading-tight">
+                        {tRibbon('text')}
+                    </p>
+                </div>
+            )}
+        </header>
 
             {/* PORTAL: Mobile Menu Overlay */}
             {mounted && createPortal(

@@ -7,6 +7,7 @@ import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
 import { Link } from '@/i18n/routing';
 import { sendGAEvent } from '@next/third-parties/google';
+import 'react-phone-number-input/style.css';
 
 const PhoneInput = dynamic(() => import('react-phone-number-input'), {
     ssr: false,
@@ -141,7 +142,7 @@ export default function JoinUs() {
                                             placeholder={t('placeholderPhone')}
                                             value={formData.phone}
                                             onChange={(value) => setFormData({ ...formData, phone: value || '' })}
-                                            className="w-full bg-background text-foreground px-4 py-3 md:px-6 md:py-4 outline-none font-oswald text-base md:text-lg uppercase placeholder:text-gray-400 rounded-sm border border-transparent focus-within:border-red transition-colors flex items-center gap-2 [&_.PhoneInputInput]:bg-transparent [&_.PhoneInputInput]:outline-none [&_.PhoneInputInput]:text-foreground [&_.PhoneInputCountry]:mr-2 [&_.PhoneInputCountrySelect]:bg-background [&_.PhoneInputCountrySelect]:text-foreground"
+                                            className="w-full bg-background text-foreground px-4 py-3 md:px-6 md:py-4 outline-none font-oswald text-base md:text-lg uppercase placeholder:text-gray-400 rounded-sm border border-transparent focus-within:border-red transition-colors flex items-center gap-2 [&_.PhoneInputInput]:bg-transparent [&_.PhoneInputInput]:outline-none [&_.PhoneInputInput]:text-foreground [&_.PhoneInputCountry]:mr-2 [&_.PhoneInputCountrySelect]:bg-background [&_.PhoneInputCountrySelect]:text-foreground [&_.PhoneInputCountryIcon]:!w-6 [&_.PhoneInputCountryIcon]:!h-4 [&_.PhoneInputCountryIcon]:overflow-hidden [&_.PhoneInputCountryIcon]:rounded-xs [&_.PhoneInputCountryIconImg]:!w-full [&_.PhoneInputCountryIconImg]:!h-full [&_.PhoneInputCountryIconImg]:!object-cover"
                                         />
                                     </div>
                                 </div>

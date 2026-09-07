@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import AnimatedTitle from "../../components/CommonCom/AnimatedTitle";
 import FilterBar from "../../components/CommonCom/FilterBar";
 import SkeletonImage from "../../components/CommonCom/SkeletonImage";
+import CongressionalActions from "@/app/components/HomeCom/CongressionalActions";
 import { useTranslations } from "next-intl";
 
 // Member Data Types
@@ -288,60 +289,63 @@ export default function CongressionalAdvocacyPage() {
 
             {/* LEGISLATIVE UPDATES / CONGRESS LATEST SECTION - MOVED TO BOTTOM */}
             {(chamberFilter === "All" || chamberFilter === "CongressLatest") && (
-                <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 mb-24 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <>
+                    <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 mb-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
 
-                    {/* NEW SECTION HEADER matching Senate/House style */}
-                    <div className="flex items-center gap-4 mb-12">
-                        <span className="h-px flex-1 bg-foreground/70"></span>
-                        <h2 className="font-bebas text-3xl md:text-5xl text-foreground">{t('filters.congressLatest')}</h2>
-                        <span className="h-px flex-1 bg-foreground/70"></span>
-                    </div>
+                        {/* NEW SECTION HEADER matching Senate/House style */}
+                        <div className="flex items-center gap-4 mb-12">
+                            <span className="h-px flex-1 bg-foreground/70"></span>
+                            <h2 className="font-bebas text-3xl md:text-5xl text-foreground">{t('filters.congressLatest')}</h2>
+                            <span className="h-px flex-1 bg-foreground/70"></span>
+                        </div>
 
-                    <div className="flex flex-col gap-6">
-                        {(t.raw('latestItems') as { tag: string; title: string; committee: string; access: string; date: string; link: string }[]).map((item, index) => (
-                            <a
-                                key={index}
-                                href={item.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="relative block bg-blue border border-white/10 p-8 md:p-12 rounded-xl overflow-hidden group hover:border-red/30 hover:scale-[1.02] transition-all duration-500 ring-1 ring-white/5 cursor-pointer"
-                            >
-                                {/* Background Decor - Static, no hover change */}
-                                <div className="absolute top-0 right-0 w-96 h-96 bg-light-blue/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-                                <div className="absolute bottom-0 left-0 w-64 h-64 bg-red/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+                        <div className="flex flex-col gap-6">
+                            {(t.raw('latestItems') as { tag: string; title: string; committee: string; access: string; date: string; link: string }[]).map((item, index) => (
+                                <a
+                                    key={index}
+                                    href={item.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="relative block bg-blue border border-white/10 p-8 md:p-12 rounded-xl overflow-hidden group hover:border-red/30 hover:scale-[1.02] transition-all duration-500 ring-1 ring-white/5 cursor-pointer"
+                                >
+                                    {/* Background Decor - Static, no hover change */}
+                                    <div className="absolute top-0 right-0 w-96 h-96 bg-light-blue/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                                    <div className="absolute bottom-0 left-0 w-64 h-64 bg-red/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
 
-                                <div className="relative z-10 space-y-6 pr-0 md:pr-24">
-                                    <div className="flex flex-col gap-4">
-                                        <div className="flex items-center gap-3">
-                                            <span className="bg-red text-white text-xs font-bold px-3 py-1 rounded-sm font-oswald tracking-widest">{item.tag}</span>
-                                        </div>
+                                    <div className="relative z-10 space-y-6 pr-0 md:pr-24">
+                                        <div className="flex flex-col gap-4">
+                                            <div className="flex items-center gap-3">
+                                                <span className="bg-red text-white text-xs font-bold px-3 py-1 rounded-sm font-oswald tracking-widest">{item.tag}</span>
+                                            </div>
 
-                                        <h3 className="font-bebas text-3xl md:text-5xl text-white transition-colors duration-300 leading-[0.9] max-w-4xl">
-                                            {item.title}
-                                        </h3>
+                                            <h3 className="font-bebas text-3xl md:text-5xl text-white transition-colors duration-300 leading-[0.9] max-w-4xl">
+                                                {item.title}
+                                            </h3>
 
-                                        <div className="flex items-center gap-2 text-white/50 text-sm font-oswald font-light group-hover:text-white/70 transition-colors">
-                                            <span>{item.committee}</span>
-                                            <span>•</span>
-                                            <span>{item.date}</span>
-                                            <span>•</span>
-                                            <span>{item.access}</span>
+                                            <div className="flex items-center gap-2 text-white/50 text-sm font-oswald font-light group-hover:text-white/70 transition-colors">
+                                                <span>{item.committee}</span>
+                                                <span>•</span>
+                                                <span>{item.date}</span>
+                                                <span>•</span>
+                                                <span>{item.access}</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                {/* Action Icon - Always Visible */}
-                                <div className="absolute top-1/2 right-12 -translate-y-1/2 hidden lg:block">
-                                    <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center bg-white/5 backdrop-blur-md group-hover:bg-red group-hover:border-red transition-all duration-500">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-white transition-colors duration-500">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                                        </svg>
+                                    {/* Action Icon - Always Visible */}
+                                    <div className="absolute top-1/2 right-12 -translate-y-1/2 hidden lg:block">
+                                        <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center bg-white/5 backdrop-blur-md group-hover:bg-red group-hover:border-red transition-all duration-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-white transition-colors duration-500">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                                            </svg>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        ))}
+                                </a>
+                            ))}
+                        </div>
                     </div>
-                </div>
+                    <CongressionalActions />
+                </>
             )}
 
         </main>
