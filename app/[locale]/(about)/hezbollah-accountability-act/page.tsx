@@ -6,6 +6,8 @@ import AnimatedTitle from "@/app/components/CommonCom/AnimatedTitle";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { sendGAEvent } from "@next/third-parties/google";
+import { useRouter } from "@/i18n/routing";
+import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 import { 
   ShieldAlert, 
   Users, 
@@ -23,6 +25,18 @@ import {
 } from "lucide-react";
 
 export default function HaaCampaignPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (AD_GRANTS_REVIEW_MODE) {
+      router.replace("/alef-profile");
+    }
+  }, [router]);
+
+  if (AD_GRANTS_REVIEW_MODE) {
+    return null;
+  }
+
   const t = useTranslations("HaaCampaignPage");
   const locale = useLocale();
   const isRtl = locale === "ar";

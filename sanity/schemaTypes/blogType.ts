@@ -41,6 +41,21 @@ export const blogType = defineType({
       type: 'date',
     }),
     defineField({
+      name: 'isPinned',
+      title: 'Pin / Feature to Top',
+      type: 'boolean',
+      description: 'Turn this ON to showcase this blog at the top of the Blogs & Articles page and on the Homepage.',
+      initialValue: false,
+    }),
+    defineField({
+      name: 'pinnedBadge',
+      title: 'Custom Badge Label',
+      type: 'string',
+      description: 'Custom text shown on the badge (e.g. FEATURED, HOT, SPOTLIGHT, POLICY BRIEF). Defaults to FEATURED.',
+      hidden: ({ parent }) => !parent?.isPinned,
+      initialValue: 'FEATURED',
+    }),
+    defineField({
       name: 'excerpt',
       title: 'Excerpt (Short Summary)',
       type: 'localizedText',
@@ -55,11 +70,14 @@ export const blogType = defineType({
     select: {
       title: 'title.en',
       media: 'mainImage',
+      isPinned: 'isPinned',
+      pinnedBadge: 'pinnedBadge',
     },
     prepare(selection) {
-      const { title, media } = selection
+      const { title, media, isPinned, pinnedBadge } = selection
+      const badgePrefix = isPinned ? `[${pinnedBadge || 'FEATURED'}] ` : ''
       return {
-        title: title || 'Untitled Blog',
+        title: `${badgePrefix}${title || 'Untitled Blog'}`,
         media: media,
       }
     }

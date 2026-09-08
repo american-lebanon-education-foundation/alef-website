@@ -88,8 +88,8 @@ export default function Footer() {
                         <h3 className="font-bebas text-lg text-white mb-6 tracking-wider">{t('resources')}</h3>
                         <ul className="space-y-4">
                             <li><NavLink href="/blogs-and-articles">{tMenu('blogsAndArticles')}</NavLink></li>
-                            <li><NavLink href="/house-of-cards">{tMenu('houseOfCards')}</NavLink></li>
-                            <li><NavLink href="/archives">{tMenu('archives')}</NavLink></li>
+                            {!AD_GRANTS_REVIEW_MODE && <li><NavLink href="/house-of-cards">{tMenu('houseOfCards')}</NavLink></li>}
+                            {!AD_GRANTS_REVIEW_MODE && <li><NavLink href="/archives">{tMenu('archives')}</NavLink></li>}
                             <li><NavLink href="/podcasts">{tMenu('podcasts')}</NavLink></li>
                             <li><NavLink href="/events">{tMenu('events')}</NavLink></li>
                         </ul>

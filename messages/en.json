@@ -44,7 +44,8 @@
       "getInvolved": "Get Involved",
       "faq": "FAQ",
       "webinars": "Webinars",
-      "hezbollahAccountabilityAct": "Hezbollah Accountability Initiative"
+      "hezbollahAccountabilityAct": "Hezbollah Accountability Initiative",
+      "reviewFallenAngels": "Assassinated Leaders"
     }
   },
   "Hero": {
@@ -158,11 +159,17 @@
       "tag": "Confidential Financial Audit",
       "title": "THE $1 TRILLION HEIST",
       "desc": "A systematic transfer of wealth. Direct theft, laundered money, and wasted potential.",
-      "scroll": "Initiate Inspection"
+      "scroll": "Initiate Inspection",
+      "reviewTag": "Financial Research Report",
+      "reviewTitle": "LEBANON'S FINANCIAL LOSSES: A DATA-DRIVEN REPORT",
+      "reviewDesc": "A sourced accounting of financial losses, mismanagement, and wasted potential in Lebanon's economy."
     },
     "counter": {
       "label": "Total Economic Impact",
-      "desc": "Equivalent to losing the entire GDP of the nation... <span className='text-red'>every single year.</span>"
+      "desc": "Equivalent to losing the entire GDP of the nation... <span className='text-red'>every single year.</span>",
+      "reviewLabel": "Estimated Total Economic Impact",
+      "methodologyLabel": "Methodology & Sourcing Note",
+      "methodologyNote": "Estimates synthesize reported financial losses across public sector accounts, central bank disclosures, and forensic audit reports cited by international institutions (IMF, World Bank, Lebanese Court of Audit)."
     },
     "directLosses": {
       "subtitle": "Exhibit A",
@@ -215,23 +222,33 @@
     "gallery": {
       "img1": {
         "title": "Narco Funding Graph",
-        "caption": "Illicit Revenue Streams"
+        "caption": "Illicit Revenue Streams",
+        "reviewTitle": "Illicit Revenue Streams",
+        "reviewCaption": "Revenue Tracking & Analysis"
       },
       "img2": {
         "title": "Shadow Banking",
-        "caption": "Currency Manipulation"
+        "caption": "Currency Manipulation",
+        "reviewTitle": "Currency and Capital Controls",
+        "reviewCaption": "Monetary Disclosures"
       },
       "img3": {
         "title": "The Venezuela Connection",
-        "caption": "Gold & Crypto Laundering"
+        "caption": "Gold & Crypto Laundering",
+        "reviewTitle": "International Money Flows",
+        "reviewCaption": "Cross-Border Asset Flows"
       },
       "img4": {
         "title": "Fuel Cartel",
-        "caption": "Energy Sector Corruption"
+        "caption": "Energy Sector Corruption",
+        "reviewTitle": "Energy Sector Pricing and Procurement",
+        "reviewCaption": "Public Utility Audits"
       },
       "img5": {
         "title": "Laundering Map",
-        "caption": "Global Money Flow"
+        "caption": "Global Money Flow",
+        "reviewTitle": "Cross Border Financial Flows",
+        "reviewCaption": "Capital Flight Records"
       },
       "img6": {
         "title": "Crisis Summary",
@@ -283,7 +300,27 @@
     "cta": {
       "title": "LEBANON'S COLLAPSE IS NOT A DISASTER.<br /><span class='text-red'>IT IS A CRIME SCENE.</span>",
       "text": "The data is public. The perpetrators are known. The stolen assets are traced. What is missing is accountability.",
-      "button": "CHECK OUT FULL REPORT"
+      "button": "CHECK OUT FULL REPORT",
+      "reviewTitle": "LEBANON'S FINANCIAL RECOVERY & ACCOUNTABILITY",
+      "reviewText": "Lebanon's economic collapse was not simply bad luck. Public financial data and independent audits point to systemic mismanagement and significant, well documented losses. What is missing is accountability and reform."
+    },
+    "recommendations": {
+      "title": "RECOMMENDED REFORM PATHWAYS",
+      "subtitle": "Policy Solutions & Recovery Framework",
+      "items": {
+        "card1": {
+          "title": "Institutional Transparency",
+          "desc": "Enact independent auditing across all public monopolies, utilities, and central bank balance sheets."
+        },
+        "card2": {
+          "title": "Capital Controls & Asset Recovery",
+          "desc": "Establish legal frameworks aligned with international anti-money laundering (AML) and asset recovery standards."
+        },
+        "card3": {
+          "title": "Sovereign Economic Governance",
+          "desc": "Rebuild investor confidence through predictable judicial mechanisms and transparent public procurement."
+        }
+      }
     }
   },
   "HouseOfCards": {
@@ -915,8 +952,8 @@
         "reviewTitle": "B. Security Guarantees & Institutional Stability",
         "list": {
           "0": "Security risks, primarily Hezbollah’s armed presence, must be addressed via UN Resolutions 1559, 1680 & 1701.",
-          "review0": "Security risks from armed non-state groups must be addressed through full implementation of relevant UN Security Council resolutions.",
-          "1": "International support for UNIFIL’s expanded role in monitoring border security."
+          "1": "International support for UNIFIL’s expanded role in monitoring border security.",
+          "review0": "Security risks from armed non-state groups must be addressed through full implementation of relevant UN Security Council resolutions."
         }
       }
     },
@@ -1477,14 +1514,17 @@
       "title": "ALEF HOSTS 'GATHERING FOR A NEW LEBANON' LEADERS CONVENE IN NYC FOR VISION OF A SOVEREIGN, CORRUPTION-FREE FUTURE",
       "date": "March 26, 2026",
       "source": "EIN Presswire",
-      "description": "ALEF at 3 West Club on stopping Hezbollah, advancing reforms & building a sovereign Lebanon. Speakers: Bruce Blakeman, Ivonne Baki, Amir Fakhravar, Rima Freiji."
+      "description": "ALEF at 3 West Club on stopping Hezbollah, advancing reforms & building a sovereign Lebanon. Speakers: Bruce Blakeman, Ivonne Baki, Amir Fakhravar, Rima Freiji.",
+      "reviewDescription": "ALEF hosted policy leaders and civil society delegates in NYC to discuss institutional reform, transparency, and sustainable sovereignty for Lebanon's future."
     },
     "peaceCallNews": {
       "title": "ALEF's Inaugural 'Gathering for a New Lebanon' Concludes with Bold Call for Peace with Israel, Major Reform & Investment",
       "date": "April 28, 2026",
       "source": "EIN Presswire",
-      "description": "The American Lebanon Education Foundation (ALEF) successfully launched its inaugural policy and advocacy event, \"Gathering for a New Lebanon,\" on Tuesday, April 14, 2026."
-    }
+      "description": "The American Lebanon Education Foundation (ALEF) successfully launched its inaugural policy and advocacy event, \"Gathering for a New Lebanon,\" on Tuesday, April 14, 2026.",
+      "reviewDescription": "The American Lebanon Education Foundation (ALEF) held its inaugural educational and policy forum, \"Gathering for a New Lebanon,\" exploring institutional recovery and economic renewal."
+    },
+    "reviewDescription": "A selection of press coverage and media mentions featuring ALEF's research, public policy analysis, and educational initiatives."
   },
   "BlogsPage": {
     "title": "BLOGS & ARTICLES",
@@ -2921,7 +2961,10 @@
         "role": "",
         "desc": "(Lebanese Economist and Diplomat) — Car bomb, December 27, 2013."
       }
-    }
+    },
+    "reviewTitle": "LEBANON'S ASSASSINATED LEADERS",
+    "sourcingLabel": "Historical Documentation & Sourcing Note",
+    "sourcingNote": "Dates and details are drawn from public reporting, historical archives, and, where noted, official tribunal findings."
   },
   "VideosPage": {
     "subtitle": "MEDIA ARCHIVE",
@@ -3268,7 +3311,8 @@
         "title": "The Soros Agenda",
         "author": "By Rachel Ehrenfeld"
       }
-    }
+    },
+    "introDesc": "A curated collection of foundational studies and academic literature on Lebanese political history, regional geopolitics, and macroeconomic governance."
   },
   "ProfilePage": {
     "title": "Welcome to Your Profile",
@@ -3777,6 +3821,10 @@
       "events-gathering-for-a-new-lebanon": {
         "title": "Gathering for a New Lebanon — Inaugural Event | ALEF",
         "description": "Explore reports, media, and summaries from ALEF's historic Gathering for a New Lebanon event in New York City."
+      },
+      "assassinated-leaders": {
+        "title": "Assassinated Leaders — Historical Documentation",
+        "description": "Historical documentation and public tribunal findings honoring Lebanese leaders and public figures lost to political violence."
       }
     }
   },

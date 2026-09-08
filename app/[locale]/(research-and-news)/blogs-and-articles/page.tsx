@@ -17,6 +17,8 @@ export default async function BlogsPage() {
       publishedAt,
       "excerpt": coalesce(excerpt[$locale], excerpt.en, excerpt),
       mainImage,
+      isPinned,
+      pinnedBadge,
       author->{
         "name": coalesce(name[$locale], name.en, name),
         discloseName,

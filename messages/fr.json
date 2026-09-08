@@ -44,7 +44,8 @@
       "getInvolved": "S'Impliquer",
       "faq": "FAQ",
       "webinars": "Webinaires",
-      "hezbollahAccountabilityAct": "Initiative de Responsabilité du Hezbollah"
+      "hezbollahAccountabilityAct": "Initiative de Responsabilité du Hezbollah",
+      "reviewFallenAngels": "Dirigeants Assassinés"
     }
   },
   "Hero": {
@@ -158,11 +159,17 @@
       "tag": "Audit Financier Confidentiel",
       "title": "LE CASSE DE 1000 MILLIARDS $",
       "desc": "Un transfert systématique de richesse. Vol direct, argent blanchi et potentiel gaspillé.",
-      "scroll": "Initier l'Inspection"
+      "scroll": "Initier l'Inspection",
+      "reviewTag": "Rapport de Recherche Financière",
+      "reviewTitle": "PERTES FINANCIÈRES DU LIBAN : UN RAPPORT FONDÉ SUR DES DONNÉES",
+      "reviewDesc": "Une comptabilisation documentée des pertes financières, de la mauvaise gestion et du potentiel gaspillé dans l'économie libanaise."
     },
     "counter": {
       "label": "Impact Économique Total",
-      "desc": "Équivalent à la perte du PIB entier de la nation... <span className='text-red'>chaque année.</span>"
+      "desc": "Équivalent à la perte du PIB entier de la nation... <span className='text-red'>chaque année.</span>",
+      "reviewLabel": "Impact Économique Total Estimé",
+      "methodologyLabel": "Méthodologie et Note de Sourcing",
+      "methodologyNote": "Les estimations synthétisent les pertes financières déclarées dans les comptes du secteur public, les déclarations de la banque centrale et les rapports d'audit médico-légal cités par les institutions internationales (FMI, Banque mondiale, Cour des comptes libanaise)."
     },
     "directLosses": {
       "subtitle": "Pièce À Conviction A",
@@ -215,23 +222,33 @@
     "gallery": {
       "img1": {
         "title": "Graphique Financement Narco",
-        "caption": "Flux de revenus illicites"
+        "caption": "Flux de revenus illicites",
+        "reviewTitle": "Flux de Revenus Illicites",
+        "reviewCaption": "Suivi et Analyse des Revenus"
       },
       "img2": {
         "title": "Banque de l'Ombre",
-        "caption": "Manipulation monétaire"
+        "caption": "Manipulation monétaire",
+        "reviewTitle": "Contrôles des Devises et des Capitaux",
+        "reviewCaption": "Divulgations Monétaires"
       },
       "img3": {
         "title": "La Connexion Vénézuélienne",
-        "caption": "Blanchiment d'or & Crypto"
+        "caption": "Blanchiment d'or & Crypto",
+        "reviewTitle": "Flux Financiers Internationaux",
+        "reviewCaption": "Flux d'Actifs Transfrontaliers"
       },
       "img4": {
         "title": "Cartel du Carburant",
-        "caption": "Corruption du secteur énergétique"
+        "caption": "Corruption du secteur énergétique",
+        "reviewTitle": "Tarification et Approvisionnement du Secteur Énergétique",
+        "reviewCaption": "Audits des Services Publics"
       },
       "img5": {
         "title": "Carte du Blanchiment",
-        "caption": "Flux d'argent mondial"
+        "caption": "Flux d'argent mondial",
+        "reviewTitle": "Flux Financiers Transfrontaliers",
+        "reviewCaption": "Registres de Fuite des Capitaux"
       },
       "img6": {
         "title": "Résumé de la Crise",
@@ -283,7 +300,27 @@
     "cta": {
       "title": "L'EFFONDREMENT DU LIBAN N'EST PAS UNE CATASTROPHE.<br /><span class='text-red'>C'EST UNE SCÈNE DE CRIME.</span>",
       "text": "Les données sont publiques. Les auteurs sont connus. Les avoirs volés sont tracés. Ce qui manque, c'est la responsabilité.",
-      "button": "VOIR LE RAPPORT COMPLET"
+      "button": "VOIR LE RAPPORT COMPLET",
+      "reviewTitle": "REDRESSEMENT FINANCIER ET RESPONSABILITÉ DU LIBAN",
+      "reviewText": "L'effondrement économique du Liban n'était pas un simple coup du sort. Les données financières publiques et les audits indépendants mettent en évidence une mauvaise gestion systémique et des pertes importantes et bien documentées. Ce qui manque, c'est la responsabilité et la réforme."
+    },
+    "recommendations": {
+      "title": "VOIES DE RÉFORME RECOMMANDÉES",
+      "subtitle": "Cadre de Solutions Politiques et de Redressement",
+      "items": {
+        "card1": {
+          "title": "Transparence Institutionnelle",
+          "desc": "Mettre en place des audits indépendants pour tous les monopoles publics, services essentiels et bilans de la banque centrale."
+        },
+        "card2": {
+          "title": "Contrôle des Capitaux et Recouvrement des Avoirs",
+          "desc": "Établir des cadres juridiques conformes aux normes internationales de lutte contre le blanchiment d'argent (LBC) et de recouvrement d'avoirs."
+        },
+        "card3": {
+          "title": "Gouvernance Économique Souveraine",
+          "desc": "Rétablir la confiance des investisseurs grâce à des mécanismes judiciaires prévisibles et des marchés publics transparents."
+        }
+      }
     }
   },
   "HouseOfCards": {
@@ -915,8 +952,8 @@
         "reviewTitle": "B. Garanties de Sécurité & Stabilité Institutionnelle",
         "list": {
           "0": "Les risques de sécurité, principalement la présence armée du Hezbollah, doivent être traités.",
-          "review0": "Les risques sécuritaires liés aux groupes armés non étatiques doivent être traités par la mise en œuvre intégrale des résolutions pertinentes du Conseil de sécurité de l'ONU.",
-          "1": "Soutien international au rôle élargi de la FINUL."
+          "1": "Soutien international au rôle élargi de la FINUL.",
+          "review0": "Les risques sécuritaires liés aux groupes armés non étatiques doivent être traités par la mise en œuvre intégrale des résolutions pertinentes du Conseil de sécurité de l'ONU."
         }
       }
     },
@@ -1477,14 +1514,17 @@
       "title": "ALEF ORGANISE 'RASSEMBLEMENT POUR UN NOUVEAU LIBAN' - LES DIRIGEANTS SE RÉUNISSENT À NYC POUR UNE VISION D'UN AVENIR SOUVERAIN ET SANS CORRUPTION",
       "date": "26 Mars 2026",
       "source": "EIN Presswire",
-      "description": "L'ALEF au 3 West Club pour arrêter le Hezbollah, faire avancer les réformes et construire un Liban souverain. Intervenants : Bruce Blakeman, Ivonne Baki, Amir Fakhravar, Rima Freiji."
+      "description": "L'ALEF au 3 West Club pour arrêter le Hezbollah, faire avancer les réformes et construire un Liban souverain. Intervenants : Bruce Blakeman, Ivonne Baki, Amir Fakhravar, Rima Freiji.",
+      "reviewDescription": "ALEF a réuni des responsables politiques et des représentants de la société civile à New York pour discuter des réformes institutionnelles, de la transparence et de la souveraineté du Liban."
     },
     "peaceCallNews": {
       "title": "Le rassemblement inaugural de l'ALEF pour un nouveau Liban se conclut par un appel audacieux à la paix avec Israël, à des réformes majeures et à des investissements",
       "date": "28 Avril 2026",
       "source": "EIN Presswire",
-      "description": "L'American Lebanon Education Foundation (ALEF) a lancé avec succès son événement inaugural de politique et de plaidoyer, \"Rassemblement pour un nouveau Liban\", le mardi 14 avril 2026."
-    }
+      "description": "L'American Lebanon Education Foundation (ALEF) a lancé avec succès son événement inaugural de politique et de plaidoyer, \"Rassemblement pour un nouveau Liban\", le mardi 14 avril 2026.",
+      "reviewDescription": "L'American Lebanon Education Foundation (ALEF) a tenu son forum politique et éducatif inaugural, « Gathering for a New Lebanon », explorant le redressement institutionnel et le renouveau économique."
+    },
+    "reviewDescription": "Une sélection de retombées médiatiques et de mentions dans la presse présentant les recherches d'ALEF, ses analyses politiques et ses initiatives éducatives."
   },
   "BlogsPage": {
     "title": "BLOGS & ARTICLES",
@@ -2911,7 +2951,10 @@
         "name": "Mohamad Chatah",
         "desc": "(Économiste) — Voiture piégée, 27 décembre 2013."
       }
-    }
+    },
+    "reviewTitle": "DIRIGEANTS LIBANAIS ASSASSINÉS",
+    "sourcingLabel": "Documentation Historique et Note de Sources",
+    "sourcingNote": "Les dates et les détails sont tirés de rapports publics, d'archives historiques et, le cas échéant, des conclusions de tribunaux officiels."
   },
   "VideosPage": {
     "subtitle": "ARCHIVES MÉDIAS",
@@ -3258,7 +3301,8 @@
         "title": "The Soros Agenda",
         "author": "By Rachel Ehrenfeld"
       }
-    }
+    },
+    "introDesc": "Une collection organisée d'études fondamentales et d'ouvrages académiques sur l'histoire politique du Liban, la géopolitique régionale et la gouvernance macroéconomique."
   },
   "ProfilePage": {
     "title": "Bienvenue sur votre profil",
@@ -3767,6 +3811,10 @@
       "events-gathering-for-a-new-lebanon": {
         "title": "Rassemblement pour un nouveau Liban — Événement inaugural | ALEF",
         "description": "Explorez les rapports, médias et résumés du rassemblement historique d'ALEF pour un nouveau Liban à New York."
+      },
+      "assassinated-leaders": {
+        "title": "Dirigeants Assassinés — Documentation Historique",
+        "description": "Documentation historique et conclusions de tribunaux officiels sur les dirigeants libanais victimes de violences politiques."
       }
     }
   },

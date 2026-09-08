@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 export default function AlefInTheNewsPage() {
     const t = useTranslations("AlefInTheNewsPage");
@@ -12,7 +13,7 @@ export default function AlefInTheNewsPage() {
             title: t("peaceCallNews.title"),
             date: t("peaceCallNews.date"),
             source: t("peaceCallNews.source"),
-            description: t("peaceCallNews.description"),
+            description: AD_GRANTS_REVIEW_MODE ? t("peaceCallNews.reviewDescription") : t("peaceCallNews.description"),
             url: "https://www.einpresswire.com/article/908472264/alef-s-inaugural-gathering-for-a-new-lebanon-concludes-with-bold-call-for-peace-with-israel-major-reform-investment"
         },
         {
@@ -20,7 +21,7 @@ export default function AlefInTheNewsPage() {
             title: t("gatheringNews.title"),
             date: t("gatheringNews.date"),
             source: t("gatheringNews.source"),
-            description: t("gatheringNews.description"),
+            description: AD_GRANTS_REVIEW_MODE ? t("gatheringNews.reviewDescription") : t("gatheringNews.description"),
             url: "https://www.einpresswire.com/article/901903375/alef-hosts-gathering-for-a-new-lebanon-leaders-convene-in-nyc-for-vision-of-a-sovereign-corruption-free-future"
         }
     ];
@@ -56,7 +57,7 @@ export default function AlefInTheNewsPage() {
                         <div className="h-px flex-1 bg-linear-to-l from-transparent to-red/40" />
                     </div>
                     <p className="font-oswald text-foreground/60 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed tracking-wide">
-                        {t("description")}
+                        {AD_GRANTS_REVIEW_MODE ? t("reviewDescription") : t("description")}
                     </p>
                 </div>
             </section>

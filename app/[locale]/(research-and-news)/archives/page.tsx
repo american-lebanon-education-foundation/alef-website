@@ -1,7 +1,12 @@
+"use client";
+
+import { useEffect } from "react";
 import AnimatedTitle from "@/app/components/CommonCom/AnimatedTitle";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/routing";
+import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 interface ArchiveItem {
     id: string;
@@ -58,6 +63,18 @@ const archiveItems: ArchiveItem[] = [
 ];
 
 export default function ArchivesPage() {
+    const router = useRouter();
+
+    useEffect(() => {
+        if (AD_GRANTS_REVIEW_MODE) {
+            router.replace('/alef-profile');
+        }
+    }, [router]);
+
+    if (AD_GRANTS_REVIEW_MODE) {
+        return null;
+    }
+
     const t = useTranslations("ArchivesPage");
 
     return (

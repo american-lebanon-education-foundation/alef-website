@@ -3,15 +3,20 @@
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import Image from "next/image";
+import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 export default function BookRecommendationsPage() {
     const t = useTranslations("BookRecommendationsPage");
     const locale = useLocale();
 
-    const bookKeys = [
+    const allBookKeys = [
         "book1", "book2", "book3", "book4", "book5",
         "book6", "book7", "book8", "book9", "book10", "book11"
     ];
+
+    const bookKeys = AD_GRANTS_REVIEW_MODE
+        ? allBookKeys.filter(k => k !== "book3" && k !== "book7" && k !== "book11")
+        : allBookKeys;
 
     return (
         <div className="bg-background min-h-screen flex flex-col relative overflow-hidden">
@@ -21,7 +26,7 @@ export default function BookRecommendationsPage() {
 
                     {/* Header Image */}
                     {/* Note: Ensure 'BookRecommendations.png' is placed in 'public/research/' folder */}
-                    <div className="w-full max-w-3xl mx-auto mb-16 relative aspect-video md:aspect-21/9 rounded-xl overflow-hidden shadow-2xl border border-white/10">
+                    <div className="w-full max-w-3xl mx-auto mb-8 relative aspect-video md:aspect-21/9 rounded-xl overflow-hidden shadow-2xl border border-white/10">
                         {/* Fallback to simple styled container if image missing, but try to load it */}
                         <div className="absolute inset-0 bg-linear-to-br from-gray-900 to-black flex items-center justify-center text-white/20 font-bebas text-4xl">
                         </div>
@@ -43,6 +48,10 @@ export default function BookRecommendationsPage() {
                             }}
                         />
                     </div>
+
+                    <p className="font-oswald text-foreground/70 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-light tracking-wide">
+                        {t('introDesc')}
+                    </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-20">

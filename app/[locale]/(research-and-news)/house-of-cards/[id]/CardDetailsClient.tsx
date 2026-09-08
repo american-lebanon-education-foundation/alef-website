@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, use } from "react";
+import { useRef, use, useEffect } from "react";
 import SkeletonImage from "@/app/components/CommonCom/SkeletonImage";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -10,8 +10,22 @@ import { useGSAP } from "@gsap/react";
 import { CARD_DATA } from "@/app/[locale]/(research-and-news)/house-of-cards/card-data";
 import AnimatedTitle from "@/app/components/CommonCom/AnimatedTitle";
 import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/routing";
+import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 export default function CardDetailsClient({ params }: { params: Promise<{ id: string }> }) {
+    const router = useRouter();
+
+    useEffect(() => {
+        if (AD_GRANTS_REVIEW_MODE) {
+            router.replace('/alef-profile');
+        }
+    }, [router]);
+
+    if (AD_GRANTS_REVIEW_MODE) {
+        return null;
+    }
+
     const { id } = use(params);
     const t = useTranslations("HouseOfCardsPage");
 

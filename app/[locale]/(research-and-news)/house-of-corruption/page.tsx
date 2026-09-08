@@ -8,6 +8,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedTitle from "@/app/components/CommonCom/AnimatedTitle";
 import { useTranslations, useLocale } from "next-intl";
+import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 import {
     AlertTriangle,
@@ -51,6 +52,20 @@ export default function HouseOfCorruptionPage() {
     const containerRef = useRef<HTMLDivElement>(null);
     const [counterValue, setCounterValue] = useState(0);
     const [selectedImage, setSelectedImage] = useState<{ id: string, src: string, alt: string, caption: string } | null>(null);
+
+    const getGalleryTitle = (imgId: string) => {
+        if (AD_GRANTS_REVIEW_MODE && imgId !== 'img6') {
+            return t(`gallery.${imgId}.reviewTitle`);
+        }
+        return t(`gallery.${imgId}.title`);
+    };
+
+    const getGalleryCaption = (imgId: string) => {
+        if (AD_GRANTS_REVIEW_MODE && imgId !== 'img6') {
+            return t(`gallery.${imgId}.reviewCaption`);
+        }
+        return t(`gallery.${imgId}.caption`);
+    };
 
     // --- 1. DATA ---
     const DIRECT_LOSSES = [
@@ -220,16 +235,16 @@ export default function HouseOfCorruptionPage() {
                 <div className="relative z-10 text-center px-4 max-w-7xl mx-auto space-y-6">
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red text-white font-oswald text-xs tracking-[0.2em] uppercase">
                         <Siren className="w-3 h-3" />
-                        {t('hero.tag')}
+                        {AD_GRANTS_REVIEW_MODE ? t('hero.reviewTag') : t('hero.tag')}
                     </div>
                     <div className="overflow-hidden">
                         <AnimatedTitle
-                            text={t('hero.title')}
-                            className="text-6xl md:text-8xl lg:text-[9rem] font-bebas font-bold text-foreground flex flex-wrap justify-center gap-x-2 opacity-90"
+                            text={AD_GRANTS_REVIEW_MODE ? t('hero.reviewTitle') : t('hero.title')}
+                            className="text-5xl md:text-7xl lg:text-8xl font-bebas font-bold text-foreground flex flex-wrap justify-center gap-x-2 opacity-90 leading-tight"
                         />
                     </div>
                     <p className="font-oswald text-lg md:text-2xl text-foreground/70 max-w-3xl mx-auto leading-relaxed text-center font-light tracking-wide">
-                        {t('hero.desc')}
+                        {AD_GRANTS_REVIEW_MODE ? t('hero.reviewDesc') : t('hero.desc')}
                     </p>
                 </div>
                 <div className="absolute bottom-12">
@@ -254,20 +269,20 @@ export default function HouseOfCorruptionPage() {
                                 <div
                                     key={idx}
                                     className="relative pointer-events-auto cursor-pointer transition-all duration-500 group w-56 h-72 lg:w-72 lg:h-96"
-                                    onClick={() => setSelectedImage({ ...img, alt: t(`gallery.${img.id}.title`), caption: t(`gallery.${img.id}.caption`) })}
+                                    onClick={() => setSelectedImage({ ...img, alt: getGalleryTitle(img.id), caption: getGalleryCaption(img.id) })}
                                 >
                                     <div className="absolute top-1/2 -left-8 w-8 h-px bg-foreground/20"></div>
                                     <div className="relative w-full h-full border border-light-blue rounded-sm overflow-hidden bg-blue shadow-2xl hover:border-red hover:shadow-[0_0_30px_rgba(220,38,38,0.2)]">
                                         <SkeletonImage
                                             src={img.src}
-                                            alt={t(`gallery.${img.id}.title`)}
+                                            alt={getGalleryTitle(img.id)}
                                             fill
                                             className="object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
                                         />
                                         <div className="absolute bottom-0 left-0 right-0 p-4 bg-blue/90 translate-y-full group-hover:translate-y-0 transition-transform duration-300 border-t border-red/30">
-                                            <p className="font-bebas text-white text-lg leading-none mb-1">{t(`gallery.${img.id}.title`)}</p>
+                                            <p className="font-bebas text-white text-lg leading-none mb-1">{getGalleryTitle(img.id)}</p>
                                             <div className="flex items-center justify-between">
-                                                <span className="text-white/60 text-[9px] font-oswald uppercase tracking-wider">{t(`gallery.${img.id}.caption`)}</span>
+                                                <span className="text-white/60 text-[9px] font-oswald uppercase tracking-wider">{getGalleryCaption(img.id)}</span>
                                                 <Maximize2 className="w-3 h-3 text-red" />
                                             </div>
                                         </div>
@@ -282,20 +297,20 @@ export default function HouseOfCorruptionPage() {
                                 <div
                                     key={idx}
                                     className="relative pointer-events-auto cursor-pointer transition-all duration-500 group w-56 h-72 lg:w-72 lg:h-96"
-                                    onClick={() => setSelectedImage({ ...img, alt: t(`gallery.${img.id}.title`), caption: t(`gallery.${img.id}.caption`) })}
+                                    onClick={() => setSelectedImage({ ...img, alt: getGalleryTitle(img.id), caption: getGalleryCaption(img.id) })}
                                 >
                                     <div className="absolute top-1/2 -right-8 w-8 h-px bg-foreground/20"></div>
                                     <div className="relative w-full h-full border border-light-blue rounded-sm overflow-hidden bg-blue shadow-2xl hover:border-red hover:shadow-[0_0_30px_rgba(220,38,38,0.2)]">
                                         <SkeletonImage
                                             src={img.src}
-                                            alt={t(`gallery.${img.id}.title`)}
+                                            alt={getGalleryTitle(img.id)}
                                             fill
                                             className="object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
                                         />
                                         <div className="absolute bottom-0 left-0 right-0 p-4 bg-blue/90 translate-y-full group-hover:translate-y-0 transition-transform duration-300 border-t border-red/30">
-                                            <p className="font-bebas text-white text-lg leading-none mb-1">{t(`gallery.${img.id}.title`)}</p>
+                                            <p className="font-bebas text-white text-lg leading-none mb-1">{getGalleryTitle(img.id)}</p>
                                             <div className="flex items-center justify-between">
-                                                <span className="text-white/60 text-[9px] font-oswald uppercase tracking-wider">{t(`gallery.${img.id}.caption`)}</span>
+                                                <span className="text-white/60 text-[9px] font-oswald uppercase tracking-wider">{getGalleryCaption(img.id)}</span>
                                                 <Maximize2 className="w-3 h-3 text-red" />
                                             </div>
                                         </div>
@@ -313,11 +328,11 @@ export default function HouseOfCorruptionPage() {
                                 <div
                                     key={`top-${idx}`}
                                     className="relative shrink-0 w-36 h-52 rounded-md overflow-hidden border border-white/20 bg-blue shadow-lg pointer-events-auto active:scale-95 transition-transform"
-                                    onClick={() => setSelectedImage({ ...img, alt: t(`gallery.${img.id}.title`), caption: t(`gallery.${img.id}.caption`) })}
+                                    onClick={() => setSelectedImage({ ...img, alt: getGalleryTitle(img.id), caption: getGalleryCaption(img.id) })}
                                 >
                                     <SkeletonImage
                                         src={img.src}
-                                        alt={t(`gallery.${img.id}.title`)}
+                                        alt={getGalleryTitle(img.id)}
                                         fill
                                         className="object-cover opacity-90"
                                     />
@@ -334,11 +349,11 @@ export default function HouseOfCorruptionPage() {
                                 <div
                                     key={`bottom-${idx}`}
                                     className="relative shrink-0 w-36 h-52 rounded-md overflow-hidden border border-white/20 bg-blue shadow-lg pointer-events-auto active:scale-95 transition-transform"
-                                    onClick={() => setSelectedImage({ ...img, alt: t(`gallery.${img.id}.title`), caption: t(`gallery.${img.id}.caption`) })}
+                                    onClick={() => setSelectedImage({ ...img, alt: getGalleryTitle(img.id), caption: getGalleryCaption(img.id) })}
                                 >
                                     <SkeletonImage
                                         src={img.src}
-                                        alt={t(`gallery.${img.id}.title`)}
+                                        alt={getGalleryTitle(img.id)}
                                         fill
                                         className="object-cover opacity-90"
                                     />
@@ -355,7 +370,7 @@ export default function HouseOfCorruptionPage() {
                 {/* Centered Counter */}
                 <div className="relative z-30 text-center px-4 pointer-events-none flex flex-col items-center justify-center h-full">
                     <div className="inline-block border border-red/30 bg-red/5 px-6 py-2 rounded-full mb-8 backdrop-blur-md">
-                        <h3 className="font-oswald text-xs md:text-sm text-red tracking-[0.2em] uppercase">{t('counter.label')}</h3>
+                        <h3 className="font-oswald text-xs md:text-sm text-red tracking-[0.2em] uppercase">{AD_GRANTS_REVIEW_MODE ? t('counter.reviewLabel') : t('counter.label')}</h3>
                     </div>
                     <div className="flex items-baseline justify-center font-bebas text-foreground leading-none">
                         <span className="text-4xl md:text-7xl opacity-50 mr-2 md:mr-6 font-light">$</span>
@@ -365,6 +380,14 @@ export default function HouseOfCorruptionPage() {
                     <p className="font-oswald text-foreground/70 max-w-xl mx-auto mt-8 text-base md:text-lg leading-relaxed font-light tracking-wide bg-background/50 p-6 rounded-xl backdrop-blur-sm border border-foreground/5 hidden md:block">
                         <span dangerouslySetInnerHTML={{ __html: t.raw('counter.desc') }} />
                     </p>
+                    {AD_GRANTS_REVIEW_MODE && (
+                        <div className="mt-4 px-5 py-2.5 rounded-lg bg-background/80 border border-foreground/10 max-w-xl mx-auto backdrop-blur-sm hidden md:block">
+                            <p className="font-oswald text-xs text-foreground/60 leading-relaxed text-center">
+                                <span className="font-bold text-foreground/80">{t('counter.methodologyLabel')}: </span>
+                                {t('counter.methodologyNote')}
+                            </p>
+                        </div>
+                    )}
                 </div>
             </div>
 
@@ -483,6 +506,41 @@ export default function HouseOfCorruptionPage() {
                 </div>
             </div>
 
+            {/* 4.5. RECOMMENDED REFORM PATHWAYS */}
+            <div className="py-24 bg-background border-t border-foreground/10 relative z-30">
+                <div className="max-w-[1200px] mx-auto px-6">
+                    <div className="text-center mb-16">
+                        <span className="font-oswald text-xs md:text-sm tracking-[0.3em] text-red uppercase font-semibold block mb-3">
+                            {t('recommendations.subtitle')}
+                        </span>
+                        <h2 className="text-4xl md:text-6xl font-bebas text-foreground tracking-wide">
+                            {t('recommendations.title')}
+                        </h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {(['card1', 'card2', 'card3'] as const).map((key, idx) => (
+                            <div
+                                key={key}
+                                className="bg-blue border border-white/10 rounded-xl p-8 flex flex-col justify-between shadow-xl items-center sm:items-start text-center sm:text-left transition-all duration-300 hover:border-red/40"
+                            >
+                                <div className="space-y-4">
+                                    <div className="w-10 h-10 rounded-full bg-linear-to-br from-red to-red/60 text-white flex items-center justify-center font-bebas text-xl shadow-md shadow-red/30">
+                                        0{idx + 1}
+                                    </div>
+                                    <h3 className="font-bebas text-2xl md:text-3xl text-white tracking-wide">
+                                        {t(`recommendations.items.${key}.title`)}
+                                    </h3>
+                                    <p className="font-oswald text-white/70 text-base font-light leading-relaxed">
+                                        {t(`recommendations.items.${key}.desc`)}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
             {/* 5. CTA WRAPPER */}
             <div className="relative py-40 border-t border-foreground/10 overflow-hidden bg-background">
                 <div className="absolute inset-0 opacity-10">
@@ -491,10 +549,14 @@ export default function HouseOfCorruptionPage() {
                 <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
                     <FileText className="w-12 h-12 text-red/80 mx-auto mb-8 opacity-80" />
                     <h2 className="text-5xl md:text-7xl font-bebas text-foreground mb-8 leading-[0.9]">
-                        <span dangerouslySetInnerHTML={{ __html: t.raw('cta.title') }} />
+                        {AD_GRANTS_REVIEW_MODE ? (
+                            <span>{t('cta.reviewTitle')}</span>
+                        ) : (
+                            <span dangerouslySetInnerHTML={{ __html: t.raw('cta.title') }} />
+                        )}
                     </h2>
-                    <p className="font-oswald text-lg text-foreground/50 mb-12 max-w-xl mx-auto font-light tracking-wide">
-                        {t('cta.text')}
+                    <p className="font-oswald text-lg text-foreground/60 mb-12 max-w-2xl mx-auto font-light tracking-wide leading-relaxed">
+                        {AD_GRANTS_REVIEW_MODE ? t('cta.reviewText') : t('cta.text')}
                     </p>
                     <Link
                         href="/houseOfCorruption/house-of-corruption-summary.pdf"

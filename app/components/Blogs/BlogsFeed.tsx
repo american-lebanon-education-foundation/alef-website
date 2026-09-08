@@ -3,10 +3,11 @@
 import { useState, useMemo, useEffect } from "react";
 import { Link } from "@/i18n/routing";
 import SkeletonImage from "../CommonCom/SkeletonImage";
-import { ArrowRight, User, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, User, ChevronLeft, ChevronRight, Sparkles, Flame } from "lucide-react";
 import FilterBar from "../CommonCom/FilterBar";
 import { urlFor } from "@/sanity/lib/image";
 import { useTranslations, useLocale } from "next-intl";
+import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 interface Sanityblog {
     _id: string;
@@ -14,6 +15,8 @@ interface Sanityblog {
     slug: { current: string };
     publishedAt: string;
     excerpt: string;
+    isPinned?: boolean;
+    pinnedBadge?: string;
     mainImage?: {
         asset: {
             _ref: string;
@@ -42,18 +45,32 @@ export default function BlogsFeed({ initialBlogs }: BlogsFeedProps) {
     const [searchQuery, setSearchQuery] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
 
+    // Filter high-risk content in review mode and hoist pinned blogs to top based on Sanity Studio
+    const baseBlogs = useMemo(() => {
+        let list = initialBlogs || [];
+        if (AD_GRANTS_REVIEW_MODE) {
+            list = list.filter(blog =>
+                blog.slug?.current !== "exploiting-the-commons-hezbollah-s-systematic-weaponization-of-lebanon-s-civilian-and-cultural-infrastructure"
+            );
+        }
+
+        return [...list].sort((a, b) => {
+            const isPinnedA = a.isPinned ? 1 : 0;
+            const isPinnedB = b.isPinned ? 1 : 0;
+            return isPinnedB - isPinnedA;
+        });
+    }, [initialBlogs]);
+
     // Extract unique years for horizontal tabs
     const years = useMemo(() => {
-        const uniqueYears = Array.from(new Set(initialBlogs.map(blog =>
+        const uniqueYears = Array.from(new Set(baseBlogs.map(blog =>
             blog.publishedAt ? new Date(blog.publishedAt).getFullYear().toString() : "N/A"
         ))).filter(y => y !== "N/A").sort((a, b) => b.localeCompare(a));
         return ["All", ...uniqueYears];
-    }, [initialBlogs]);
-
-    // Extract unique authors for dropdown - REMOVED
+    }, [baseBlogs]);
 
     const filteredBlogs = useMemo(() => {
-        return initialBlogs.filter(blog => {
+        return baseBlogs.filter(blog => {
             const blogYear = blog.publishedAt ? new Date(blog.publishedAt).getFullYear().toString() : "N/A";
             const blogAuthor = blog.author?.discloseName ? blog.author.name : t('anonymous');
 
@@ -64,7 +81,7 @@ export default function BlogsFeed({ initialBlogs }: BlogsFeedProps) {
 
             return matchesYear && matchesSearch;
         });
-    }, [initialBlogs, filter, searchQuery, t]);
+    }, [baseBlogs, filter, searchQuery, t]);
 
     // Reset to page 1 when filters change
     useEffect(() => {
@@ -108,36 +125,51 @@ export default function BlogsFeed({ initialBlogs }: BlogsFeedProps) {
             {/* Blogs Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 min-h-[50vh]">
                 {paginatedBlogs && paginatedBlogs.length > 0 ? (
-                    paginatedBlogs.map((blog: Sanityblog) => (
-                        <Link
-                            key={blog._id}
-                            href={`/blogs-and-articles/${blog.slug.current}`}
-                            className="group bg-blue flex flex-col h-full rounded-sm overflow-hidden"
-                        >
-                            {/* Blog Image */}
-                            <div className="relative w-full h-52 overflow-hidden">
-                                {blog.mainImage?.asset ? (
-                                    <SkeletonImage
-                                        src={urlFor(blog.mainImage).width(600).height(400).url()}
-                                        alt={blog.title}
-                                        fill
-                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                        unoptimized
-                                    />
-                                ) : (
-                                    <div className="w-full h-full bg-linear-to-br from-light-blue to-blue flex items-center justify-center">
-                                        <span className="text-white/20 font-bebas text-4xl">ALEF</span>
-                                    </div>
-                                )}
-                                {/* Overlay gradient */}
-                                <div className="absolute inset-0 bg-linear-to-t from-blue via-transparent to-transparent opacity-60"></div>
-                            </div>
+                    paginatedBlogs.map((blog: Sanityblog) => {
+                        const pinnedBadge = blog.isPinned ? (blog.pinnedBadge || "FEATURED") : null;
 
-                            {/* Content */}
-                            <div className="p-6 flex flex-col grow">
-                                <h3 className="text-2xl font-bebas text-white mb-3 leading-tight">
-                                    {highlightText(blog.title, searchQuery)}
-                                </h3>
+                        return (
+                            <Link
+                                key={blog._id}
+                                href={`/blogs-and-articles/${blog.slug.current}`}
+                                className="group bg-blue flex flex-col h-full rounded-sm overflow-hidden relative"
+                            >
+                                {/* Blog Image */}
+                                <div className="relative w-full h-52 overflow-hidden">
+                                    {/* Pinned / Showcase Badge */}
+                                    {pinnedBadge && (
+                                        <div className="absolute top-3 left-3 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-linear-to-r from-red via-[#e3242b] to-red/80 text-white font-oswald text-xs uppercase tracking-widest font-semibold shadow-lg shadow-black/50 border border-white/20 backdrop-blur-xs">
+                                            {pinnedBadge.toUpperCase() === "HOT" ? (
+                                                <Flame className="w-3.5 h-3.5 fill-white text-white" />
+                                            ) : (
+                                                <Sparkles className="w-3.5 h-3.5 text-white" />
+                                            )}
+                                            <span>{pinnedBadge}</span>
+                                        </div>
+                                    )}
+
+                                    {blog.mainImage?.asset ? (
+                                        <SkeletonImage
+                                            src={urlFor(blog.mainImage).width(600).height(400).url()}
+                                            alt={blog.title}
+                                            fill
+                                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                            unoptimized
+                                        />
+                                    ) : (
+                                        <div className="w-full h-full bg-linear-to-br from-light-blue to-blue flex items-center justify-center">
+                                            <span className="text-white/20 font-bebas text-4xl">ALEF</span>
+                                        </div>
+                                    )}
+                                    {/* Overlay gradient */}
+                                    <div className="absolute inset-0 bg-linear-to-t from-blue via-transparent to-transparent opacity-60"></div>
+                                </div>
+
+                                {/* Content */}
+                                <div className="p-6 flex flex-col grow">
+                                    <h3 className="text-2xl font-bebas text-white mb-3 leading-tight">
+                                        {highlightText(blog.title, searchQuery)}
+                                    </h3>
 
                                 <p className="font-oswald text-white/70 text-sm leading-relaxed mb-4 line-clamp-3 grow">
                                     {highlightText(blog.excerpt, searchQuery)}
@@ -182,7 +214,8 @@ export default function BlogsFeed({ initialBlogs }: BlogsFeedProps) {
                                 </div>
                             </div>
                         </Link>
-                    ))
+                    );
+                })
                 ) : (
                     <div className="col-span-full text-center py-20 bg-blue/50 rounded-lg border border-white/5">
                         <div className="flex flex-col items-center gap-4">

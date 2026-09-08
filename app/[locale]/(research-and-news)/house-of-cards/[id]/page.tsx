@@ -2,8 +2,18 @@ import CardDetailsClient from "./CardDetailsClient";
 import { CARD_DATA } from "@/app/[locale]/(research-and-news)/house-of-cards/card-data";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
+import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string; locale: string }> }): Promise<Metadata> {
+    if (AD_GRANTS_REVIEW_MODE) {
+        return {
+            robots: {
+                index: false,
+                follow: false,
+            }
+        };
+    }
+
     const { id, locale } = await params;
     const cardRef = CARD_DATA.find((c) => c.id === id);
 
