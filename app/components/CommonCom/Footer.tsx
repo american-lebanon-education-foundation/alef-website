@@ -19,6 +19,7 @@ const ThreadsIcon = ({ className }: { className?: string }) => (
 );
 import { useTranslations } from "next-intl";
 import { sendGAEvent } from '@next/third-parties/google';
+import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 export default function Footer() {
     const t = useTranslations('Footer');
@@ -78,7 +79,7 @@ export default function Footer() {
                             <li><NavLink href="/">{tNav('home')}</NavLink></li>
                             <li><NavLink href="/alef-profile">{tMenu('ourProfile')}</NavLink></li>
                             <li><NavLink href="/experts-corner">{tMenu('expertsCorner')}</NavLink></li>
-                            <li><NavLink href="/congressional-advocacy">{tNav('congressional')}</NavLink></li>
+                            {!AD_GRANTS_REVIEW_MODE && <li><NavLink href="/congressional-advocacy">{tNav('congressional')}</NavLink></li>}
                             <li><NavLink href="/contact">{tNav('contact')}</NavLink></li>
                         </ul>
                     </div>

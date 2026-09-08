@@ -2,6 +2,7 @@ import AnimatedTitle from "@/app/components/CommonCom/AnimatedTitle";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 const sponsors = [
     {
@@ -25,6 +26,13 @@ const sponsors = [
 export default function SponsorsPage() {
     const t = useTranslations('SponsorsPage');
 
+    const activeSponsors = sponsors.filter((sponsor) => {
+        if (AD_GRANTS_REVIEW_MODE) {
+            return sponsor.id !== "nic" && sponsor.id !== "guardians";
+        }
+        return true;
+    });
+
     return (
         <main className="min-h-screen bg-background pt-24 md:pt-32 pb-16 px-4 md:px-12 lg:px-24">
             <div className="max-w-7xl mx-auto space-y-16">
@@ -47,13 +55,20 @@ export default function SponsorsPage() {
                     <p className="font-oswald text-foreground/60 text-lg max-w-2xl mx-auto">
                         {t('header.description')}
                     </p>
+
+                    {/* Sponsor Funds Disclaimer */}
+                    <div className="inline-block bg-white/5 border border-white/10 rounded-xl px-6 py-3 max-w-2xl mx-auto">
+                        <p className="font-oswald text-foreground/70 text-sm md:text-base leading-relaxed">
+                            {t('header.fundsDisclaimer')}
+                        </p>
+                    </div>
                 </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-                    {sponsors.map((sponsor) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                    {activeSponsors.map((sponsor) => (
                         <div
                             key={sponsor.id}
-                            className="bg-blue border border-white/10 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 relative p-8 shadow-xl"
+                            className="bg-blue border border-white/10 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 relative p-8 shadow-xl items-center sm:items-start text-center sm:text-left"
                         >
                             {/* Logo area */}
                             <div className="bg-white rounded-xl flex items-center justify-center p-6 h-40 w-full relative overflow-hidden shadow-inner mb-6">
@@ -66,7 +81,7 @@ export default function SponsorsPage() {
                             </div>
 
                             {/* Content */}
-                            <div className="flex flex-col gap-4 flex-1">
+                            <div className="flex flex-col gap-4 flex-1 items-center sm:items-start text-center sm:text-left">
                                 <h3 className="font-bebas text-2xl md:text-3xl text-white tracking-wide">
                                     {t(`partners.list.${sponsor.id}.name`)}
                                 </h3>

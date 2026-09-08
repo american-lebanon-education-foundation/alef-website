@@ -106,7 +106,7 @@ export default function Navbar() {
                 { label: t('menu.ourProfile'), href: "/alef-profile" },
                 { label: t('menu.coreValues'), href: "/core-values" },
                 { label: t('menu.strategicPlan'), href: "/strategic-plan" },
-                { label: t('congressional'), href: "/congressional-advocacy" },
+                ...(!AD_GRANTS_REVIEW_MODE ? [{ label: t('congressional'), href: "/congressional-advocacy" }] : []),
                 { label: t('menu.expertsCorner'), href: "/experts-corner" },
                 { label: t('menu.ourSponsors'), href: "/sponsors" },
                 { label: t('menu.testimonials'), href: "/testimonials" }

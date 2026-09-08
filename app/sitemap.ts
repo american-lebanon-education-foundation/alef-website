@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { client } from "@/sanity/lib/client";
 import { CARD_DATA } from "@/app/[locale]/(research-and-news)/house-of-cards/card-data";
+import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 const getAlternateUrls = (route: string) => {
   const cleanRoute = route === '/' ? '' : route;
@@ -39,7 +40,7 @@ const staticRoutes = [
   { path: '/why-join-us', priority: 0.8 },
   { path: '/sponsors', priority: 0.7 },
   { path: '/testimonials', priority: 0.7 },
-  { path: '/congressional-advocacy', priority: 0.8 },
+  ...(!AD_GRANTS_REVIEW_MODE ? [{ path: '/congressional-advocacy', priority: 0.8 }] : []),
   { path: '/get-involved', priority: 0.8 },
   { path: '/blogs-and-articles', priority: 0.8 },
   { path: '/alef-in-the-news', priority: 0.8 },
