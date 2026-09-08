@@ -4,6 +4,7 @@ import {
 } from 'lucide-react';
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
+import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 export default function StrategicPlanPage() {
     const t = useTranslations('StrategicPlanPage');
@@ -68,7 +69,7 @@ export default function StrategicPlanPage() {
                     <div className="relative bg-blue border border-white/10 p-6 md:p-14 rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl">
                         <div className="absolute top-0 right-0 w-24 h-24 md:w-40 md:h-40 bg-white/5 rounded-bl-[60px] md:rounded-bl-[100px]"></div>
                         <div className="relative z-10">
-                            <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-start mb-6 md:mb-10">
+                            <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-center md:items-start text-center md:text-left mb-6 md:mb-10">
                                 <div className="p-3 bg-linear-to-br from-red to-red/60 rounded-lg text-white shrink-0 shadow-lg">
                                     <ChartBar className="w-6 h-6 md:w-8 md:h-8" />
                                 </div>
@@ -77,9 +78,8 @@ export default function StrategicPlanPage() {
                                 </h3>
                             </div>
 
-                            <div className="font-oswald text-white/80 text-base md:text-xl leading-relaxed md:leading-loose space-y-4 md:space-y-6 text-left md:text-justify">
+                            <div className="font-oswald text-white/80 text-base md:text-xl leading-relaxed md:leading-loose space-y-4 md:space-y-6 text-center md:text-justify">
                                 <p>
-                                    <span className="text-red font-bold text-2xl md:text-3xl float-left mr-3 mt-[-6px]">W</span>
                                     {t('executiveSummary.p1')}
                                 </p>
                                 <p>
@@ -103,34 +103,42 @@ export default function StrategicPlanPage() {
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-                        <div className="relative p-6 md:p-10 border border-white/10 bg-blue rounded-2xl md:rounded-3xl overflow-hidden shadow-xl shadow-blue/20 flex flex-col h-full">
+                        <div className="relative p-6 md:p-10 border border-white/10 bg-blue rounded-2xl md:rounded-3xl overflow-hidden shadow-xl shadow-blue/20 flex flex-col h-full items-center md:items-start text-center md:text-left">
                             <div className="absolute top-0 right-0 w-20 h-20 md:w-24 md:h-24 bg-white/5 rounded-bl-[60px] md:rounded-bl-[80px]"></div>
-                            <div className="relative z-10 flex flex-col h-full gap-4 md:gap-6 text-white">
-                                <div className="flex items-center gap-4">
+                            <div className="relative z-10 flex flex-col h-full gap-4 md:gap-6 text-white w-full">
+                                <div className="flex items-center justify-center md:justify-start gap-4">
                                     <div className="p-3 bg-linear-to-br from-red to-red/60 rounded-lg text-white shadow-lg">
                                         <Scale className="w-6 h-6 md:w-8 md:h-8" />
                                     </div>
                                     <span className="font-bebas text-xl md:text-2xl tracking-wide">{t('preconditions.card1.title')}</span>
                                 </div>
                                 <ul className="space-y-3 md:space-y-4 font-oswald text-white/70 leading-relaxed text-base md:text-lg grow">
-                                    <li className="flex gap-3"><span className="text-red">‣</span> {t('preconditions.card1.list.0')}</li>
-                                    <li className="flex gap-3"><span className="text-red">‣</span> {t('preconditions.card1.list.1')}</li>
+                                    <li className="flex gap-3 items-center md:items-start justify-center md:justify-start text-center md:text-left"><span className="text-red">‣</span> {t('preconditions.card1.list.0')}</li>
+                                    <li className="flex gap-3 items-center md:items-start justify-center md:justify-start text-center md:text-left"><span className="text-red">‣</span> {t('preconditions.card1.list.1')}</li>
                                 </ul>
                             </div>
                         </div>
 
-                        <div className="relative p-6 md:p-10 border border-white/10 bg-blue rounded-2xl md:rounded-3xl overflow-hidden shadow-xl shadow-blue/20 flex flex-col h-full">
+                        <div className="relative p-6 md:p-10 border border-white/10 bg-blue rounded-2xl md:rounded-3xl overflow-hidden shadow-xl shadow-blue/20 flex flex-col h-full items-center md:items-start text-center md:text-left">
                             <div className="absolute top-0 right-0 w-20 h-20 md:w-24 md:h-24 bg-white/5 rounded-bl-[60px] md:rounded-bl-[80px]"></div>
-                            <div className="relative z-10 flex flex-col h-full gap-4 md:gap-6 text-white">
-                                <div className="flex items-center gap-4">
+                            <div className="relative z-10 flex flex-col h-full gap-4 md:gap-6 text-white w-full">
+                                <div className="flex items-center justify-center md:justify-start gap-4">
                                     <div className="p-3 bg-linear-to-br from-red to-red/60 rounded-lg text-white shadow-lg">
                                         <Lock className="w-6 h-6 md:w-8 md:h-8" />
                                     </div>
-                                    <span className="font-bebas text-xl md:text-2xl tracking-wide">{t('preconditions.card2.title')}</span>
+                                    <span className="font-bebas text-xl md:text-2xl tracking-wide">
+                                        {AD_GRANTS_REVIEW_MODE ? t('preconditions.card2.reviewTitle') : t('preconditions.card2.title')}
+                                    </span>
                                 </div>
                                 <ul className="space-y-3 md:space-y-4 font-oswald text-white/70 leading-relaxed text-base md:text-lg grow">
-                                    <li className="flex gap-3"><span className="text-red">‣</span> {t('preconditions.card2.list.0')}</li>
-                                    <li className="flex gap-3"><span className="text-red">‣</span> {t('preconditions.card2.list.1')}</li>
+                                    <li className="flex gap-3 items-center md:items-start justify-center md:justify-start text-center md:text-left">
+                                        <span className="text-red">‣</span>
+                                        <span>{AD_GRANTS_REVIEW_MODE ? t('preconditions.card2.list.review0') : t('preconditions.card2.list.0')}</span>
+                                    </li>
+                                    <li className="flex gap-3 items-center md:items-start justify-center md:justify-start text-center md:text-left">
+                                        <span className="text-red">‣</span>
+                                        <span>{t('preconditions.card2.list.1')}</span>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -153,7 +161,7 @@ export default function StrategicPlanPage() {
                         {incentives.map((item, idx) => (
                             <div key={idx} className="relative bg-blue border border-white/10 p-6 md:p-10 rounded-2xl md:rounded-3xl overflow-hidden shadow-xl hover:border-white/30 transition-colors">
 
-                                <div className="relative z-10 flex flex-col items-start h-full">
+                                <div className="relative z-10 flex flex-col items-center md:items-start text-center md:text-left h-full">
                                     <div className="mb-4 md:mb-6 p-3 md:p-4 rounded-xl md:rounded-2xl bg-linear-to-br from-red to-red/60 text-white border border-white/10 shadow-lg">
                                         {item.icon}
                                     </div>
@@ -162,16 +170,16 @@ export default function StrategicPlanPage() {
                                         {item.title}
                                     </h3>
 
-                                    <ul className="space-y-3 md:space-y-4 font-oswald text-white/70 text-base md:text-lg leading-relaxed grow">
+                                    <ul className="space-y-3 md:space-y-4 font-oswald text-white/70 text-base md:text-lg leading-relaxed grow w-full">
                                         {item.lists.map((d, i) => (
-                                            <li key={i} className="flex gap-3 items-start">
+                                            <li key={i} className="flex gap-3 items-center md:items-start justify-center md:justify-start text-center md:text-left">
                                                 <span className="w-1.5 h-1.5 bg-red rounded-full mt-2 shrink-0 opacity-70 transition-opacity"></span>
                                                 <span>{d}</span>
                                             </li>
                                         ))}
                                     </ul>
 
-                                    <div className="mt-6 md:mt-8 w-12 h-0.5 bg-white/10 transition-all duration-700"></div>
+                                    <div className="mt-6 md:mt-8 w-12 h-0.5 bg-white/10 transition-all duration-700 mx-auto md:mx-0"></div>
                                 </div>
                             </div>
                         ))}
@@ -196,8 +204,8 @@ export default function StrategicPlanPage() {
                             <div className="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 transition-colors duration-500"></div>
 
                             <div className="relative z-10 flex flex-col gap-6 md:gap-8 h-full">
-                                <div className="flex items-center gap-4 md:gap-6">
-                                    <div className="w-12 h-12 md:w-16 md:h-16 bg-linear-to-br from-red to-red/60 rounded-2xl flex items-center justify-center text-white shadow-lg transition-transform duration-300">
+                                <div className="flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-4 md:gap-6">
+                                    <div className="w-12 h-12 md:w-16 md:h-16 bg-linear-to-br from-red to-red/60 rounded-2xl flex items-center justify-center text-white shadow-lg transition-transform duration-300 shrink-0">
                                         <Globe className="w-6 h-6 md:w-8 md:h-8" />
                                     </div>
                                     <div>
@@ -206,7 +214,7 @@ export default function StrategicPlanPage() {
                                     </div>
                                 </div>
 
-                                <p className="font-oswald text-white/70 text-base md:text-xl leading-relaxed">
+                                <p className="font-oswald text-white/70 text-base md:text-xl leading-relaxed text-center sm:text-left">
                                     {t('partnerships.card1.desc')}
                                 </p>
                             </div>
@@ -217,8 +225,8 @@ export default function StrategicPlanPage() {
                             <div className="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 transition-colors duration-500"></div>
 
                             <div className="relative z-10 flex flex-col gap-6 md:gap-8 h-full">
-                                <div className="flex items-center gap-4 md:gap-6">
-                                    <div className="w-12 h-12 md:w-16 md:h-16 bg-linear-to-br from-red to-red/60 rounded-2xl flex items-center justify-center text-white shadow-lg transition-transform duration-300">
+                                <div className="flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-4 md:gap-6">
+                                    <div className="w-12 h-12 md:w-16 md:h-16 bg-linear-to-br from-red to-red/60 rounded-2xl flex items-center justify-center text-white shadow-lg transition-transform duration-300 shrink-0">
                                         <ShieldCheck className="w-6 h-6 md:w-8 md:h-8" />
                                     </div>
                                     <div>
@@ -227,7 +235,7 @@ export default function StrategicPlanPage() {
                                     </div>
                                 </div>
 
-                                <p className="font-oswald text-white/70 text-base md:text-xl leading-relaxed">
+                                <p className="font-oswald text-white/70 text-base md:text-xl leading-relaxed text-center sm:text-left">
                                     {t('partnerships.card2.desc')}
                                 </p>
                             </div>
@@ -266,6 +274,13 @@ export default function StrategicPlanPage() {
                     {/* Decorative side accents */}
                     <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-20 md:h-32 bg-linear-to-b from-transparent via-red to-transparent opacity-50"></div>
                     <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-20 md:h-32 bg-linear-to-b from-transparent via-red to-transparent opacity-50"></div>
+                </div>
+
+                {/* --- RESEARCH & SOURCING NOTE --- */}
+                <div className="text-center max-w-3xl mx-auto px-4 -mb-8">
+                    <p className="font-oswald text-foreground/50 text-xs md:text-sm leading-relaxed">
+                        {t('researchNote')}
+                    </p>
                 </div>
 
                 {/* --- DOWNLOAD DOCUMENT BUTTON --- */}

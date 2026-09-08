@@ -1,10 +1,23 @@
 import AnimatedTitle from "@/app/components/CommonCom/AnimatedTitle";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import { ShieldAlert, Gavel, Radio, Mic2, ShieldCheck, TrendingUp, AlarmClock, Quote } from "lucide-react";
+import { ShieldAlert, Gavel, Radio, Mic2, ShieldCheck, TrendingUp, AlarmClock, Quote, BookOpen, GraduationCap, Users, HeartHandshake, Building2, Scale } from "lucide-react";
+import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 export default function AlefProfilePage() {
     const t = useTranslations('AlefProfilePage');
+
+    const supportTiers = AD_GRANTS_REVIEW_MODE ? [
+        { icon: <BookOpen className="w-6 h-6 md:w-8 md:h-8" />, title: t('support.reviewTiers.0.title'), desc: t('support.reviewTiers.0.desc') },
+        { icon: <GraduationCap className="w-6 h-6 md:w-8 md:h-8" />, title: t('support.reviewTiers.1.title'), desc: t('support.reviewTiers.1.desc') },
+        { icon: <Users className="w-6 h-6 md:w-8 md:h-8" />, title: t('support.reviewTiers.2.title'), desc: t('support.reviewTiers.2.desc') },
+        { icon: <HeartHandshake className="w-6 h-6 md:w-8 md:h-8" />, title: t('support.reviewTiers.3.title'), desc: t('support.reviewTiers.3.desc') }
+    ] : [
+        { icon: <Gavel className="w-6 h-6 md:w-8 md:h-8" />, title: t('support.tiers.0.title'), desc: t('support.tiers.0.desc') },
+        { icon: <Radio className="w-6 h-6 md:w-8 md:h-8" />, title: t('support.tiers.1.title'), desc: t('support.tiers.1.desc') },
+        { icon: <Mic2 className="w-6 h-6 md:w-8 md:h-8" />, title: t('support.tiers.2.title'), desc: t('support.tiers.2.desc') },
+        { icon: <ShieldCheck className="w-6 h-6 md:w-8 md:h-8" />, title: t('support.tiers.3.title'), desc: t('support.tiers.3.desc') }
+    ];
 
     return (
         <main className="min-h-screen bg-background pt-24 md:pt-32 pb-16 md:pb-24 px-4 md:px-12 lg:px-24">
@@ -52,11 +65,42 @@ export default function AlefProfilePage() {
                                     {t('chairmanMessage.p3')}
                                 </p>
                                 <p>
-                                    {t('chairmanMessage.p4')}
+                                    {AD_GRANTS_REVIEW_MODE ? t('chairmanMessage.reviewP4') : t('chairmanMessage.p4')}
                                 </p>
                                 <p>
                                     {t('chairmanMessage.p5')}
                                 </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* --- WHAT ALEF DOES (Grid of 4 research & education pillars) --- */}
+                    <div className="relative bg-blue border border-white/10 p-6 md:p-10 rounded-2xl md:rounded-3xl overflow-hidden shadow-xl">
+                        {/* Decorative Corner matching other cards */}
+                        <div className="absolute top-0 right-0 w-24 h-24 md:w-40 md:h-40 bg-white/5 rounded-bl-[60px] md:rounded-bl-[100px]"></div>
+
+                        <div className="relative z-10">
+                            <div className="mb-6 md:mb-8 text-center sm:text-left">
+                                <h3 className="font-bebas text-2xl md:text-4xl text-white tracking-wide uppercase">
+                                    {t('whatWeDo.title')}
+                                </h3>
+                            </div>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                                {[0, 1, 2, 3].map((idx) => (
+                                    <div key={idx} className="p-5 md:p-6 bg-white/5 border border-white/10 rounded-xl md:rounded-2xl flex flex-col items-center sm:items-start text-center sm:text-left gap-4 hover:border-white/20 transition-colors">
+                                        <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-lg bg-linear-to-br from-red to-red/60 font-bebas text-xl md:text-2xl text-white shrink-0 shadow-md shadow-red/20">
+                                            0{idx + 1}
+                                        </div>
+                                        <div>
+                                            <h4 className="font-bebas text-xl md:text-2xl mb-2 text-white leading-tight">
+                                                {t(`whatWeDo.items.${idx}.title`)}
+                                            </h4>
+                                            <p className="font-oswald text-sm text-white/70 leading-relaxed">
+                                                {t(`whatWeDo.items.${idx}.desc`)}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -65,28 +109,48 @@ export default function AlefProfilePage() {
                 {/* --- WHO WE ARE (Blue Cards - Static) --- */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     <div className="relative p-6 md:p-10 border border-white/10 bg-blue rounded-2xl md:rounded-3xl overflow-hidden shadow-xl shadow-blue/20 flex flex-col h-full">
-                        <div className="absolute top-0 right-0 p-4 md:p-6">
-                            <div className="w-3 h-3 md:w-4 md:h-4 bg-red rounded-full shadow-[0_0_15px_rgba(220,38,38,1)]"></div>
-                        </div>
+                        {/* Decorative Corner */}
+                        <div className="absolute top-0 right-0 w-24 h-24 md:w-32 md:h-32 bg-white/5 rounded-bl-[80px] md:rounded-bl-[100px]"></div>
+
                         <div className="relative z-10 flex flex-col h-full gap-4 md:gap-6 text-white">
-                            <span className="font-oswald text-xs md:text-sm tracking-widest text-white/60 uppercase">{t('whoWeAre.foundation.subtitle')}</span>
-                            <span className="font-bebas text-5xl md:text-6xl">{t('whoWeAre.foundation.title')}</span>
+                            <div className="flex items-center gap-4">
+                                <div className="p-3 bg-linear-to-br from-red to-red/60 rounded-xl text-white shadow-lg shadow-red/20 shrink-0">
+                                    <Building2 className="w-6 h-6 md:w-8 md:h-8" />
+                                </div>
+                                <div>
+                                    <span className="font-oswald text-xs md:text-sm tracking-widest text-white/60 uppercase block">{t('whoWeAre.foundation.subtitle')}</span>
+                                    <span className="font-bebas text-4xl md:text-5xl text-white leading-none">{t('whoWeAre.foundation.title')}</span>
+                                </div>
+                            </div>
                             <p className="font-oswald text-sm md:text-base text-white/80 leading-relaxed grow">
                                 {t('whoWeAre.foundation.desc')}
                             </p>
-                            <div className="mt-6 md:mt-auto pt-6 md:pt-8 border-t border-white/10">
+                            <div className="mt-6 md:mt-auto pt-6 md:pt-8 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                 <span className="inline-block py-2 px-3 md:px-4 rounded bg-white/10 border border-white/10 text-white font-oswald text-[10px] md:text-xs tracking-[0.2em] font-bold uppercase">{t('whoWeAre.foundation.tag')}</span>
+                                <Link
+                                    href="/blogs-and-articles"
+                                    className="group inline-flex items-center gap-1.5 text-xs md:text-sm font-oswald text-white/80 hover:text-red transition-colors uppercase tracking-wider font-semibold"
+                                >
+                                    <span>{t('whoWeAre.foundation.link')}</span>
+                                </Link>
                             </div>
                         </div>
                     </div>
 
                     <div className="relative p-6 md:p-10 border border-white/10 bg-blue rounded-2xl md:rounded-3xl overflow-hidden shadow-xl shadow-blue/20 flex flex-col h-full">
-                        <div className="absolute top-0 right-0 p-4 md:p-6">
-                            <div className="w-3 h-3 md:w-4 md:h-4 bg-red rounded-full shadow-[0_0_15px_rgba(220,38,38,1)]"></div>
-                        </div>
+                        {/* Decorative Corner */}
+                        <div className="absolute top-0 right-0 w-24 h-24 md:w-32 md:h-32 bg-white/5 rounded-bl-[80px] md:rounded-bl-[100px]"></div>
+
                         <div className="relative z-10 flex flex-col h-full gap-4 md:gap-6 text-white">
-                            <span className="font-oswald text-xs md:text-sm tracking-widest text-white/60 uppercase">{t('whoWeAre.pac.subtitle')}</span>
-                            <span className="font-bebas text-5xl md:text-6xl">{t('whoWeAre.pac.title')}</span>
+                            <div className="flex items-center gap-4">
+                                <div className="p-3 bg-linear-to-br from-red to-red/60 rounded-xl text-white shadow-lg shadow-red/20 shrink-0">
+                                    <Scale className="w-6 h-6 md:w-8 md:h-8" />
+                                </div>
+                                <div>
+                                    <span className="font-oswald text-xs md:text-sm tracking-widest text-white/60 uppercase block">{t('whoWeAre.pac.subtitle')}</span>
+                                    <span className="font-bebas text-4xl md:text-5xl text-white leading-none">{t('whoWeAre.pac.title')}</span>
+                                </div>
+                            </div>
                             <p className="font-oswald text-sm md:text-base text-white/80 leading-relaxed grow">
                                 {t('whoWeAre.pac.desc')}
                             </p>
@@ -97,7 +161,7 @@ export default function AlefProfilePage() {
                     </div>
                 </div>
 
-                {/* --- Hezbollah Accountability Act (Static UI) --- */}
+                {/* --- Hezbollah Accountability Act / Research Initiative (Static UI) --- */}
                 <div className="relative bg-blue text-white rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl shadow-blue/20 border border-white/10">
                     {/* Decorative Corner */}
                     <div className="absolute top-0 right-0 w-32 h-32 md:w-48 md:h-48 bg-white/5 rounded-bl-[100px] md:rounded-bl-[150px]"></div>
@@ -110,37 +174,36 @@ export default function AlefProfilePage() {
                                         <ShieldAlert className="w-8 h-8 md:w-10 md:h-10" />
                                     </div>
                                     <span className="inline-block py-1.5 px-3 md:py-2 md:px-4 rounded bg-white/10 border border-white/10 text-white font-oswald text-[10px] md:text-xs tracking-[0.2em] font-bold uppercase">
-                                        {t('baa.tag')}
+                                        {AD_GRANTS_REVIEW_MODE ? t('baa.reviewTag') : t('baa.tag')}
                                     </span>
                                 </div>
                                 <AnimatedTitle
                                     as="h2"
-                                    text={t('baa.title')}
+                                    text={AD_GRANTS_REVIEW_MODE ? t('baa.reviewTitle') : t('baa.title')}
                                     className="text-3xl md:text-6xl font-bold font-bebas text-white/95 uppercase leading-none tracking-wide"
                                 />
                                 <p className="font-oswald text-base md:text-xl text-white/80 leading-relaxed max-w-3xl">
-                                    {t('baa.desc')}
+                                    {AD_GRANTS_REVIEW_MODE ? t('baa.reviewDesc') : t('baa.desc')}
                                 </p>
                             </div>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                            {[
-                                { title: t('baa.points.0.title'), desc: t('baa.points.0.desc') },
-                                { title: t('baa.points.1.title'), desc: t('baa.points.1.desc') },
-                                { title: t('baa.points.2.title'), desc: t('baa.points.2.desc') },
-                                { title: t('baa.points.3.title'), desc: t('baa.points.3.desc') }
-                            ].map((item, idx) => (
-                                <div key={idx} className="flex gap-4 md:gap-6 p-6 md:p-8 bg-white/5 border border-white/10 rounded-xl md:rounded-2xl items-start">
-                                    <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-lg bg-linear-to-br from-red to-red/60 font-bebas text-xl md:text-2xl text-white shrink-0">
-                                        0{idx + 1}
+                            {[0, 1, 2, 3].map((idx) => {
+                                const pointTitle = AD_GRANTS_REVIEW_MODE ? t(`baa.reviewPoints.${idx}.title`) : t(`baa.points.${idx}.title`);
+                                const pointDesc = AD_GRANTS_REVIEW_MODE ? t(`baa.reviewPoints.${idx}.desc`) : t(`baa.points.${idx}.desc`);
+                                return (
+                                    <div key={idx} className="flex gap-4 md:gap-6 p-6 md:p-8 bg-white/5 border border-white/10 rounded-xl md:rounded-2xl items-start">
+                                        <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-lg bg-linear-to-br from-red to-red/60 font-bebas text-xl md:text-2xl text-white shrink-0">
+                                            0{idx + 1}
+                                        </div>
+                                        <div>
+                                            <h4 className="font-bebas text-xl md:text-2xl mb-2 text-white">{pointTitle}</h4>
+                                            <p className="font-oswald text-sm md:text-lg text-white/70 leading-relaxed">{pointDesc}</p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <h4 className="font-bebas text-xl md:text-2xl mb-2 text-white">{item.title}</h4>
-                                        <p className="font-oswald text-sm md:text-lg text-white/70 leading-relaxed">{item.desc}</p>
-                                    </div>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </div>
                 </div>
@@ -155,15 +218,10 @@ export default function AlefProfilePage() {
                         />
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                        {[
-                            { icon: <Gavel className="w-6 h-6 md:w-8 md:h-8" />, title: t('support.tiers.0.title'), desc: t('support.tiers.0.desc') },
-                            { icon: <Radio className="w-6 h-6 md:w-8 md:h-8" />, title: t('support.tiers.1.title'), desc: t('support.tiers.1.desc') },
-                            { icon: <Mic2 className="w-6 h-6 md:w-8 md:h-8" />, title: t('support.tiers.2.title'), desc: t('support.tiers.2.desc') },
-                            { icon: <ShieldCheck className="w-6 h-6 md:w-8 md:h-8" />, title: t('support.tiers.3.title'), desc: t('support.tiers.3.desc') }
-                        ].map((tier, idx) => (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                        {supportTiers.map((tier, idx) => (
                             <div key={idx} className="relative p-6 md:p-8 border border-white/10 bg-blue rounded-2xl md:rounded-3xl overflow-hidden shadow-lg group hover:border-white/30 transition-colors">
-                                <div className="relative z-10 flex flex-col h-full gap-4 md:gap-6 text-white">
+                                <div className="relative z-10 flex flex-col h-full gap-4 md:gap-6 text-white items-center sm:items-start text-center sm:text-left">
                                     <div className="w-12 h-12 md:w-14 md:h-14 bg-linear-to-br from-red to-red/60 rounded-xl flex items-center justify-center text-white border-white/10 shadow-lg shadow-red/20 shrink-0">
                                         {tier.icon}
                                     </div>
@@ -205,7 +263,7 @@ export default function AlefProfilePage() {
                                         {t('whyNow.opportunity.headline')}
                                     </h3>
                                     <p className="font-oswald text-white/60 text-base md:text-lg">
-                                        {t('whyNow.opportunity.desc')}
+                                        {AD_GRANTS_REVIEW_MODE ? t('whyNow.opportunity.reviewDesc') : t('whyNow.opportunity.desc')}
                                     </p>
                                 </div>
                             </div>

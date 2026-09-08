@@ -508,14 +508,37 @@
       "p2": "Cela dit, c'est avec une grande fierté et anticipation que j'annonce une étape importante dans l'histoire de la Fondation Américaine pour l'Éducation au Liban (ALEF) pour renforcer les liens entre l'Amérique et le Liban.",
       "p3": "À cet effet, nous présentons aujourd'hui notre plateforme numérique moderne, une ressource pour des idées et un accès à des informations uniques.",
       "p4": "Le Liban fait face aujourd'hui à des défis institutionnels importants. Sa démocratie, son économie et sa souveraineté sont menacées par le Hezbollah.",
+      "reviewP4": "Le Liban fait face aujourd'hui à d'importants défis institutionnels. Sa démocratie, son économie et sa souveraineté sont menacées par des factions armées non étatiques exerçant une influence démesurée sur le gouvernement, les finances et la vie quotidienne. La corruption et la faiblesse des institutions ont laissé une nation fière en difficulté et le peuple libanais sous-représenté.",
       "p5": "Nous passons de l'observation à la mise en œuvre. Il est temps d'avancer avec des étapes concrètes."
+    },
+    "whatWeDo": {
+      "title": "Ce Que Fait l'ALEF",
+      "items": {
+        "0": {
+          "title": "Rapports de Recherche & de Politiques",
+          "desc": "Recherche indépendante sur la gouvernance, les défis institutionnels et le redressement économique du Liban."
+        },
+        "1": {
+          "title": "Séances d'Information Publiques",
+          "desc": "Séances d'information éducatives pour la société civile, les institutions académiques et les décideurs."
+        },
+        "2": {
+          "title": "Sensibilisation de la Diaspora",
+          "desc": "Mobilisation des communautés de la diaspora libanaise à travers le monde par des ressources et événements éducatifs."
+        },
+        "3": {
+          "title": "Forums Éducatifs",
+          "desc": "Discussions publiques ouvertes sur la réforme institutionnelle et la participation civique."
+        }
+      }
     },
     "whoWeAre": {
       "foundation": {
         "subtitle": "La Fondation",
         "title": "ALEF",
         "desc": "Une force mondiale de professionnels et militants engagés à démanteler la corruption, restaurer la gouvernance et défendre la place légitime du Liban.",
-        "tag": "Ouvert aux citoyens de toute nationalité"
+        "tag": "Ouvert aux citoyens de toute nationalité",
+        "link": "Découvrez nos publications de cette année →"
       },
       "pac": {
         "subtitle": "Le Bras Consultatif",
@@ -528,6 +551,9 @@
       "tag": "Campagne Urgente",
       "title": "Initiative de Responsabilité du Hezbollah",
       "desc": "Nous lançons cette initiative pour étudier et contrer les réseaux qui compromettent la souveraineté du Liban. Il s'agit d'un effort de recherche et d'éducation mené par des experts pour élaborer des options politiques à tous les niveaux.",
+      "reviewTag": "Initiative de Recherche",
+      "reviewTitle": "Initiative de Recherche sur la Souveraineté et la Gouvernance",
+      "reviewDesc": "Le programme de recherche d'ALEF étudie les réseaux financiers et politiques qui sapent la gouvernance du Liban et produit des documents d'éducation publique, des notes d'orientation et une sensibilisation de la diaspora.",
       "points": {
         "0": {
           "title": "Analyser le Financement",
@@ -544,6 +570,24 @@
         "3": {
           "title": "Enquêter sur les Acteurs",
           "desc": "Enquêter sur les acteurs clés du secteur financier facilitant les activités illicites."
+        }
+      },
+      "reviewPoints": {
+        "0": {
+          "title": "Analyse Financière",
+          "desc": "Analyser et documenter les structures et réseaux financiers affectant l'économie du Liban."
+        },
+        "1": {
+          "title": "Séances d'Information Éducatives",
+          "desc": "Fournir des séances d'information fondées sur la recherche aux décideurs et organisations de la société civile."
+        },
+        "2": {
+          "title": "Impliquer la Diaspora",
+          "desc": "Mobiliser la diaspora par la sensibilisation éducative et des publications fondées sur la recherche."
+        },
+        "3": {
+          "title": "Normes de Gouvernance",
+          "desc": "Rechercher des cadres de gouvernance internationale soutenant la transparence institutionnelle."
         }
       }
     },
@@ -566,6 +610,24 @@
           "title": "Gardiens",
           "desc": "Construire le programme de donateurs 'Gardiens de la Souveraineté'."
         }
+      },
+      "reviewTiers": {
+        "0": {
+          "title": "Recherche",
+          "desc": "Recherche indépendante sur la gouvernance, les finances et les défis de reconstruction du Liban."
+        },
+        "1": {
+          "title": "Éducation Publique",
+          "desc": "Des rapports accessibles et des contenus éducatifs aidant la diaspora et le public à comprendre les enjeux."
+        },
+        "2": {
+          "title": "Engagement Communautaire",
+          "desc": "Des programmes connectant les communautés de la diaspora aux opportunités de soutien au redressement du Liban."
+        },
+        "3": {
+          "title": "Programme de Parrainage",
+          "desc": "Un programme de reconnaissance des donateurs soutenant le travail de recherche et d'éducation d'ALEF."
+        }
       }
     },
     "whyNow": {
@@ -573,7 +635,8 @@
       "opportunity": {
         "title": "OPPORTUNITÉ",
         "headline": "L'inquiétude bipartisane à Washington grandit—nous devons saisir cette fenêtre.",
-        "desc": "L'administration américaine actuelle est notre meilleur allié."
+        "desc": "L'administration américaine actuelle est notre meilleur allié.",
+        "reviewDesc": "Nous avons une opportunité unique et bipartite de promouvoir des politiques et des initiatives éducatives en faveur d'un Liban libre et stable."
       },
       "urgency": {
         "title": "URGENCE",
@@ -646,11 +709,13 @@
         },
         "2": {
           "title": "Sécurité & Stabilité",
-          "desc": "Désarmement des acteurs non étatiques."
+          "desc": "Désarmement des acteurs non étatiques.",
+          "reviewDesc": "Soutenir un appareil de sécurité de l'État libanais fort et indépendant et la pleine mise en œuvre des résolutions de l'ONU."
         },
         "3": {
           "title": "Médias & Sensibilisation",
-          "desc": "Façonner les récits mondiaux."
+          "desc": "Façonner les récits mondiaux.",
+          "reviewDesc": "Éducation publique et rapports précis pour aider le public à comprendre les défis et opportunités du Liban."
         }
       }
     },
@@ -659,7 +724,9 @@
       "items": {
         "0": {
           "t": "Loi sur la Responsabilité du Hezbollah",
-          "d": "Plaidoyer pour la responsabilité légale et financière du Hezbollah par la recherche et l'éducation."
+          "d": "Plaidoyer pour la responsabilité légale et financière du Hezbollah par la recherche et l'éducation.",
+          "reviewT": "Recherche sur la Souveraineté & la Gouvernance",
+          "reviewD": "Recherche indépendante et analyse des politiques publiques examinant la gouvernance institutionnelle et la transparence économique au Liban."
         },
         "1": {
           "t": "Protection des Investissements",
@@ -667,7 +734,9 @@
         },
         "2": {
           "t": "Plaidoyer Chapitre VII ONU",
-          "d": "Promouvoir l'intervention internationale."
+          "d": "Promouvoir l'intervention internationale.",
+          "reviewT": "Renforcement des Partenariats Internationaux",
+          "reviewD": "Favoriser la collaboration avec la société civile internationale et les institutions multilatérales pour soutenir la stabilité."
         },
         "3": {
           "t": "Programme d'Engagement de la Diaspora",
@@ -675,7 +744,9 @@
         },
         "4": {
           "t": "Stratégie d'Influence Médiatique",
-          "d": "Cibler les médias internationaux."
+          "d": "Cibler les médias internationaux.",
+          "reviewT": "Campagne de Sensibilisation Publique",
+          "reviewD": "Développer des rapports éducatifs et des ressources multimédias pour informer les communautés mondiales sur la voie à suivre pour le Liban."
         }
       }
     },
@@ -761,9 +832,62 @@
           "m1": "Surveiller les progrès",
           "m2": "Sondages d'opinion"
         }
+      },
+      "reviewCards": {
+        "0": {
+          "title": "Recherche & Publications",
+          "goal": "Recherche Politique Exploitable",
+          "m1": "Publier 12 notes d'orientation et rapports",
+          "m2": "Diffuser auprès de 50+ instituts de recherche"
+        },
+        "1": {
+          "title": "Analyse Économique",
+          "goal": "Indicateurs de Gouvernance Financière",
+          "m1": "Surveiller les métriques de reprise macroéconomique",
+          "m2": "Analyser les données d'audit public et de transparence"
+        },
+        "2": {
+          "title": "Coopération Multilatérale",
+          "goal": "Soutenir les Normes Internationales",
+          "m1": "Surveiller la conformité aux cadres de l'ONU",
+          "m2": "Participer aux forums de la société civile"
+        },
+        "3": {
+          "title": "Engagement de la Diaspora",
+          "goal": "Connecter les Communautés Mondiales",
+          "m1": "Mobiliser 2 500+ participants actifs",
+          "m2": "Organiser 8 ateliers éducatifs"
+        },
+        "4": {
+          "title": "Sensibilisation Éducative",
+          "goal": "Informer l'Opinion Publique Mondiale",
+          "m1": "Atteindre 100K+ lecteurs via des briefings",
+          "m2": "Publier des guides explicatifs multilingues"
+        },
+        "5": {
+          "title": "Gouvernance Institutionnelle",
+          "goal": "Promouvoir la Transparence Civique",
+          "m1": "Suivre les critères d'indépendance judiciaire",
+          "m2": "Mener des sondages périodiques de perception civique"
+        }
       }
     },
-    "downloadButton": "LIRE LES VALEURS"
+    "faq": {
+      "tag": "Transparence & Gouvernance",
+      "title": "Foire Aux Questions",
+      "items": {
+        "0": {
+          "q": "Comment l'ALEF est-elle financée ?",
+          "a": "L'ALEF est financée par des contributions volontaires déductibles d'impôt provenant de particuliers, de fondations philanthropiques et de donateurs institutionnels. Nous fonctionnons comme une organisation à but non lucratif 501(c)(3) indépendante et n'acceptons aucun financement gouvernemental."
+        },
+        "1": {
+          "q": "À qui s'adresse la recherche de l'ALEF ?",
+          "a": "Nos publications de recherche, notes d'orientation et ressources éducatives sont mises à la disposition du public, des chercheurs, des organisations de la société civile et des décideurs engagés pour la transparence et l'État de droit au Liban."
+        }
+      }
+    },
+    "downloadButton": "LIRE LES VALEURS",
+    "faqButton": "FOIRE AUX QUESTIONS"
   },
   "StrategicPlanPage": {
     "header": {
@@ -788,8 +912,10 @@
       },
       "card2": {
         "title": "B. Garanties de Sécurité & Désarmement",
+        "reviewTitle": "B. Garanties de Sécurité & Stabilité Institutionnelle",
         "list": {
           "0": "Les risques de sécurité, principalement la présence armée du Hezbollah, doivent être traités.",
+          "review0": "Les risques sécuritaires liés aux groupes armés non étatiques doivent être traités par la mise en œuvre intégrale des résolutions pertinentes du Conseil de sécurité de l'ONU.",
           "1": "Soutien international au rôle élargi de la FINUL."
         }
       }
@@ -841,7 +967,8 @@
       "p1": "La route du Liban vers la reprise économique nécessite une approche équilibrée.",
       "p2": "La Fondation Américaine pour l'Éducation au Liban plaide pour un plan structuré."
     },
-    "downloadButton": "LIRE LE PLAN COMPLET"
+    "downloadButton": "LIRE LE PLAN COMPLET",
+    "researchNote": "Les recommandations politiques et estimations de redressement économique sont synthétisées à partir de données publiques des institutions financières internationales (FMI, Banque mondiale), de rapports d'audit nationaux et d'études économiques indépendantes."
   },
   "ExpertsCornerPage": {
     "title": "COIN DES EXPERTS",

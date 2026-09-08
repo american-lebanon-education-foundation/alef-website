@@ -508,14 +508,37 @@
       "p2": "Having said that, it is with great pride and anticipation that I announce a significant milestone in the American Lebanon Education Foundation (ALEF) history to fortify America's Lebanon’s ties and effectively work with every US Administration in a bipartisan way on behalf of Lebanon.",
       "p3": "To that effect, we are introducing today our modern digital website platform, a resource for insights and access to unique information in our ever-evolving digital landscape.",
       "p4": "Lebanon stands today facing significant institutional challenges. Its democracy, economy, and sovereignty are facing threats from Hezbollah—an internationally recognized terrorist group entrenched in every layer of government, finance, and daily life. Corruption, clientelism, and militant dominance have left a proud nation defenseless and the Lebanese people voiceless.",
+      "reviewP4": "Lebanon stands today facing significant institutional challenges. Its democracy, economy, and sovereignty are facing threats from armed non-state factions with outsized influence over government, finance, and daily life. Corruption and weak institutions have left a proud nation struggling and the Lebanese people underrepresented.",
       "p5": "We are shifting from observation to implementation. Now is the moment to move forward with concrete steps. Sustaining liberty requires ongoing effort if we are ever to build a real state. It is high time for American and Lebanese patriot activists to take the lead in the New Middle East shaping up. If not us, then who?"
+    },
+    "whatWeDo": {
+      "title": "What ALEF Does",
+      "items": {
+        "0": {
+          "title": "Research & Policy Reports",
+          "desc": "Independent research into Lebanon's governance, institutional challenges, and economic recovery."
+        },
+        "1": {
+          "title": "Public Briefings",
+          "desc": "Educational briefings for civil society, academic institutions, and policymakers."
+        },
+        "2": {
+          "title": "Diaspora Outreach",
+          "desc": "Engaging Lebanese diaspora communities globally through educational resources and events."
+        },
+        "3": {
+          "title": "Educational Forums",
+          "desc": "Open public discussions on institutional reform and civic participation."
+        }
+      }
     },
     "whoWeAre": {
       "foundation": {
         "subtitle": "The Foundation",
         "title": "ALEF",
         "desc": "A global force of professionals, activists, and policy experts committed to dismantling corruption, restoring governance, and advocating for Lebanon's rightful place.",
-        "tag": "Open to citizens of any nationality"
+        "tag": "Open to citizens of any nationality",
+        "link": "See what we have published this year →"
       },
       "pac": {
         "subtitle": "The Advisory Arm",
@@ -528,6 +551,9 @@
       "tag": "Urgent Campaign",
       "title": "Hezbollah Accountability Initiative",
       "desc": "We are launching this initiative to study and counter the networks that compromise Lebanon's sovereignty. This is an expert research and educational effort to develop policy options at every level.",
+      "reviewTag": "Research Initiative",
+      "reviewTitle": "Sovereignty & Governance Research Initiative",
+      "reviewDesc": "ALEF's research program studies the financial and political networks that undermine Lebanon's governance and produces public education materials, policy briefs, and diaspora outreach based on our findings.",
       "points": {
         "0": {
           "title": "Analyze Financing",
@@ -544,6 +570,24 @@
         "3": {
           "title": "Investigate Actors",
           "desc": "Investigate key actors in the financial sector facilitating illicit activity."
+        }
+      },
+      "reviewPoints": {
+        "0": {
+          "title": "Financial Analysis",
+          "desc": "Analyze and document the financial structures and networks affecting Lebanon's economy."
+        },
+        "1": {
+          "title": "Educational Briefings",
+          "desc": "Provide research-backed briefings to policymakers and civil society organizations."
+        },
+        "2": {
+          "title": "Engage Diaspora",
+          "desc": "Engage the diaspora through educational outreach and research-based publications."
+        },
+        "3": {
+          "title": "Governance Standards",
+          "desc": "Research international governance frameworks that support institutional transparency."
         }
       }
     },
@@ -566,6 +610,24 @@
           "title": "Guardians",
           "desc": "Build the 'Guardians of Sovereignty' donor program for real-time access."
         }
+      },
+      "reviewTiers": {
+        "0": {
+          "title": "Research",
+          "desc": "Independent research into Lebanon's governance, finance, and reconstruction challenges."
+        },
+        "1": {
+          "title": "Public Education",
+          "desc": "Accessible reporting and educational content that helps the diaspora and the public understand the issues."
+        },
+        "2": {
+          "title": "Community Engagement",
+          "desc": "Programs that connect diaspora communities with opportunities to support Lebanon's recovery."
+        },
+        "3": {
+          "title": "Sponsor Program",
+          "desc": "A donor recognition program supporting ALEF's research and education work."
+        }
       }
     },
     "whyNow": {
@@ -573,7 +635,8 @@
       "opportunity": {
         "title": "OPPORTUNITY",
         "headline": "Bipartisan concern in Washington is growing—we must seize this window.",
-        "desc": "The current U.S. administration is our best ally. We have a unique chance to push for policies that support a free Lebanon."
+        "desc": "The current U.S. administration is our best ally. We have a unique chance to push for policies that support a free Lebanon.",
+        "reviewDesc": "We have a unique, bipartisan opportunity to advance policies and educational initiatives that support a free and stable Lebanon."
       },
       "urgency": {
         "title": "URGENCY",
@@ -646,11 +709,13 @@
         },
         "2": {
           "title": "Security & Stability",
-          "desc": "Disarmament of non-state actors and enforcement of UN Resolutions."
+          "desc": "Disarmament of non-state actors and enforcement of UN Resolutions.",
+          "reviewDesc": "Supporting a strong, independent Lebanese state security apparatus and full implementation of UN resolutions."
         },
         "3": {
           "title": "Media & Awareness",
-          "desc": "Shaping global narratives through strategic communications."
+          "desc": "Shaping global narratives through strategic communications.",
+          "reviewDesc": "Public education and accurate reporting to help audiences understand Lebanon's challenges and opportunities."
         }
       }
     },
@@ -659,7 +724,9 @@
       "items": {
         "0": {
           "t": "Hezbollah Accountability Act (HAA)",
-          "d": "Advocating for legal and financial accountability of Hezbollah through research and education."
+          "d": "Advocating for legal and financial accountability of Hezbollah through research and education.",
+          "reviewT": "Sovereignty & Governance Research",
+          "reviewD": "Independent research and public policy analysis examining institutional governance and economic transparency in Lebanon."
         },
         "1": {
           "t": "Investment Protection & Economic Recovery",
@@ -667,7 +734,9 @@
         },
         "2": {
           "t": "UN Chapter VII Advocacy",
-          "d": "Promoting international intervention for stability and sovereignty."
+          "d": "Promoting international intervention for stability and sovereignty.",
+          "reviewT": "International Partnership Building",
+          "reviewD": "Fostering collaboration with international civil society and multilateral institutions to support stability."
         },
         "3": {
           "t": "Diaspora Engagement Program",
@@ -675,7 +744,9 @@
         },
         "4": {
           "t": "Media Influence Strategy",
-          "d": "Targeting international outlets to reshape Lebanon’s image."
+          "d": "Targeting international outlets to reshape Lebanon’s image.",
+          "reviewT": "Public Awareness Campaign",
+          "reviewD": "Developing educational reporting and multimedia resources to inform global communities about Lebanon's path forward."
         }
       }
     },
@@ -761,9 +832,62 @@
           "m1": "Monitor legislative progress",
           "m2": "Public perception surveys"
         }
+      },
+      "reviewCards": {
+        "0": {
+          "title": "Research & Publications",
+          "goal": "Actionable Policy Research",
+          "m1": "Publish 12 policy briefs & analytical reports",
+          "m2": "Distribute findings to 50+ research institutes"
+        },
+        "1": {
+          "title": "Economic Analysis",
+          "goal": "Track Financial Governance Indicators",
+          "m1": "Monitor macroeconomic recovery metrics",
+          "m2": "Analyze public audit & transparency data"
+        },
+        "2": {
+          "title": "Multilateral Cooperation",
+          "goal": "Support International Standards",
+          "m1": "Monitor compliance with UN frameworks",
+          "m2": "Engage international civil society forums"
+        },
+        "3": {
+          "title": "Diaspora Engagement",
+          "goal": "Connect Communities Globally",
+          "m1": "Engage 2,500+ active diaspora participants",
+          "m2": "Host 8 educational diaspora workshops"
+        },
+        "4": {
+          "title": "Educational Outreach",
+          "goal": "Inform Global Public Opinion",
+          "m1": "Reach 100K+ readers via digital briefings",
+          "m2": "Publish multilingual policy explainers"
+        },
+        "5": {
+          "title": "Institutional Governance",
+          "goal": "Advance Civic Transparency",
+          "m1": "Track judicial independence benchmarks",
+          "m2": "Conduct periodic civic perception surveys"
+        }
       }
     },
-    "downloadButton": "READ CORE VALUES"
+    "faq": {
+      "tag": "Transparency & Governance",
+      "title": "Frequently Asked Questions",
+      "items": {
+        "0": {
+          "q": "How is ALEF funded?",
+          "a": "ALEF is funded through voluntary tax-deductible contributions from individuals, philanthropic foundations, and institutional donors who support our mission of advancing civic education, transparent governance, and economic stability in Lebanon. We operate as an independent 501(c)(3) nonprofit and do not accept government funding."
+        },
+        "1": {
+          "q": "Who does ALEF's research serve?",
+          "a": "Our research publications, policy briefs, and educational resources are made publicly accessible to academic researchers, civil society organizations, diaspora leaders, and policymakers dedicated to fostering institutional accountability and rule of law in Lebanon."
+        }
+      }
+    },
+    "downloadButton": "READ CORE VALUES",
+    "faqButton": "FREQUENTLY ASKED QUESTIONS"
   },
   "StrategicPlanPage": {
     "header": {
@@ -788,8 +912,10 @@
       },
       "card2": {
         "title": "B. Security Guarantees & Disarmament",
+        "reviewTitle": "B. Security Guarantees & Institutional Stability",
         "list": {
           "0": "Security risks, primarily Hezbollah’s armed presence, must be addressed via UN Resolutions 1559, 1680 & 1701.",
+          "review0": "Security risks from armed non-state groups must be addressed through full implementation of relevant UN Security Council resolutions.",
           "1": "International support for UNIFIL’s expanded role in monitoring border security."
         }
       }
@@ -841,7 +967,8 @@
       "p1": "Lebanon’s road to economic recovery requires a balanced approach by prioritizing stability, strategic incentives, and international partnerships. While full-scale investment remains a challenge, targeted reforms can lay the foundation for future investor confidence.",
       "p2": "The American Lebanon Education Foundation advocates for a structured Investment Protection & Economic Recovery Plan, ensuring that Lebanon can transition from crisis management to sustainable economic growth."
     },
-    "downloadButton": "READ FULL PLAN"
+    "downloadButton": "READ FULL PLAN",
+    "researchNote": "Policy recommendations and economic recovery estimates are synthesized from publicly accessible international financial institution data (IMF, World Bank), national audit disclosures, and independent economic governance studies."
   },
   "ExpertsCornerPage": {
     "title": "EXPERTS CORNER",

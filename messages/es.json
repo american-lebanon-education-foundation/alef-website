@@ -509,14 +509,37 @@
       "p2": "Dicho esto, anuncio con gran orgullo y anticipación un hito importante en la historia de la Fundación Americana para la Educación en el Líbano (ALEF) para fortalecer los lazos entre América y el Líbano.",
       "p3": "Para tal efecto, presentamos hoy nuestra moderna plataforma digital, un recurso para obtener ideas y acceso a información única.",
       "p4": "El Líbano enfrenta hoy importantes desafíos institucionales. Su democracia, economía y soberanía enfrentan amenazas de Hezbollah.",
+      "reviewP4": "El Líbano enfrenta hoy importantes desafíos institucionales. Su democracia, economía y soberanía enfrentan amenazas de facciones armadas no estatales con una influencia desmedida sobre el gobierno, las finanzas y la vida cotidiana. La corrupción y las instituciones débiles han dejado a una nación orgullosa luchando y al pueblo libanés subrepresentado.",
       "p5": "Estamos pasando de la observación a la implementación. Es hora de avanzar con pasos concretos."
+    },
+    "whatWeDo": {
+      "title": "Lo Que Hace ALEF",
+      "items": {
+        "0": {
+          "title": "Informes de Investigación y Políticas",
+          "desc": "Investigación independiente sobre la gobernanza, los desafíos institucionales y la recuperación económica del Líbano."
+        },
+        "1": {
+          "title": "Sesiones Informativas Públicas",
+          "desc": "Sesiones educativas para la sociedad civil, instituciones académicas y formuladores de políticas."
+        },
+        "2": {
+          "title": "Acercamiento a la Diáspora",
+          "desc": "Participación de las comunidades de la diáspora libanesa en todo el mundo a través de recursos y eventos educativos."
+        },
+        "3": {
+          "title": "Foros Educativos",
+          "desc": "Discusiones públicas abiertas sobre la reforma institucional y la participación cívica."
+        }
+      }
     },
     "whoWeAre": {
       "foundation": {
         "subtitle": "La Fundación",
         "title": "ALEF",
         "desc": "Una fuerza global de profesionales y activistas comprometidos con desmantelar la corrupción, restaurar la gobernanza y defender el lugar legítimo del Líbano.",
-        "tag": "Abierto a ciudadanos de cualquier nacionalidad"
+        "tag": "Abierto a ciudadanos de cualquier nacionalidad",
+        "link": "Vea lo que hemos publicado este año →"
       },
       "pac": {
         "subtitle": "El Brazo Asesor",
@@ -529,6 +552,9 @@
       "tag": "Campaña Urgente",
       "title": "Iniciativa de Responsabilidad de Hezbollah",
       "desc": "Lanzamos esta iniciativa para estudiar y contrarrestar las redes que comprometen la soberanía del Líbano. Este es un esfuerzo de expertos en investigación y educación para desarrollar opciones de políticas en todos los niveles.",
+      "reviewTag": "Iniciativa de Investigación",
+      "reviewTitle": "Iniciativa de Investigación sobre Soberanía y Gobernanza",
+      "reviewDesc": "El programa de investigación de ALEF estudia las redes financieras y políticas que socavan la gobernanza del Líbano y elabora materiales de educación pública, informes de políticas y actividades de extensión a la diáspora.",
       "points": {
         "0": {
           "title": "Analizar el Financiamiento",
@@ -545,6 +571,24 @@
         "3": {
           "title": "Investigar Actores",
           "desc": "Investigar a los actores clave del sector financiero que facilitan actividades ilícitas."
+        }
+      },
+      "reviewPoints": {
+        "0": {
+          "title": "Análisis Financiero",
+          "desc": "Analizar y documentar las estructuras y redes financieras que afectan la economía del Líbano."
+        },
+        "1": {
+          "title": "Sesiones Informativas Educativas",
+          "desc": "Proporcionar informes respaldados por investigaciones a formuladores de políticas y organizaciones de la sociedad civil."
+        },
+        "2": {
+          "title": "Involucrar a la Diáspora",
+          "desc": "Involucrar a la diáspora mediante la divulgación educativa y publicaciones basadas en investigación."
+        },
+        "3": {
+          "title": "Estándares de Gobernanza",
+          "desc": "Investigar marcos internacionales de gobernanza que respalden la transparencia institucional."
         }
       }
     },
@@ -567,6 +611,24 @@
           "title": "Guardianes",
           "desc": "Construir el programa de donantes 'Guardianes de la Soberanía'."
         }
+      },
+      "reviewTiers": {
+        "0": {
+          "title": "Investigación",
+          "desc": "Investigación independiente sobre la gobernanza, las finanzas y los desafíos de reconstrucción del Líbano."
+        },
+        "1": {
+          "title": "Educación Pública",
+          "desc": "Informes accesibles y contenido educativo que ayudan a la diáspora y al público a comprender los problemas."
+        },
+        "2": {
+          "title": "Participación Comunitaria",
+          "desc": "Programas que conectan a las comunidades de la diáspora con oportunidades para apoyar la recuperación del Líbano."
+        },
+        "3": {
+          "title": "Programa de Patrocinio",
+          "desc": "Un programa de reconocimiento de donantes que apoya el trabajo de investigación y educación de ALEF."
+        }
       }
     },
     "whyNow": {
@@ -574,7 +636,8 @@
       "opportunity": {
         "title": "OPORTUNIDAD",
         "headline": "La preocupación bipartidista en Washington está creciendo: debemos aprovechar esta ventana.",
-        "desc": "La actual administración estadounidense es nuestro mejor aliado."
+        "desc": "La actual administración estadounidense es nuestro mejor aliado.",
+        "reviewDesc": "Tenemos una oportunidad única y bipartidista para promover políticas e iniciativas educativas que apoyen a un Líbano libre y estable."
       },
       "urgency": {
         "title": "URGENCIA",
@@ -647,11 +710,13 @@
         },
         "2": {
           "title": "Seguridad y Estabilidad",
-          "desc": "Desarme de actores no estatales."
+          "desc": "Desarme de actores no estatales.",
+          "reviewDesc": "Apoyar un aparato de seguridad del Estado libanés fuerte e independiente y la plena implementación de las resoluciones de la ONU."
         },
         "3": {
           "title": "Medios y Conciencia",
-          "desc": "Dar forma a las narrativas globales."
+          "desc": "Dar forma a las narrativas globales.",
+          "reviewDesc": "Educación pública e informes precisos para ayudar a las audiencias a comprender los desafíos y oportunidades del Líbano."
         }
       }
     },
@@ -660,7 +725,9 @@
       "items": {
         "0": {
           "t": "Ley de Responsabilidad de Hezbollah",
-          "d": "Defensa de la responsabilidad legal y financiera de Hezbollah a través de investigación y educación."
+          "d": "Defensa de la responsabilidad legal y financiera de Hezbollah a través de investigación y educación.",
+          "reviewT": "Investigación sobre Soberanía y Gobernanza",
+          "reviewD": "Investigación independiente y análisis de políticas públicas examinando la gobernanza institucional y la transparencia económica en el Líbano."
         },
         "1": {
           "t": "Protección de Inversiones",
@@ -668,7 +735,9 @@
         },
         "2": {
           "t": "Defensa Capítulo VII ONU",
-          "d": "Promover la intervención internacional."
+          "d": "Promover la intervención internacional.",
+          "reviewT": "Construcción de Alianzas Internacionales",
+          "reviewD": "Fomentar la colaboración con la sociedad civil internacional y las instituciones multilaterales para apoyar la estabilidad."
         },
         "3": {
           "t": "Programa de Compromiso de la Diáspora",
@@ -676,7 +745,9 @@
         },
         "4": {
           "t": "Estrategia de Influencia en Medios",
-          "d": "Apuntar a medios internacionales."
+          "d": "Apuntar a medios internacionales.",
+          "reviewT": "Campaña de Concientización Pública",
+          "reviewD": "Desarrollar informes educativos y recursos multimedia para informar a las comunidades globales sobre el camino a seguir para el Líbano."
         }
       }
     },
@@ -727,7 +798,7 @@
         },
         "1": {
           "title": "Recuperación Económica",
-          "goal": "Atraer Inversión",
+          "goal": "Attract Foreign Investment",
           "m1": "Objetivo $500M",
           "m2": "Monitorear creación de empleos"
         },
@@ -755,9 +826,62 @@
           "m1": "Monitorear progreso",
           "m2": "Encuestas de opinión"
         }
+      },
+      "reviewCards": {
+        "0": {
+          "title": "Investigación y Publicaciones",
+          "goal": "Investigación de Políticas Aplicables",
+          "m1": "Publicar 12 informes analíticos y de políticas",
+          "m2": "Distribuir a más de 50 institutos de investigación"
+        },
+        "1": {
+          "title": "Análisis Económico",
+          "goal": "Indicadores de Gobernanza Financiera",
+          "m1": "Monitorear métricas de recuperación macroeconómica",
+          "m2": "Analizar datos de auditoría pública y transparencia"
+        },
+        "2": {
+          "title": "Cooperación Multilateral",
+          "goal": "Apoyar Estándares Internacionales",
+          "m1": "Monitorear cumplimiento de marcos de la ONU",
+          "m2": "Participar en foros de la sociedad civil internacional"
+        },
+        "3": {
+          "title": "Compromiso de la Diáspora",
+          "goal": "Conectar Comunidades a Nivel Global",
+          "m1": "Involucrar a más de 2.500 participantes",
+          "m2": "Organizar 8 talleres educativos para la diáspora"
+        },
+        "4": {
+          "title": "Difusión Educativa",
+          "goal": "Informar a la Opinión Pública Global",
+          "m1": "Llegar a más de 100K lectores",
+          "m2": "Publicar explicaciones de políticas multilingües"
+        },
+        "5": {
+          "title": "Gobernanza Institucional",
+          "goal": "Avanzar en la Transparencia Cívica",
+          "m1": "Rastrear puntos de referencia de independencia judicial",
+          "m2": "Realizar encuestas periódicas de percepción cívica"
+        }
       }
     },
-    "downloadButton": "LEER VALORES"
+    "faq": {
+      "tag": "Transparencia y Gobernanza",
+      "title": "Preguntas Frecuentes",
+      "items": {
+        "0": {
+          "q": "¿Cómo se financia ALEF?",
+          "a": "ALEF se financia a través de contribuciones voluntarias deducibles de impuestos de personas, fundaciones filantrópicas y donantes institucionales. Operamos como una organización sin fines de lucro 501(c)(3) independiente y no aceptamos financiamiento gubernamental."
+        },
+        "1": {
+          "q": "¿A quién sirve la investigación de ALEF?",
+          "a": "Nuestras publicaciones de investigación, informes de políticas y recursos educativos están a disposición del público, investigadores, organizaciones de la sociedad civil y tomadores de decisiones dedicados a fomentar la rendición de cuentas y el estado de derecho en el Líbano."
+        }
+      }
+    },
+    "downloadButton": "LEER VALORES",
+    "faqButton": "PREGUNTAS FRECUENTES"
   },
   "StrategicPlanPage": {
     "header": {
@@ -782,8 +906,10 @@
       },
       "card2": {
         "title": "B. Garantías de Seguridad y Desarme",
+        "reviewTitle": "B. Garantías de Seguridad y Estabilidad Institucional",
         "list": {
           "0": "Los riesgos de seguridad, principalmente la presencia armada de Hezbollah, deben abordarse.",
+          "review0": "Los riesgos de seguridad derivados de grupos armados no estatales deben abordarse mediante la plena implementación de las resoluciones pertinentes del Consejo de Seguridad de la ONU.",
           "1": "Apoyo internacional al papel ampliado de la FPNUL."
         }
       }
@@ -835,7 +961,8 @@
       "p1": "El camino del Líbano hacia la recuperación económica requiere un enfoque equilibrado.",
       "p2": "La Fundación Americana para la Educación en el Líbano aboga por un plan estructurado."
     },
-    "downloadButton": "LEER PLAN COMPLETO"
+    "downloadButton": "LEER PLAN COMPLETO",
+    "researchNote": "Las recomendaciones de política y estimaciones de recuperación económica se sintetizan a partir de datos públicos de instituciones financieras internacionales (FMI, Banco Mundial), auditorías nacionales y estudios económicos independientes."
   },
   "ExpertsCornerPage": {
     "title": "RINCÓN DE EXPERTOS",
