@@ -3,13 +3,13 @@
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import dynamic from "next/dynamic";
-import SmoothScroll from "./SmoothScroll";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import JoinUs from "./JoinUs";
 import { ThemeProvider } from "./ThemeProvider";
 import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
+const SmoothScroll = dynamic(() => import("./SmoothScroll"), { ssr: false });
 const UploadFAB = dynamic(() => import("./UploadFAB"), { ssr: false });
 const HaaCampaignModal = dynamic(() => import("./HaaCampaignModal"), { ssr: false });
 

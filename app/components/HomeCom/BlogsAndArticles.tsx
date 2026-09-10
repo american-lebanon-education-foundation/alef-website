@@ -3,8 +3,8 @@ import SkeletonImage from "../CommonCom/SkeletonImage";
 import AnimatedTitle from "../CommonCom/AnimatedTitle";
 import { client } from "../../../sanity/lib/client";
 import { urlFor } from "../../../sanity/lib/image";
-import { useTranslations } from "next-intl";
 import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
+import type { SanityImageObject } from "@sanity/image-url/lib/types/types";
 
 interface BlogPost {
     title: string;
@@ -13,10 +13,7 @@ interface BlogPost {
     excerpt: string;
     isPinned?: boolean;
     pinnedBadge?: string;
-    mainImage: {
-        asset: any;
-        [key: string]: any;
-    };
+    mainImage?: SanityImageObject;
     author: {
         name: string;
     };

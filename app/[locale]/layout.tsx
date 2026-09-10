@@ -8,7 +8,7 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
-import Script from 'next/script';
+import DeferredChatWidget from "../components/CommonCom/DeferredChatWidget";
 
 const bebas = Bebas_Neue({
   subsets: ["latin"],
@@ -249,13 +249,8 @@ export async function generateMetadata({
             <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
           )}
 
-          {/* GoHighLevel Chat Widget — site-wide */}
-          <Script
-            src="https://widgets.leadconnectorhq.com/loader.js"
-            data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-            data-widget-id="69b5448351635e260d0a4878"
-            strategy="lazyOnload"
-          />
+          {/* GoHighLevel Chat Widget — deferred to prevent TBT main-thread blocking */}
+          <DeferredChatWidget />
 
         </NextIntlClientProvider>
       </body>

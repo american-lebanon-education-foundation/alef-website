@@ -20,17 +20,26 @@ export default function Hero() {
 
     useGSAP(() => {
         if (typeof window !== 'undefined' && window.innerWidth < 768) return;
-        if (videoRef.current) {
-            gsap.to(videoRef.current, {
-                yPercent: 20,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: heroRef.current,
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: true,
-                },
-            });
+
+        const setup = () => {
+            if (videoRef.current && heroRef.current) {
+                gsap.to(videoRef.current, {
+                    yPercent: 20,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: heroRef.current,
+                        start: "top top",
+                        end: "bottom top",
+                        scrub: true,
+                    },
+                });
+            }
+        };
+
+        if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+            (window as Window & typeof globalThis & { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback(setup);
+        } else {
+            setTimeout(setup, 200);
         }
     }, { scope: heroRef });
 

@@ -1,13 +1,13 @@
 import Hero from "@/app/components/HomeCom/Hero";
-import PresidentialLetter from "@/app/components/HomeCom/PresidentialLetter";
-import ChairmanMessage from "@/app/components/HomeCom/ChairmanMessage";
-import WhoWeAre from "@/app/components/HomeCom/WhoWeAre";
 import dynamic from "next/dynamic";
 import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 export const revalidate = 60;
 
-// Below-fold sections — loaded lazily after initial paint
+// Below-fold sections — loaded lazily after initial paint to minimize main-thread blocking (TBT)
+const PresidentialLetter = dynamic(() => import("@/app/components/HomeCom/PresidentialLetter"));
+const ChairmanMessage = dynamic(() => import("@/app/components/HomeCom/ChairmanMessage"));
+const WhoWeAre = dynamic(() => import("@/app/components/HomeCom/WhoWeAre"));
 const BlogsAndArticles = dynamic(() => import("@/app/components/HomeCom/BlogsAndArticles"));
 const AlliedOrganizations = dynamic(() => import("@/app/components/HomeCom/AliiedOrganizations"));
 const HouseOfCorruption = dynamic(() => import("@/app/components/HomeCom/HouseOfCorruption"));
