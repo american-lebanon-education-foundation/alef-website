@@ -191,10 +191,6 @@ export async function generateMetadata({
     <html lang={locale} dir={dir}>
       <head>
         {/* Critical resource hints — must be first */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://widgets.leadconnectorhq.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="preload" as="image" href="/home/hero-poster.webp" type="image/webp" fetchPriority="high" />
         <script
           type="application/ld+json"
