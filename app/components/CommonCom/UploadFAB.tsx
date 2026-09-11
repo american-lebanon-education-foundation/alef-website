@@ -48,7 +48,7 @@ export default function UploadFAB() {
                                 transition: `transform 350ms cubic-bezier(0.34,1.56,0.64,1) ${i * 50}ms, opacity 250ms ease ${i * 50}ms`,
                             }}
                         >
-                            <Link href={item.href} onClick={() => setOpen(false)}>
+                            <Link href={item.href} onClick={() => setOpen(false)} prefetch={false}>
                                 <button
                                     aria-label={item.label}
                                     className="w-13 h-13 rounded-full bg-red hover:bg-[#a00827] text-white flex items-center justify-center shadow-xl border border-white/20 transition-transform duration-200 hover:scale-110 cursor-pointer"

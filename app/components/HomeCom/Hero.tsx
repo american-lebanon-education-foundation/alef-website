@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Skeleton } from "../CommonCom/SkeletonImage";
 import { useTranslations } from "next-intl";
 import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -93,8 +94,16 @@ export default function Hero() {
 
     return (
         <section ref={heroRef} className="relative min-h-screen flex flex-col overflow-hidden bg-black">
-            {/* Background Video */}
+            {/* Background Video & Immediate LCP Poster Image */}
             <div ref={videoRef} className="absolute inset-0 z-0 hero-video pointer-events-none">
+                <Image
+                    src="/home/hero-poster.webp"
+                    alt="ALEF Background"
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="object-cover"
+                />
                 <video
                     ref={bgVideoRef}
                     className="absolute top-1/2 left-1/2 w-full h-full min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover"
@@ -102,7 +111,6 @@ export default function Hero() {
                     loop
                     playsInline
                     preload="none"
-                    poster="/home/hero-poster.webp"
                 >
                     <source src="/home/Hero_Intro_Video_mobile.mp4" media="(max-width: 768px)" type="video/mp4" />
                     <source src="/home/Hero_Intro_Video.mp4" type="video/mp4" />

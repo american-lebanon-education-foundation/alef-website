@@ -106,9 +106,9 @@ export async function generateMetadata({
     robots,
     alternates,
     icons: {
-      icon: "/home/profile-logo-2.png",
-      shortcut: "/home/profile-logo-2.png",
-      apple: "/home/profile-logo-2.png",
+      icon: "/home/profile-logo-2.webp",
+      shortcut: "/home/profile-logo-2.webp",
+      apple: "/home/profile-logo-2.webp",
     },
     openGraph: {
       type: "website",

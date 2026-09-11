@@ -84,8 +84,8 @@ export default function CTASection({ type }: CTASectionProps) {
         <section ref={containerRef} className="py-16 md:py-20 px-6">
             <div className={`max-w-5xl mx-auto rounded-xl border ${content.borderColor} bg-linear-to-b ${content.bgGradient} backdrop-blur-sm p-8 md:p-12 relative overflow-hidden group`}>
 
-                {/* Decorative background noise/texture */}
-                <div className="absolute inset-0 opacity-10 bg-[url('/noise.png')] pointer-events-none mix-blend-overlay"></div>
+                {/* Decorative background overlay */}
+                <div className="absolute inset-0 opacity-10 pointer-events-none mix-blend-overlay bg-linear-to-br from-white/5 via-transparent to-black/20"></div>
 
                 {/* Hover Glow Effect */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1/2 bg-white/5 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
