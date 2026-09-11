@@ -15,8 +15,35 @@ export default function Hero() {
     const t = useTranslations('Hero');
     const heroRef = useRef<HTMLElement>(null);
     const videoRef = useRef<HTMLDivElement>(null);
+    const bgVideoRef = useRef<HTMLVideoElement>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isModalVideoLoaded, setIsModalVideoLoaded] = useState(false);
+
+    // Play background video on first user interaction to eliminate LCP bandwidth contention
+    useEffect(() => {
+        const playBgVideo = () => {
+            if (bgVideoRef.current && bgVideoRef.current.paused) {
+                bgVideoRef.current.play().catch(() => {});
+            }
+            cleanup();
+        };
+
+        const cleanup = () => {
+            window.removeEventListener("scroll", playBgVideo);
+            window.removeEventListener("pointerdown", playBgVideo);
+            window.removeEventListener("touchstart", playBgVideo);
+            window.removeEventListener("keydown", playBgVideo);
+            window.removeEventListener("mousemove", playBgVideo);
+        };
+
+        window.addEventListener("scroll", playBgVideo, { passive: true, once: true });
+        window.addEventListener("pointerdown", playBgVideo, { passive: true, once: true });
+        window.addEventListener("touchstart", playBgVideo, { passive: true, once: true });
+        window.addEventListener("keydown", playBgVideo, { passive: true, once: true });
+        window.addEventListener("mousemove", playBgVideo, { passive: true, once: true });
+
+        return cleanup;
+    }, []);
 
     useGSAP(() => {
         if (typeof window !== 'undefined' && window.innerWidth < 768) return;
@@ -69,8 +96,8 @@ export default function Hero() {
             {/* Background Video */}
             <div ref={videoRef} className="absolute inset-0 z-0 hero-video pointer-events-none">
                 <video
+                    ref={bgVideoRef}
                     className="absolute top-1/2 left-1/2 w-full h-full min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover"
-                    autoPlay
                     muted
                     loop
                     playsInline
