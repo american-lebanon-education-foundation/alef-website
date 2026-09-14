@@ -9,6 +9,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 import DeferredChatWidget from "../components/CommonCom/DeferredChatWidget";
+import NextTopLoader from 'nextjs-toploader';
 
 const bebas = Bebas_Neue({
   subsets: ["latin"],
@@ -235,6 +236,19 @@ export async function generateMetadata({
       <body
         className={`${oswald.variable} ${bebas.variable} antialiased`}
       >
+        <NextTopLoader
+          color="#BF0A30"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={3}
+          crawl={true}
+          showSpinner={true}
+          easing="ease"
+          speed={200}
+          shadow="0 0 10px #BF0A30,0 0 5px #BF0A30"
+          zIndex={99999}
+          showAtBottom={false}
+        />
         <NextIntlClientProvider messages={messages}>
           <LayoutWrapper>
             {children}

@@ -29,6 +29,7 @@
     "next": "16.0.10",
     "next-intl": "^4.7.0",
     "next-sanity": "^11.6.12",
+    "nextjs-toploader": "^3.9.17",
     "react": "19.2.1",
     "react-dom": "19.2.1",
     "react-firebase-hooks": "^5.1.1",

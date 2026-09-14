@@ -158,3 +158,9 @@ html.lenis body {
   object-fit: cover !important;
   display: block !important;
 }
+
+/* NProgress Navigation Spinner RTL Adjustment */
+[dir="rtl"] #nprogress .spinner {
+  right: auto !important;
+  left: 15px !important;
+}
