@@ -13,7 +13,6 @@ import { usePathname, useRouter, Link } from "@/i18n/routing";
 import { useTranslations, useLocale } from "next-intl";
 import { sendGAEvent } from '@next/third-parties/google';
 import Image from "next/image";
-import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 const NavbarUserButton = dynamic(() => import("./NavbarUserButton"), {
     ssr: false,
@@ -28,7 +27,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Navbar() {
     const navRef = useRef(null);
-    const tRibbon = useTranslations('SitewideRibbon');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isLangOpen, setIsLangOpen] = useState(false);
     const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
@@ -113,7 +111,7 @@ export default function Navbar() {
                 { label: t('menu.ourProfile'), href: "/alef-profile" },
                 { label: t('menu.coreValues'), href: "/core-values" },
                 { label: t('menu.strategicPlan'), href: "/strategic-plan" },
-                ...(!AD_GRANTS_REVIEW_MODE ? [{ label: t('congressional'), href: "/congressional-advocacy" }] : []),
+                { label: t('congressional'), href: "/congressional-advocacy" },
                 { label: t('menu.expertsCorner'), href: "/experts-corner" },
                 { label: t('menu.ourSponsors'), href: "/sponsors" },
                 { label: t('menu.testimonials'), href: "/testimonials" }
@@ -124,14 +122,12 @@ export default function Navbar() {
             href: "#",
             dropdown: [
                 { label: t('menu.blogsAndArticles'), href: "/blogs-and-articles" },
-                ...(!AD_GRANTS_REVIEW_MODE ? [{ label: t('menu.hezbollahAccountabilityAct'), href: "/hezbollah-accountability-act" }] : []),
+                { label: t('menu.hezbollahAccountabilityAct'), href: "/hezbollah-accountability-act" },
                 { label: t('menu.houseOfCorruption'), href: "/house-of-corruption" },
-                ...(!AD_GRANTS_REVIEW_MODE ? [
-                    { label: t('menu.houseOfCards'), href: "/house-of-cards" },
-                    { label: t('menu.archives'), href: "/archives" },
-                ] : []),
+                { label: t('menu.houseOfCards'), href: "/house-of-cards" },
+                { label: t('menu.archives'), href: "/archives" },
                 { label: t('menu.bookRecommendations'), href: "/book-recommendations" },
-                { label: AD_GRANTS_REVIEW_MODE ? t('menu.reviewFallenAngels') : t('menu.fallenAngels'), href: AD_GRANTS_REVIEW_MODE ? "/assassinated-leaders" : "/fallen-martyrs" },
+                { label: t('menu.fallenAngels'), href: "/fallen-martyrs" },
                 { label: t('menu.inTheNews'), href: "/alef-in-the-news" }
             ],
         },
@@ -316,14 +312,6 @@ export default function Navbar() {
                     </button>
                 </div>
             </nav>
-
-            {AD_GRANTS_REVIEW_MODE && (
-                <div className="w-full bg-blue text-white py-1.5 px-4 text-center border-b border-white/10 shadow-sm pointer-events-auto">
-                    <p className="text-[11px] sm:text-xs md:text-sm font-oswald tracking-wide leading-tight">
-                        {tRibbon('text')}
-                    </p>
-                </div>
-            )}
         </header>
 
             {/* PORTAL: Mobile Menu Overlay */}

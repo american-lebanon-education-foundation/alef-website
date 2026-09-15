@@ -19,7 +19,6 @@ const ThreadsIcon = ({ className }: { className?: string }) => (
 );
 import { useTranslations } from "next-intl";
 import { sendGAEvent } from '@next/third-parties/google';
-import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 export default function Footer() {
     const t = useTranslations('Footer');
@@ -79,7 +78,7 @@ export default function Footer() {
                             <li><NavLink href="/">{tNav('home')}</NavLink></li>
                             <li><NavLink href="/alef-profile">{tMenu('ourProfile')}</NavLink></li>
                             <li><NavLink href="/experts-corner">{tMenu('expertsCorner')}</NavLink></li>
-                            {!AD_GRANTS_REVIEW_MODE && <li><NavLink href="/congressional-advocacy">{tNav('congressional')}</NavLink></li>}
+                            <li><NavLink href="/congressional-advocacy">{tNav('congressional')}</NavLink></li>
                             <li><NavLink href="/contact">{tNav('contact')}</NavLink></li>
                         </ul>
                     </div>
@@ -88,8 +87,8 @@ export default function Footer() {
                         <h3 className="font-bebas text-lg text-white mb-6 tracking-wider">{t('resources')}</h3>
                         <ul className="space-y-4">
                             <li><NavLink href="/blogs-and-articles">{tMenu('blogsAndArticles')}</NavLink></li>
-                            {!AD_GRANTS_REVIEW_MODE && <li><NavLink href="/house-of-cards">{tMenu('houseOfCards')}</NavLink></li>}
-                            {!AD_GRANTS_REVIEW_MODE && <li><NavLink href="/archives">{tMenu('archives')}</NavLink></li>}
+                            <li><NavLink href="/house-of-cards">{tMenu('houseOfCards')}</NavLink></li>
+                            <li><NavLink href="/archives">{tMenu('archives')}</NavLink></li>
                             <li><NavLink href="/podcasts">{tMenu('podcasts')}</NavLink></li>
                             <li><NavLink href="/events">{tMenu('events')}</NavLink></li>
                         </ul>

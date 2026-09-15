@@ -7,7 +7,6 @@ import Link from "next/link";
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import { sendGAEvent } from '@next/third-parties/google';
-import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,13 +19,13 @@ export default function CTASection({ type }: CTASectionProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const content = {
         donate: {
-            title: AD_GRANTS_REVIEW_MODE ? t('donate.reviewTitle') : t('donate.title'),
-            subtitle: AD_GRANTS_REVIEW_MODE ? t('donate.reviewSubtitle') : t('donate.subtitle'),       
+            title: t('donate.title'),
+            subtitle: t('donate.subtitle'),       
             buttonText: t('donate.button'),
             link: "/donate",
             bgGradient: "from-blue/10 to-transparent",
             borderColor: "border-red/20",
-            tag: AD_GRANTS_REVIEW_MODE ? t('donate.reviewTag') : t('donate.tag')
+            tag: t('donate.tag')
         },
         subscribe: {
             title: t('subscribe.title'),

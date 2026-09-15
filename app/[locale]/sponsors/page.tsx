@@ -2,7 +2,6 @@ import AnimatedTitle from "@/app/components/CommonCom/AnimatedTitle";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 const sponsors = [
     {
@@ -25,13 +24,7 @@ const sponsors = [
 
 export default function SponsorsPage() {
     const t = useTranslations('SponsorsPage');
-
-    const activeSponsors = sponsors.filter((sponsor) => {
-        if (AD_GRANTS_REVIEW_MODE) {
-            return sponsor.id !== "nic" && sponsor.id !== "guardians";
-        }
-        return true;
-    });
+    const activeSponsors = sponsors;
 
     return (
         <main className="min-h-screen bg-background pt-24 md:pt-32 pb-16 px-4 md:px-12 lg:px-24">

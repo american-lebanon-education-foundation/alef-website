@@ -4,7 +4,6 @@ import {
 } from 'lucide-react';
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 export default function StrategicPlanPage() {
     const t = useTranslations('StrategicPlanPage');
@@ -127,13 +126,13 @@ export default function StrategicPlanPage() {
                                         <Lock className="w-6 h-6 md:w-8 md:h-8" />
                                     </div>
                                     <span className="font-bebas text-xl md:text-2xl tracking-wide">
-                                        {AD_GRANTS_REVIEW_MODE ? t('preconditions.card2.reviewTitle') : t('preconditions.card2.title')}
+                                        {t('preconditions.card2.title')}
                                     </span>
                                 </div>
                                 <ul className="space-y-3 md:space-y-4 font-oswald text-white/70 leading-relaxed text-base md:text-lg grow">
                                     <li className="flex gap-3 items-center md:items-start justify-center md:justify-start text-center md:text-left">
                                         <span className="text-red">‣</span>
-                                        <span>{AD_GRANTS_REVIEW_MODE ? t('preconditions.card2.list.review0') : t('preconditions.card2.list.0')}</span>
+                                        <span>{t('preconditions.card2.list.0')}</span>
                                     </li>
                                     <li className="flex gap-3 items-center md:items-start justify-center md:justify-start text-center md:text-left">
                                         <span className="text-red">‣</span>

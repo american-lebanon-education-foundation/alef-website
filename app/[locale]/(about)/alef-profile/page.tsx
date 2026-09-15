@@ -2,17 +2,10 @@ import AnimatedTitle from "@/app/components/CommonCom/AnimatedTitle";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { ShieldAlert, Gavel, Radio, Mic2, ShieldCheck, TrendingUp, AlarmClock, Quote, BookOpen, GraduationCap, Users, HeartHandshake, Building2, Scale } from "lucide-react";
-import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
-
 export default function AlefProfilePage() {
     const t = useTranslations('AlefProfilePage');
 
-    const supportTiers = AD_GRANTS_REVIEW_MODE ? [
-        { icon: <BookOpen className="w-6 h-6 md:w-8 md:h-8" />, title: t('support.reviewTiers.0.title'), desc: t('support.reviewTiers.0.desc') },
-        { icon: <GraduationCap className="w-6 h-6 md:w-8 md:h-8" />, title: t('support.reviewTiers.1.title'), desc: t('support.reviewTiers.1.desc') },
-        { icon: <Users className="w-6 h-6 md:w-8 md:h-8" />, title: t('support.reviewTiers.2.title'), desc: t('support.reviewTiers.2.desc') },
-        { icon: <HeartHandshake className="w-6 h-6 md:w-8 md:h-8" />, title: t('support.reviewTiers.3.title'), desc: t('support.reviewTiers.3.desc') }
-    ] : [
+    const supportTiers = [
         { icon: <Gavel className="w-6 h-6 md:w-8 md:h-8" />, title: t('support.tiers.0.title'), desc: t('support.tiers.0.desc') },
         { icon: <Radio className="w-6 h-6 md:w-8 md:h-8" />, title: t('support.tiers.1.title'), desc: t('support.tiers.1.desc') },
         { icon: <Mic2 className="w-6 h-6 md:w-8 md:h-8" />, title: t('support.tiers.2.title'), desc: t('support.tiers.2.desc') },
@@ -65,7 +58,7 @@ export default function AlefProfilePage() {
                                     {t('chairmanMessage.p3')}
                                 </p>
                                 <p>
-                                    {AD_GRANTS_REVIEW_MODE ? t('chairmanMessage.reviewP4') : t('chairmanMessage.p4')}
+                                    {t('chairmanMessage.p4')}
                                 </p>
                                 <p>
                                     {t('chairmanMessage.p5')}
@@ -174,24 +167,24 @@ export default function AlefProfilePage() {
                                         <ShieldAlert className="w-8 h-8 md:w-10 md:h-10" />
                                     </div>
                                     <span className="inline-block py-1.5 px-3 md:py-2 md:px-4 rounded bg-white/10 border border-white/10 text-white font-oswald text-[10px] md:text-xs tracking-[0.2em] font-bold uppercase">
-                                        {AD_GRANTS_REVIEW_MODE ? t('baa.reviewTag') : t('baa.tag')}
+                                        {t('baa.tag')}
                                     </span>
                                 </div>
                                 <AnimatedTitle
                                     as="h2"
-                                    text={AD_GRANTS_REVIEW_MODE ? t('baa.reviewTitle') : t('baa.title')}
+                                    text={t('baa.title')}
                                     className="text-3xl md:text-6xl font-bold font-bebas text-white/95 uppercase leading-none tracking-wide"
                                 />
                                 <p className="font-oswald text-base md:text-xl text-white/80 leading-relaxed max-w-3xl">
-                                    {AD_GRANTS_REVIEW_MODE ? t('baa.reviewDesc') : t('baa.desc')}
+                                    {t('baa.desc')}
                                 </p>
                             </div>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                             {[0, 1, 2, 3].map((idx) => {
-                                const pointTitle = AD_GRANTS_REVIEW_MODE ? t(`baa.reviewPoints.${idx}.title`) : t(`baa.points.${idx}.title`);
-                                const pointDesc = AD_GRANTS_REVIEW_MODE ? t(`baa.reviewPoints.${idx}.desc`) : t(`baa.points.${idx}.desc`);
+                                const pointTitle = t(`baa.points.${idx}.title`);
+                                const pointDesc = t(`baa.points.${idx}.desc`);
                                 return (
                                     <div key={idx} className="flex gap-4 md:gap-6 p-6 md:p-8 bg-white/5 border border-white/10 rounded-xl md:rounded-2xl items-start">
                                         <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-lg bg-linear-to-br from-red to-red/60 font-bebas text-xl md:text-2xl text-white shrink-0">
@@ -263,7 +256,7 @@ export default function AlefProfilePage() {
                                         {t('whyNow.opportunity.headline')}
                                     </h3>
                                     <p className="font-oswald text-white/60 text-base md:text-lg">
-                                        {AD_GRANTS_REVIEW_MODE ? t('whyNow.opportunity.reviewDesc') : t('whyNow.opportunity.desc')}
+                                        {t('whyNow.opportunity.desc')}
                                     </p>
                                 </div>
                             </div>

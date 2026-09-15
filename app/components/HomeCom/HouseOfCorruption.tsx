@@ -3,18 +3,17 @@ import AnimatedTitle from "../CommonCom/AnimatedTitle";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
-import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 export default function HouseOfCorruption() {
     const t = useTranslations('HouseOfCorruption');
     const locale = useLocale();
 
-    const titleText = AD_GRANTS_REVIEW_MODE ? t('reviewTitle') : t('title');
-    const cardTitleText = AD_GRANTS_REVIEW_MODE ? t('reviewCardTitle') : t('cardTitle');
-    const p1Content = AD_GRANTS_REVIEW_MODE ? t.raw('reviewP1') : t.raw('p1');
-    const p2Content = AD_GRANTS_REVIEW_MODE ? t.raw('reviewP2') : t.raw('p2');
-    const p3Content = AD_GRANTS_REVIEW_MODE ? t('reviewP3') : t('p3');
-    const buttonText = AD_GRANTS_REVIEW_MODE ? t('reviewButton') : t('button');
+    const titleText = t('title');
+    const cardTitleText = t('cardTitle');
+    const p1Content = t.raw('p1');
+    const p2Content = t.raw('p2');
+    const p3Content = t('p3');
+    const buttonText = t('button');
 
     return (
         <section className="py-12 md:py-24 px-6 md:px-12 lg:px-24">

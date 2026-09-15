@@ -1,8 +1,6 @@
 import { Suspense } from "react";
 import Hero from "@/app/components/HomeCom/Hero";
 import dynamic from "next/dynamic";
-import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
-
 export const revalidate = 3600;
 
 // Below-fold sections — loaded lazily after initial paint to minimize main-thread blocking (TBT)
@@ -21,17 +19,16 @@ export default function Home() {
     <main>
       <Hero />
       <Suspense fallback={null}>
-        {!AD_GRANTS_REVIEW_MODE && <PresidentialLetter />}
+        <PresidentialLetter />
         <ChairmanMessage />
         <WhoWeAre />
         <CTASection type="subscribe" />
         <HouseOfCorruption />
-        {!AD_GRANTS_REVIEW_MODE && <HouseOfCards />}
+        <HouseOfCards />
         <CTASection type="donate" />
         <BlogsAndArticles />
         <CTASection type="join" />
         <AlliedOrganizations />
-
         <Media />
       </Suspense>
     </main>

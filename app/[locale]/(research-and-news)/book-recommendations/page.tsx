@@ -3,20 +3,15 @@
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import Image from "next/image";
-import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 export default function BookRecommendationsPage() {
     const t = useTranslations("BookRecommendationsPage");
     const locale = useLocale();
 
-    const allBookKeys = [
+    const bookKeys = [
         "book1", "book2", "book3", "book4", "book5",
         "book6", "book7", "book8", "book9", "book10", "book11"
     ];
-
-    const bookKeys = AD_GRANTS_REVIEW_MODE
-        ? allBookKeys.filter(k => k !== "book3" && k !== "book7" && k !== "book11")
-        : allBookKeys;
 
     return (
         <div className="bg-background min-h-screen flex flex-col relative overflow-hidden">

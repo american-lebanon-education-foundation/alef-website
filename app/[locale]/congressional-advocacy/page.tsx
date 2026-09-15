@@ -7,7 +7,6 @@ import SkeletonImage from "../../components/CommonCom/SkeletonImage";
 import CongressionalActions from "@/app/components/HomeCom/CongressionalActions";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/routing";
-import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 // Member Data Types
 interface Member {
@@ -108,16 +107,6 @@ const MemberCard = ({ member, searchQuery }: { member: Member; searchQuery: stri
 export default function CongressionalAdvocacyPage() {
     const t = useTranslations('CongressionalAdvocacyPage');
     const router = useRouter();
-
-    useEffect(() => {
-        if (AD_GRANTS_REVIEW_MODE) {
-            router.replace('/alef-profile');
-        }
-    }, [router]);
-
-    if (AD_GRANTS_REVIEW_MODE) {
-        return null;
-    }
 
     // State
     const [searchQuery, setSearchQuery] = useState("");

@@ -1,7 +1,6 @@
 import { MetadataRoute } from 'next';
 import { client } from "@/sanity/lib/client";
 import { CARD_DATA } from "@/app/[locale]/(research-and-news)/house-of-cards/card-data";
-import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 const getAlternateUrls = (route: string) => {
   const cleanRoute = route === '/' ? '' : route;
@@ -40,17 +39,15 @@ const staticRoutes = [
   { path: '/why-join-us', priority: 0.8 },
   { path: '/sponsors', priority: 0.7 },
   { path: '/testimonials', priority: 0.7 },
-  ...(!AD_GRANTS_REVIEW_MODE ? [{ path: '/congressional-advocacy', priority: 0.8 }] : []),
+  { path: '/congressional-advocacy', priority: 0.8 },
   { path: '/get-involved', priority: 0.8 },
   { path: '/blogs-and-articles', priority: 0.8 },
   { path: '/alef-in-the-news', priority: 0.8 },
   { path: '/house-of-corruption', priority: 0.8 },
-  ...(!AD_GRANTS_REVIEW_MODE ? [
-    { path: '/house-of-cards', priority: 0.8 },
-    { path: '/archives', priority: 0.7 },
-  ] : []),
+  { path: '/house-of-cards', priority: 0.8 },
+  { path: '/archives', priority: 0.7 },
   { path: '/book-recommendations', priority: 0.6 },
-  { path: AD_GRANTS_REVIEW_MODE ? '/assassinated-leaders' : '/fallen-martyrs', priority: 0.7 },
+  { path: '/fallen-martyrs', priority: 0.7 },
   { path: '/videos', priority: 0.7 },
   { path: '/shorts', priority: 0.6 },
   { path: '/podcasts', priority: 0.7 },
@@ -60,7 +57,7 @@ const staticRoutes = [
   { path: '/contact', priority: 0.7 },
   { path: '/faq', priority: 0.7 },
   { path: '/donate', priority: 0.8 },
-  ...(!AD_GRANTS_REVIEW_MODE ? [{ path: '/hezbollah-accountability-act', priority: 0.8 }] : []),
+  { path: '/hezbollah-accountability-act', priority: 0.8 },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -82,11 +79,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   // 3. Map House of Cards static data
-  const cardItems = !AD_GRANTS_REVIEW_MODE 
-    ? (CARD_DATA || []).map(card => 
-        makeSitemapItem(`/house-of-cards/${card.id}`, 0.6, 'monthly')
-      )
-    : [];
+  const cardItems = (CARD_DATA || []).map(card => 
+    makeSitemapItem(`/house-of-cards/${card.id}`, 0.6, 'monthly')
+  );
 
   return [
     ...staticItems,

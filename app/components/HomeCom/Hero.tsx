@@ -7,7 +7,6 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Skeleton } from "../CommonCom/SkeletonImage";
 import { useTranslations } from "next-intl";
-import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -123,13 +122,12 @@ export default function Hero() {
             <div className="relative z-10 flex-1 flex flex-col justify-center items-center pt-12 px-6 md:px-12 lg:px-24 w-full max-w-[1920px] mx-auto text-center">
                 <div className="max-w-5xl space-y-3 hero-content text-white">
                     <h1
-                        className={`${AD_GRANTS_REVIEW_MODE ? "text-4xl sm:text-5xl md:text-6xl lg:text-7xl" : "text-4xl md:text-8xl"} font-bold uppercase tracking-wide font-bebas`}
-                        style={AD_GRANTS_REVIEW_MODE ? { lineHeight: 1.1 } : undefined}
-                        dangerouslySetInnerHTML={{ __html: AD_GRANTS_REVIEW_MODE ? t.raw('reviewTitle') : t.raw('title') }}
+                        className="text-4xl md:text-8xl font-bold uppercase tracking-wide font-bebas"
+                        dangerouslySetInnerHTML={{ __html: t.raw('title') }}
                     />
 
                     <p className="text-base md:text-2xl leading-relaxed font-oswald">
-                        {AD_GRANTS_REVIEW_MODE ? t('reviewSubtitle') : t('subtitle')} <br />
+                        {t('subtitle')} <br />
                         <span>{t('tagline')}</span>
                     </p>
 

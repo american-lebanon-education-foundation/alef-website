@@ -6,7 +6,6 @@ import { useGSAP } from "@gsap/react";
 import AnimatedTitle from "../CommonCom/AnimatedTitle";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 gsap.registerPlugin(useGSAP);
 
@@ -28,14 +27,10 @@ const ALLIES = [
     { key: "nic", url: "https://iraniancongress.com/" }
 ];
 
-const PARTISAN_KEYS = new Set(["heritage", "csp", "tpusa", "nic", "guardians"]);
-
 export default function AlliedOrganizations() {
     const t = useTranslations('AlliedOrganizations');
     const trackRef = useRef<HTMLDivElement>(null);
-    const displayAllies = AD_GRANTS_REVIEW_MODE
-        ? ALLIES.filter((ally) => !PARTISAN_KEYS.has(ally.key))
-        : ALLIES;
+    const displayAllies = ALLIES;
 
     useGSAP(() => {
         const track = trackRef.current;

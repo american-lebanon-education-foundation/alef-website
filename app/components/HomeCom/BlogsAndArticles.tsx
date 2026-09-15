@@ -3,7 +3,6 @@ import SkeletonImage from "../CommonCom/SkeletonImage";
 import AnimatedTitle from "../CommonCom/AnimatedTitle";
 import { client } from "../../../sanity/lib/client";
 import { urlFor } from "../../../sanity/lib/image";
-import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 import type { SanityImageObject } from "@sanity/image-url/lib/types/types";
 
 interface BlogPost {
@@ -47,11 +46,7 @@ export default async function BlogsAndArticles() {
 
     // 2. If none toggled in Sanity Studio, fallback to latest blog
     if (!blog) {
-        const fallbackFilter = AD_GRANTS_REVIEW_MODE
-            ? `*[_type == "blog" && slug.current != "exploiting-the-commons-hezbollah-s-systematic-weaponization-of-lebanon-s-civilian-and-cultural-infrastructure"] | order(publishedAt desc)[0]`
-            : `*[_type == "blog"] | order(publishedAt desc)[0]`;
-
-        const query = `${fallbackFilter} {
+        const query = `*[_type == "blog"] | order(publishedAt desc)[0] {
             "title": coalesce(title[$locale], title.en, title),
             slug,
             publishedAt,

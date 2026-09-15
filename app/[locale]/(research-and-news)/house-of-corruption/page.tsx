@@ -8,7 +8,6 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedTitle from "@/app/components/CommonCom/AnimatedTitle";
 import { useTranslations, useLocale } from "next-intl";
-import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 import {
     AlertTriangle,
@@ -54,16 +53,10 @@ export default function HouseOfCorruptionPage() {
     const [selectedImage, setSelectedImage] = useState<{ id: string, src: string, alt: string, caption: string } | null>(null);
 
     const getGalleryTitle = (imgId: string) => {
-        if (AD_GRANTS_REVIEW_MODE && imgId !== 'img6') {
-            return t(`gallery.${imgId}.reviewTitle`);
-        }
         return t(`gallery.${imgId}.title`);
     };
 
     const getGalleryCaption = (imgId: string) => {
-        if (AD_GRANTS_REVIEW_MODE && imgId !== 'img6') {
-            return t(`gallery.${imgId}.reviewCaption`);
-        }
         return t(`gallery.${imgId}.caption`);
     };
 
@@ -235,16 +228,16 @@ export default function HouseOfCorruptionPage() {
                 <div className="relative z-10 text-center px-4 max-w-7xl mx-auto space-y-6">
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red text-white font-oswald text-xs tracking-[0.2em] uppercase">
                         <Siren className="w-3 h-3" />
-                        {AD_GRANTS_REVIEW_MODE ? t('hero.reviewTag') : t('hero.tag')}
+                        {t('hero.tag')}
                     </div>
                     <div className="overflow-hidden">
                         <AnimatedTitle
-                            text={AD_GRANTS_REVIEW_MODE ? t('hero.reviewTitle') : t('hero.title')}
+                            text={t('hero.title')}
                             className="text-5xl md:text-7xl lg:text-8xl font-bebas font-bold text-foreground flex flex-wrap justify-center gap-x-2 opacity-90 leading-tight"
                         />
                     </div>
                     <p className="font-oswald text-lg md:text-2xl text-foreground/70 max-w-3xl mx-auto leading-relaxed text-center font-light tracking-wide">
-                        {AD_GRANTS_REVIEW_MODE ? t('hero.reviewDesc') : t('hero.desc')}
+                        {t('hero.desc')}
                     </p>
                 </div>
                 <div className="absolute bottom-12">
@@ -370,7 +363,7 @@ export default function HouseOfCorruptionPage() {
                 {/* Centered Counter */}
                 <div className="relative z-30 text-center px-4 pointer-events-none flex flex-col items-center justify-center h-full">
                     <div className="inline-block border border-red/30 bg-red/5 px-6 py-2 rounded-full mb-8 backdrop-blur-md">
-                        <h3 className="font-oswald text-xs md:text-sm text-red tracking-[0.2em] uppercase">{AD_GRANTS_REVIEW_MODE ? t('counter.reviewLabel') : t('counter.label')}</h3>
+                        <h3 className="font-oswald text-xs md:text-sm text-red tracking-[0.2em] uppercase">{t('counter.label')}</h3>
                     </div>
                     <div className="flex items-baseline justify-center font-bebas text-foreground leading-none">
                         <span className="text-4xl md:text-7xl opacity-50 mr-2 md:mr-6 font-light">$</span>
@@ -380,14 +373,6 @@ export default function HouseOfCorruptionPage() {
                     <p className="font-oswald text-foreground/70 max-w-xl mx-auto mt-8 text-base md:text-lg leading-relaxed font-light tracking-wide bg-background/50 p-6 rounded-xl backdrop-blur-sm border border-foreground/5 hidden md:block">
                         <span dangerouslySetInnerHTML={{ __html: t.raw('counter.desc') }} />
                     </p>
-                    {AD_GRANTS_REVIEW_MODE && (
-                        <div className="mt-4 px-5 py-2.5 rounded-lg bg-background/80 border border-foreground/10 max-w-xl mx-auto backdrop-blur-sm hidden md:block">
-                            <p className="font-oswald text-xs text-foreground/60 leading-relaxed text-center">
-                                <span className="font-bold text-foreground/80">{t('counter.methodologyLabel')}: </span>
-                                {t('counter.methodologyNote')}
-                            </p>
-                        </div>
-                    )}
                 </div>
             </div>
 
@@ -549,14 +534,10 @@ export default function HouseOfCorruptionPage() {
                 <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
                     <FileText className="w-12 h-12 text-red/80 mx-auto mb-8 opacity-80" />
                     <h2 className="text-5xl md:text-7xl font-bebas text-foreground mb-8 leading-[0.9]">
-                        {AD_GRANTS_REVIEW_MODE ? (
-                            <span>{t('cta.reviewTitle')}</span>
-                        ) : (
-                            <span dangerouslySetInnerHTML={{ __html: t.raw('cta.title') }} />
-                        )}
+                        <span dangerouslySetInnerHTML={{ __html: t.raw('cta.title') }} />
                     </h2>
                     <p className="font-oswald text-lg text-foreground/60 mb-12 max-w-2xl mx-auto font-light tracking-wide leading-relaxed">
-                        {AD_GRANTS_REVIEW_MODE ? t('cta.reviewText') : t('cta.text')}
+                        {t('cta.text')}
                     </p>
                     <Link
                         href="/houseOfCorruption/house-of-corruption-summary.pdf"

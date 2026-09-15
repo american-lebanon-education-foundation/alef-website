@@ -7,7 +7,6 @@ import { ArrowRight, User, ChevronLeft, ChevronRight, Sparkles, Flame } from "lu
 import FilterBar from "../CommonCom/FilterBar";
 import { urlFor } from "@/sanity/lib/image";
 import { useTranslations, useLocale } from "next-intl";
-import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 interface Sanityblog {
     _id: string;
@@ -45,14 +44,9 @@ export default function BlogsFeed({ initialBlogs }: BlogsFeedProps) {
     const [searchQuery, setSearchQuery] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
 
-    // Filter high-risk content in review mode and hoist pinned blogs to top based on Sanity Studio
+    // Hoist pinned blogs to top based on Sanity Studio
     const baseBlogs = useMemo(() => {
-        let list = initialBlogs || [];
-        if (AD_GRANTS_REVIEW_MODE) {
-            list = list.filter(blog =>
-                blog.slug?.current !== "exploiting-the-commons-hezbollah-s-systematic-weaponization-of-lebanon-s-civilian-and-cultural-infrastructure"
-            );
-        }
+        const list = initialBlogs || [];
 
         return [...list].sort((a, b) => {
             const isPinnedA = a.isPinned ? 1 : 0;

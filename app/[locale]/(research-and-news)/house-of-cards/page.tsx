@@ -9,8 +9,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedTitle from "@/app/components/CommonCom/AnimatedTitle";
 import FilterBar from "@/app/components/CommonCom/FilterBar";
 import { useTranslations } from "next-intl";
-import { useRouter } from "@/i18n/routing";
-import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,18 +17,6 @@ import { CARD_DATA } from "./card-data";
 const BACK_IMAGE = "/home/card-back.webp";
 
 export default function HouseOfCardsPage() {
-    const router = useRouter();
-
-    useEffect(() => {
-        if (AD_GRANTS_REVIEW_MODE) {
-            router.replace('/alef-profile');
-        }
-    }, [router]);
-
-    if (AD_GRANTS_REVIEW_MODE) {
-        return null;
-    }
-
     const t = useTranslations("HouseOfCardsPage");
     const containerRef = useRef<HTMLDivElement>(null);
     const gridRef = useRef<HTMLDivElement>(null);

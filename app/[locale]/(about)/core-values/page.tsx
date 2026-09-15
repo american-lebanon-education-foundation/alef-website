@@ -2,7 +2,6 @@ import AnimatedTitle from "@/app/components/CommonCom/AnimatedTitle";
 import { ShieldCheck, Scale, Globe, TrendingUp, Users, Target, Flag, Briefcase, HandCoins, BarChart3, Radio, CheckCircle2, FileText } from 'lucide-react';
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 export default function CoreValuesPage() {
     const t = useTranslations('CoreValuesPage');
@@ -46,11 +45,11 @@ export default function CoreValuesPage() {
         },
         {
             title: t('pillars.items.2.title'),
-            desc: AD_GRANTS_REVIEW_MODE ? t('pillars.items.2.reviewDesc') : t('pillars.items.2.desc')
+            desc: t('pillars.items.2.desc')
         },
         {
             title: t('pillars.items.3.title'),
-            desc: AD_GRANTS_REVIEW_MODE ? t('pillars.items.3.reviewDesc') : t('pillars.items.3.desc')
+            desc: t('pillars.items.3.desc')
         }
     ];
 
@@ -211,8 +210,8 @@ export default function CoreValuesPage() {
                         <div className="grid gap-4 md:gap-6">
                             {[
                                 {
-                                    t: AD_GRANTS_REVIEW_MODE ? t('initiatives.items.0.reviewT') : t('initiatives.items.0.t'),
-                                    d: AD_GRANTS_REVIEW_MODE ? t('initiatives.items.0.reviewD') : t('initiatives.items.0.d'),
+                                    t: t('initiatives.items.0.t'),
+                                    d: t('initiatives.items.0.d'),
                                     i: <ShieldCheck className="w-5 h-5 md:w-6 md:h-6" />
                                 },
                                 {
@@ -221,8 +220,8 @@ export default function CoreValuesPage() {
                                     i: <TrendingUp className="w-5 h-5 md:w-6 md:h-6" />
                                 },
                                 {
-                                    t: AD_GRANTS_REVIEW_MODE ? t('initiatives.items.2.reviewT') : t('initiatives.items.2.t'),
-                                    d: AD_GRANTS_REVIEW_MODE ? t('initiatives.items.2.reviewD') : t('initiatives.items.2.d'),
+                                    t: t('initiatives.items.2.t'),
+                                    d: t('initiatives.items.2.d'),
                                     i: <Globe className="w-5 h-5 md:w-6 md:h-6" />
                                 },
                                 {
@@ -231,8 +230,8 @@ export default function CoreValuesPage() {
                                     i: <Users className="w-5 h-5 md:w-6 md:h-6" />
                                 },
                                 {
-                                    t: AD_GRANTS_REVIEW_MODE ? t('initiatives.items.4.reviewT') : t('initiatives.items.4.t'),
-                                    d: AD_GRANTS_REVIEW_MODE ? t('initiatives.items.4.reviewD') : t('initiatives.items.4.d'),
+                                    t: t('initiatives.items.4.t'),
+                                    d: t('initiatives.items.4.d'),
                                     i: <Radio className="w-5 h-5 md:w-6 md:h-6" />
                                 }
                             ].map((item, idx) => (
@@ -368,7 +367,7 @@ export default function CoreValuesPage() {
                             { icon: <Radio className="w-5 h-5 md:w-6 md:h-6" />, idx: 4 },
                             { icon: <FileText className="w-5 h-5 md:w-6 md:h-6" />, idx: 5 }
                         ].map(({ icon, idx }) => {
-                            const prefix = AD_GRANTS_REVIEW_MODE ? `metrics.reviewCards.${idx}` : `metrics.cards.${idx}`;
+                            const prefix = `metrics.cards.${idx}`;
                             return (
                                 <MetricCard
                                     key={idx}

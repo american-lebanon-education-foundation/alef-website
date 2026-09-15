@@ -2,7 +2,6 @@ import React from "react";
 import SkeletonImage from "@/app/components/CommonCom/SkeletonImage";
 import AnimatedTitle from "@/app/components/CommonCom/AnimatedTitle";
 import { useTranslations } from "next-intl";
-import { AD_GRANTS_REVIEW_MODE } from "@/app/config/adGrantsMode";
 
 interface FallenAngel {
     id: string;
@@ -73,7 +72,7 @@ export default function AssassinatedLeadersView() {
                 {/* Header Section */}
                 <div className="mb-20 text-center max-w-5xl mx-auto">
                     <AnimatedTitle
-                        text={AD_GRANTS_REVIEW_MODE ? t("reviewTitle") : t("title")}
+                        text={t("title")}
                         className="text-5xl mb-6 md:text-7xl lg:text-8xl font-bold font-bebas text-foreground uppercase leading-none"
                     />
                     <div className="font-oswald text-lg md:text-xl text-foreground/80 leading-relaxed max-w-4xl mx-auto space-y-6">
@@ -83,15 +82,6 @@ export default function AssassinatedLeadersView() {
                             {t("description.p3")}
                         </p>
                     </div>
-
-                    {AD_GRANTS_REVIEW_MODE && (
-                        <div className="mt-8 px-5 py-2.5 rounded-lg bg-background/80 border border-foreground/10 max-w-2xl mx-auto backdrop-blur-sm">
-                            <p className="font-oswald text-xs text-foreground/60 leading-relaxed text-center">
-                                <span className="font-bold text-foreground/80">{t('sourcingLabel')}: </span>
-                                {t('sourcingNote')}
-                            </p>
-                        </div>
-                    )}
                 </div>
 
                 {/* List Section */}
