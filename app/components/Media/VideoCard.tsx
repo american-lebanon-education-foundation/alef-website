@@ -132,15 +132,9 @@ export default function VideoCard({ title, videoUrl, thumbnail, publishedAt, pla
 
             <div className="p-5 flex flex-col grow relative bg-blue">
                 <div className="flex items-center justify-between mb-3">
-                    {platform ? (
-                        <span className="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] text-red font-oswald tracking-widest uppercase">
-                            {platform}
-                        </span>
-                    ) : (
-                        <span className="px-2 py-1 bg-red rounded text-[10px] text-white font-oswald tracking-widest uppercase font-bold">
-                            {type}
-                        </span>
-                    )}
+                    <span className="px-2 py-1 bg-linear-to-br from-red to-red/60 border border-white/10 shadow-xs rounded text-[10px] text-white font-oswald tracking-widest uppercase font-bold">
+                        {platform || type}
+                    </span>
                     <span className="text-[10px] text-white/40 font-oswald uppercase tracking-widest">
                         {new Date(publishedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}
                     </span>
