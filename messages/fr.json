@@ -3198,7 +3198,9 @@
     "searchPlaceholder": "RECHERCHER DANS L'ARCHIVE...",
     "noResults": "Aucun {type} trouvé correspondant à \"{query}\"",
     "clearFilters": "EFFACER LES FILTRES",
-    "all": "Tous"
+    "all": "Tous",
+    "previous": "Précédent",
+    "next": "Suivant"
   },
   "FAQPage": {
     "title": "FOIRE AUX QUESTIONS",

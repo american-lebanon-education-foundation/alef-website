@@ -3192,7 +3192,9 @@
     "searchPlaceholder": "BUSCAR EN EL ARCHIVO...",
     "noResults": "No se encontraron {type}s que coincidan con \"{query}\"",
     "clearFilters": "BORRAR FILTROS",
-    "all": "Todos"
+    "all": "Todos",
+    "previous": "Anterior",
+    "next": "Siguiente"
   },
   "FAQPage": {
     "title": "PREGUNTAS FRECUENTES",

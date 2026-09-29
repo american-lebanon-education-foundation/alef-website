@@ -46,9 +46,10 @@ interface VideoCardProps {
     platform?: string;
     type: "video" | "short" | "podcast" | "webinar";
     transcriptUrl?: string;
+    itemIndex?: number;
 }
 
-export default function VideoCard({ title, videoUrl, thumbnail, publishedAt, platform, type, transcriptUrl }: VideoCardProps) {
+export default function VideoCard({ title, videoUrl, thumbnail, publishedAt, platform, type, transcriptUrl, itemIndex }: VideoCardProps) {
     const [isPlaying, setIsPlaying] = useState(false);
     const [isIframeLoading, setIsIframeLoading] = useState(true);
 
@@ -133,7 +134,7 @@ export default function VideoCard({ title, videoUrl, thumbnail, publishedAt, pla
             <div className="p-5 flex flex-col grow relative bg-blue">
                 <div className="flex items-center justify-between mb-3">
                     <span className="px-2 py-1 bg-linear-to-br from-red to-red/60 border border-white/10 shadow-xs rounded text-[10px] text-white font-oswald tracking-widest uppercase font-bold">
-                        {platform || type}
+                        {itemIndex ? `${type} #${itemIndex}` : type}
                     </span>
                     <span className="text-[10px] text-white/40 font-oswald uppercase tracking-widest">
                         {new Date(publishedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}

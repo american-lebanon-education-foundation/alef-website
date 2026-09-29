@@ -3229,7 +3229,9 @@
     "searchPlaceholder": "...البحث في الأرشيف",
     "noResults": "لم يتم العثور على {type}s تطابق \"{query}\"",
     "clearFilters": "مسح المرشحات",
-    "all": "الكل"
+    "all": "الكل",
+    "previous": "السابق",
+    "next": "التالي"
   },
   "FAQPage": {
     "title": "الأسئلة الشائعة",

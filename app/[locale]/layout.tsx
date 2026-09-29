@@ -242,7 +242,7 @@ export async function generateMetadata({
           crawlSpeed={200}
           height={3}
           crawl={true}
-          showSpinner={true}
+          showSpinner={false}
           easing="ease"
           speed={200}
           shadow="0 0 10px #BF0A30,0 0 5px #BF0A30"
