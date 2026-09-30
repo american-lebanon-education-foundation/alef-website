@@ -205,7 +205,9 @@ export async function generateMetadata({
               "sameAs": [
                 "https://twitter.com/usalef",
                 "https://www.facebook.com/usalef",
-                "https://www.linkedin.com/company/usalef"
+                "https://www.linkedin.com/company/usalef",
+                "https://www.instagram.com/alef_foundation/",
+                "https://www.youtube.com/@TheALEF"
               ],
               "contactPoint": {
                 "@type": "ContactPoint",

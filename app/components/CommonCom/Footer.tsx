@@ -2,7 +2,7 @@
 
 import { Link } from "@/i18n/routing";
 import SkeletonImage from "./SkeletonImage";
-import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram, Youtube } from "lucide-react";
 
 const TikTokIcon = ({ className }: { className?: string }) => (
     <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -69,6 +69,7 @@ export default function Footer() {
                             <SocialButton icon={<Instagram className="w-4 h-4" />} href="https://www.instagram.com/alef_foundation/" />
                             <SocialButton icon={<ThreadsIcon className="w-4 h-4" />} href="https://www.threads.com/@alef_foundation" />
                             <SocialButton icon={<TikTokIcon className="w-4 h-4" />} href="https://www.tiktok.com/in/about" />
+                            <SocialButton icon={<Youtube className="w-4 h-4" />} href="https://www.youtube.com/@TheALEF" />
                         </div>
                     </div>
 
@@ -187,7 +188,7 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
 }
 
 function SocialButton({ icon, href, label }: { icon: React.ReactNode, href: string, label?: string }) {
-    const platform = href.includes('facebook') ? 'facebook' : href.includes('linkedin') ? 'linkedin' : href.includes('instagram') ? 'instagram' : href.includes('threads') ? 'threads' : href.includes('tiktok') ? 'tiktok' : 'other';
+    const platform = href.includes('facebook') ? 'facebook' : href.includes('linkedin') ? 'linkedin' : href.includes('instagram') ? 'instagram' : href.includes('threads') ? 'threads' : href.includes('tiktok') ? 'tiktok' : href.includes('youtube') ? 'youtube' : 'other';
     const displayLabel = label || platform;
     
     return (
