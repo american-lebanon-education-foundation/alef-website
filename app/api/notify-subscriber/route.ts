@@ -1,6 +1,8 @@
 import { NextResponse, NextRequest } from 'next/server';
 import { parseBody } from 'next-sanity/webhook';
 
+export const maxDuration = 60; // Allow Vercel up to 60 seconds for bulk notifications
+
 export async function POST(req: NextRequest) {
     try {
         const { isValidSignature, body } = await parseBody(
@@ -75,7 +77,7 @@ export async function POST(req: NextRequest) {
 
         console.log('Sanity Webhook received:', { titleString, docType, slugString, fullUrl });
 
-        // === 1. Fetch Contacts from GHL ===
+        // === 1. Fetch ALL Contacts from GHL (with Pagination) ===
         const ghlApiKey = process.env.GHL_API_KEY;
         const ghlLocationId = process.env.GHL_LOCATION_ID;
         const ghlWorkflowId = process.env.GHL_NOTIFY_WORKFLOW_ID;
@@ -85,15 +87,17 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ message: 'Server misconfigured' }, { status: 500 });
         }
 
-        // We fetch contacts that have the tag. GHL lets us search.
-        const searchRes = await fetch('https://services.leadconnectorhq.com/contacts/search', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${ghlApiKey}`,
-                'Version': '2021-07-28',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
+        interface GHLContact {
+            id: string;
+            email: string;
+            searchAfter?: unknown[];
+        }
+
+        const allContacts: GHLContact[] = [];
+        let searchAfter: unknown = null;
+
+        while (true) {
+            const searchBody: Record<string, unknown> = {
                 locationId: ghlLocationId,
                 filters: [
                     {
@@ -102,28 +106,49 @@ export async function POST(req: NextRequest) {
                         value: "alef our subscribers"
                     }
                 ],
-                pageLimit: 100 // GHL requires pageLimit instead of limit
-            }),
-        });
+                pageLimit: 100
+            };
+            if (searchAfter) {
+                searchBody.searchAfter = searchAfter;
+            }
 
-        if (!searchRes.ok) {
-            const errorText = await searchRes.text();
-            console.error('Failed to fetch GHL contacts:', searchRes.status, errorText);
-            return NextResponse.json({ message: 'Failed to fetch GHL contacts', details: errorText }, { status: 500 });
+            const searchRes = await fetch('https://services.leadconnectorhq.com/contacts/search', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${ghlApiKey}`,
+                    'Version': '2021-07-28',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(searchBody),
+            });
+
+            if (!searchRes.ok) {
+                const errorText = await searchRes.text();
+                console.error('Failed to fetch GHL contacts page:', searchRes.status, errorText);
+                break;
+            }
+
+            const data = (await searchRes.json()) as { contacts: GHLContact[] };
+            if (!data.contacts || data.contacts.length === 0) {
+                break;
+            }
+
+            allContacts.push(...data.contacts);
+
+            if (data.contacts.length < 100) {
+                break;
+            }
+
+            searchAfter = data.contacts[data.contacts.length - 1].searchAfter;
         }
 
-        interface GHLContact {
-            id: string;
-            email: string;
-        }
+        console.log(`Fetched ${allContacts.length} subscribers from GHL`);
 
-        const { contacts } = (await searchRes.json()) as { contacts: GHLContact[] };
-
-        if (!contacts || contacts.length === 0) {
+        if (allContacts.length === 0) {
             return NextResponse.json({ message: 'No subscribers found in GHL with tag "alef our subscribers"' });
         }
 
-        // Custom Field IDs in your GHL account (verified via API):
+        // Custom Field IDs in your GHL account:
         // latest_post_title: 'lzi73m44OkRj4n88W0Sq'
         // latest_post_url:   'bD7A3udgLp5ShHtV24wb'
         // latest_post_type:  'TfZuyTZw5LYiZq2Siv5b'
@@ -131,21 +156,18 @@ export async function POST(req: NextRequest) {
         const urlFieldId = process.env.GHL_FIELD_ID_POST_URL || 'bD7A3udgLp5ShHtV24wb';
         const typeFieldId = process.env.GHL_FIELD_ID_POST_TYPE || 'TfZuyTZw5LYiZq2Siv5b';
 
-        const customFieldsPayload: Array<Record<string, unknown>> = [
+        const customFieldsPayload = [
             { id: titleFieldId, field_value: titleString, value: titleString },
             { id: urlFieldId, field_value: fullUrl, value: fullUrl },
             { id: typeFieldId, field_value: docType.toUpperCase(), value: docType.toUpperCase() },
-            { key: "latest_post_title", field_value: titleString, value: titleString },
-            { key: "latest_post_url", field_value: fullUrl, value: fullUrl },
-            { key: "latest_post_type", field_value: docType.toUpperCase(), value: docType.toUpperCase() },
         ];
 
         // === 2. Add Contacts to a GHL Workflow in Concurrent Batches ===
         let successCount = 0;
-        const BATCH_SIZE = 10;
+        const BATCH_SIZE = 20;
 
-        for (let i = 0; i < contacts.length; i += BATCH_SIZE) {
-            const batch = contacts.slice(i, i + BATCH_SIZE);
+        for (let i = 0; i < allContacts.length; i += BATCH_SIZE) {
+            const batch = allContacts.slice(i, i + BATCH_SIZE);
             await Promise.allSettled(batch.map(async (contact) => {
                 try {
                     // Update custom fields on contact
@@ -186,7 +208,7 @@ export async function POST(req: NextRequest) {
 
         return NextResponse.json({
             success: true,
-            message: `Successfully triggered workflow for ${successCount}/${contacts.length} contacts.`
+            message: `Successfully triggered workflow for ${successCount}/${allContacts.length} contacts.`
         });
     } catch (error) {
         return NextResponse.json({
