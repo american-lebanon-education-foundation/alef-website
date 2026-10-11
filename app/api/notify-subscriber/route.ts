@@ -106,7 +106,7 @@ export async function POST(req: NextRequest) {
                         value: "alef our subscribers"
                     }
                 ],
-                pageLimit: 100
+                pageLimit: 500 // GHL allows up to 500 contacts per page
             };
             if (searchAfter) {
                 searchBody.searchAfter = searchAfter;
@@ -135,7 +135,7 @@ export async function POST(req: NextRequest) {
 
             allContacts.push(...data.contacts);
 
-            if (data.contacts.length < 100) {
+            if (data.contacts.length < 500) {
                 break;
             }
 
@@ -164,35 +164,35 @@ export async function POST(req: NextRequest) {
 
         // === 2. Add Contacts to a GHL Workflow in Concurrent Batches ===
         let successCount = 0;
-        const BATCH_SIZE = 75;
+        const BATCH_SIZE = 100; // 100 is the sweet spot before GHL rate-limiting kicks in
 
         for (let i = 0; i < allContacts.length; i += BATCH_SIZE) {
             const batch = allContacts.slice(i, i + BATCH_SIZE);
             await Promise.allSettled(batch.map(async (contact) => {
                 try {
-                    // Update custom fields on contact
-                    await fetch(`https://services.leadconnectorhq.com/contacts/${contact.id}`, {
-                        method: 'PUT',
-                        headers: {
-                            'Authorization': `Bearer ${ghlApiKey}`,
-                            'Version': '2021-07-28',
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            customFields: customFieldsPayload
+                    // Update custom fields and enroll in workflow concurrently
+                    const [, wfRes] = await Promise.all([
+                        fetch(`https://services.leadconnectorhq.com/contacts/${contact.id}`, {
+                            method: 'PUT',
+                            headers: {
+                                'Authorization': `Bearer ${ghlApiKey}`,
+                                'Version': '2021-07-28',
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                                customFields: customFieldsPayload
+                            }),
                         }),
-                    });
-
-                    // Enroll into workflow (empty body triggers immediately; do NOT send ISO string with 'Z' as GHL rejects it with 422)
-                    const wfRes = await fetch(`https://services.leadconnectorhq.com/contacts/${contact.id}/workflow/${ghlWorkflowId}`, {
-                        method: 'POST',
-                        headers: {
-                            'Authorization': `Bearer ${ghlApiKey}`,
-                            'Version': '2021-07-28',
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({})
-                    });
+                        fetch(`https://services.leadconnectorhq.com/contacts/${contact.id}/workflow/${ghlWorkflowId}`, {
+                            method: 'POST',
+                            headers: {
+                                'Authorization': `Bearer ${ghlApiKey}`,
+                                'Version': '2021-07-28',
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({})
+                        })
+                    ]);
 
                     if (wfRes.ok) {
                         successCount++;
