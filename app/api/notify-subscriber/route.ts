@@ -14,6 +14,7 @@ export async function POST(req: NextRequest) {
         }
 
         interface WebhookBody {
+            _id?: string;
             _type: string;
             title?: string | { [key: string]: string };
             slug?: { current: string } | string;
@@ -21,7 +22,13 @@ export async function POST(req: NextRequest) {
             [key: string]: unknown;
         }
 
-        const { title, type, _type, slug } = body as unknown as WebhookBody;
+        const { _id, title, type, _type, slug } = body as unknown as WebhookBody;
+
+        // Guard: Skip drafts so in-progress studio edits do not trigger notifications
+        if (_id && _id.startsWith('drafts.')) {
+            console.log('Skipping draft document notification:', _id);
+            return NextResponse.json({ message: 'Skipped draft document' }, { status: 200 });
+        }
 
         // Handle slug if it's an object (common in Sanity) or string
         const slugString = typeof slug === 'object' && slug !== null && 'current' in slug
@@ -47,6 +54,7 @@ export async function POST(req: NextRequest) {
             short: 'shorts',
             podcast: 'podcasts',
             webinar: 'webinars',
+            event: 'events',
         };
 
         const isBlog = docType === 'blog' || docType === 'post';
@@ -94,14 +102,14 @@ export async function POST(req: NextRequest) {
                         value: "alef our subscribers"
                     }
                 ],
-                limit: 100 // Paging may be needed for very large lists
+                pageLimit: 100 // GHL requires pageLimit instead of limit
             }),
         });
 
         if (!searchRes.ok) {
             const errorText = await searchRes.text();
             console.error('Failed to fetch GHL contacts:', searchRes.status, errorText);
-            return NextResponse.json({ message: 'Failed to fetch GHL contacts' }, { status: 500 });
+            return NextResponse.json({ message: 'Failed to fetch GHL contacts', details: errorText }, { status: 500 });
         }
 
         interface GHLContact {
@@ -120,7 +128,32 @@ export async function POST(req: NextRequest) {
 
         for (const contact of contacts) {
             try {
-                // First update custom fields for title, url, type so the workflow email can use them
+                // First update custom fields for title, url, type so the workflow email can use them.
+                // In GHL API v2, updating custom fields requires the Field ID if available,
+                // or the field key. We support both.
+                const titleFieldId = process.env.GHL_FIELD_ID_POST_TITLE;
+                const urlFieldId = process.env.GHL_FIELD_ID_POST_URL;
+                const typeFieldId = process.env.GHL_FIELD_ID_POST_TYPE;
+
+                const customFieldsPayload: Array<Record<string, unknown>> = [
+                    { key: "contact.latest_post_title", field_value: titleString, value: titleString },
+                    { key: "latest_post_title", field_value: titleString, value: titleString },
+                    { key: "contact.latest_post_url", field_value: fullUrl, value: fullUrl },
+                    { key: "latest_post_url", field_value: fullUrl, value: fullUrl },
+                    { key: "contact.latest_post_type", field_value: docType.toUpperCase(), value: docType.toUpperCase() },
+                    { key: "latest_post_type", field_value: docType.toUpperCase(), value: docType.toUpperCase() },
+                ];
+
+                if (titleFieldId) {
+                    customFieldsPayload.push({ id: titleFieldId, field_value: titleString, value: titleString });
+                }
+                if (urlFieldId) {
+                    customFieldsPayload.push({ id: urlFieldId, field_value: fullUrl, value: fullUrl });
+                }
+                if (typeFieldId) {
+                    customFieldsPayload.push({ id: typeFieldId, field_value: docType.toUpperCase(), value: docType.toUpperCase() });
+                }
+
                 const updateRes = await fetch(`https://services.leadconnectorhq.com/contacts/${contact.id}`, {
                     method: 'PUT',
                     headers: {
@@ -129,11 +162,7 @@ export async function POST(req: NextRequest) {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        customFields: [
-                            { key: "contact.latest_post_title", value: titleString },
-                            { key: "contact.latest_post_url", value: fullUrl },
-                            { key: "contact.latest_post_type", value: docType.toUpperCase() },
-                        ]
+                        customFields: customFieldsPayload
                     }),
                 });
 
