@@ -123,76 +123,65 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ message: 'No subscribers found in GHL with tag "alef our subscribers"' });
         }
 
-        // === 2. Add Contacts to a GHL Workflow ===
+        // Custom Field IDs in your GHL account (verified via API):
+        // latest_post_title: 'lzi73m44OkRj4n88W0Sq'
+        // latest_post_url:   'bD7A3udgLp5ShHtV24wb'
+        // latest_post_type:  'TfZuyTZw5LYiZq2Siv5b'
+        const titleFieldId = process.env.GHL_FIELD_ID_POST_TITLE || 'lzi73m44OkRj4n88W0Sq';
+        const urlFieldId = process.env.GHL_FIELD_ID_POST_URL || 'bD7A3udgLp5ShHtV24wb';
+        const typeFieldId = process.env.GHL_FIELD_ID_POST_TYPE || 'TfZuyTZw5LYiZq2Siv5b';
+
+        const customFieldsPayload: Array<Record<string, unknown>> = [
+            { id: titleFieldId, field_value: titleString, value: titleString },
+            { id: urlFieldId, field_value: fullUrl, value: fullUrl },
+            { id: typeFieldId, field_value: docType.toUpperCase(), value: docType.toUpperCase() },
+            { key: "latest_post_title", field_value: titleString, value: titleString },
+            { key: "latest_post_url", field_value: fullUrl, value: fullUrl },
+            { key: "latest_post_type", field_value: docType.toUpperCase(), value: docType.toUpperCase() },
+        ];
+
+        // === 2. Add Contacts to a GHL Workflow in Concurrent Batches ===
         let successCount = 0;
+        const BATCH_SIZE = 10;
 
-        for (const contact of contacts) {
-            try {
-                // First update custom fields for title, url, type so the workflow email can use them.
-                // In GHL API v2, updating custom fields requires the Field ID if available,
-                // or the field key. We support both.
-                const titleFieldId = process.env.GHL_FIELD_ID_POST_TITLE;
-                const urlFieldId = process.env.GHL_FIELD_ID_POST_URL;
-                const typeFieldId = process.env.GHL_FIELD_ID_POST_TYPE;
+        for (let i = 0; i < contacts.length; i += BATCH_SIZE) {
+            const batch = contacts.slice(i, i + BATCH_SIZE);
+            await Promise.allSettled(batch.map(async (contact) => {
+                try {
+                    // Update custom fields on contact
+                    await fetch(`https://services.leadconnectorhq.com/contacts/${contact.id}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': `Bearer ${ghlApiKey}`,
+                            'Version': '2021-07-28',
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            customFields: customFieldsPayload
+                        }),
+                    });
 
-                const customFieldsPayload: Array<Record<string, unknown>> = [
-                    { key: "contact.latest_post_title", field_value: titleString, value: titleString },
-                    { key: "latest_post_title", field_value: titleString, value: titleString },
-                    { key: "contact.latest_post_url", field_value: fullUrl, value: fullUrl },
-                    { key: "latest_post_url", field_value: fullUrl, value: fullUrl },
-                    { key: "contact.latest_post_type", field_value: docType.toUpperCase(), value: docType.toUpperCase() },
-                    { key: "latest_post_type", field_value: docType.toUpperCase(), value: docType.toUpperCase() },
-                ];
+                    // Enroll into workflow (empty body triggers immediately; do NOT send ISO string with 'Z' as GHL rejects it with 422)
+                    const wfRes = await fetch(`https://services.leadconnectorhq.com/contacts/${contact.id}/workflow/${ghlWorkflowId}`, {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${ghlApiKey}`,
+                            'Version': '2021-07-28',
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({})
+                    });
 
-                if (titleFieldId) {
-                    customFieldsPayload.push({ id: titleFieldId, field_value: titleString, value: titleString });
+                    if (wfRes.ok) {
+                        successCount++;
+                    } else {
+                        const err = await wfRes.text();
+                        console.error(`Failed to enroll contact ${contact.id} into workflow:`, wfRes.status, err);
+                    }
+                } catch (contactErr) {
+                    console.error(`Error processing contact ${contact.id}:`, contactErr);
                 }
-                if (urlFieldId) {
-                    customFieldsPayload.push({ id: urlFieldId, field_value: fullUrl, value: fullUrl });
-                }
-                if (typeFieldId) {
-                    customFieldsPayload.push({ id: typeFieldId, field_value: docType.toUpperCase(), value: docType.toUpperCase() });
-                }
-
-                const updateRes = await fetch(`https://services.leadconnectorhq.com/contacts/${contact.id}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Authorization': `Bearer ${ghlApiKey}`,
-                        'Version': '2021-07-28',
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        customFields: customFieldsPayload
-                    }),
-                });
-
-                if (!updateRes.ok) {
-                    console.error(`Failed to update custom fields for contact ${contact.id}:`, await updateRes.text());
-                } else {
-                    console.log(`Successfully updated custom fields for contact ${contact.id}`);
-                }
-
-                // Then add to workflow
-                const wfRes = await fetch(`https://services.leadconnectorhq.com/contacts/${contact.id}/workflow/${ghlWorkflowId}`, {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${ghlApiKey}`,
-                        'Version': '2021-07-28',
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        eventStartTime: new Date().toISOString()
-                    })
-                });
-
-                if (wfRes.ok) {
-                    successCount++;
-                } else {
-                    console.error(`Failed to enroll contact ${contact.id} into workflow:`, await wfRes.text());
-                }
-            } catch (contactErr) {
-                console.error(`Error processing contact ${contact.id}:`, contactErr);
-            }
+            }));
         }
 
         return NextResponse.json({
