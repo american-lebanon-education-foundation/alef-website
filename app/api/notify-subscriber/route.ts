@@ -164,7 +164,7 @@ export async function POST(req: NextRequest) {
 
         // === 2. Add Contacts to a GHL Workflow in Concurrent Batches ===
         let successCount = 0;
-        const BATCH_SIZE = 20;
+        const BATCH_SIZE = 75;
 
         for (let i = 0; i < allContacts.length; i += BATCH_SIZE) {
             const batch = allContacts.slice(i, i + BATCH_SIZE);
