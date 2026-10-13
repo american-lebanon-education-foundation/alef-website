@@ -1,5 +1,6 @@
 import { NextResponse, NextRequest } from 'next/server';
 import { parseBody } from 'next-sanity/webhook';
+import { Client } from '@upstash/qstash';
 
 export const maxDuration = 60; // Allow Vercel up to 60 seconds for bulk notifications
 
@@ -68,7 +69,12 @@ export async function POST(req: NextRequest) {
         }
 
         const folder = routeMap[docType] || docType;
-        const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://usalef.org').replace(/\/$/, '');
+        const siteUrl = (
+            process.env.NEXT_PUBLIC_SITE_URL ||
+            (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : undefined) ||
+            (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined) ||
+            'https://usalef.org'
+        ).replace(/\/$/, '');
 
         // Blogs have individual detail pages; media items (videos, shorts, podcasts, webinars) live on category feed pages
         const fullUrl = isBlog && slugString
@@ -148,67 +154,49 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ message: 'No subscribers found in GHL with tag "alef our subscribers"' });
         }
 
-        // Custom Field IDs in your GHL account:
-        // latest_post_title: 'lzi73m44OkRj4n88W0Sq'
-        // latest_post_url:   'bD7A3udgLp5ShHtV24wb'
-        // latest_post_type:  'TfZuyTZw5LYiZq2Siv5b'
-        const titleFieldId = process.env.GHL_FIELD_ID_POST_TITLE || 'lzi73m44OkRj4n88W0Sq';
-        const urlFieldId = process.env.GHL_FIELD_ID_POST_URL || 'bD7A3udgLp5ShHtV24wb';
-        const typeFieldId = process.env.GHL_FIELD_ID_POST_TYPE || 'TfZuyTZw5LYiZq2Siv5b';
+        // === 2. Dispatch Batches to Upstash QStash for Background Execution ===
+        const qstashToken = process.env.QSTASH_TOKEN;
+        if (!qstashToken) {
+            console.error('QSTASH_TOKEN is missing in environment variables');
+            return NextResponse.json({ message: 'QStash not configured' }, { status: 500 });
+        }
 
-        const customFieldsPayload = [
-            { id: titleFieldId, field_value: titleString, value: titleString },
-            { id: urlFieldId, field_value: fullUrl, value: fullUrl },
-            { id: typeFieldId, field_value: docType.toUpperCase(), value: docType.toUpperCase() },
-        ];
+        const qstash = new Client({
+            token: qstashToken,
+            baseUrl: process.env.QSTASH_URL,
+        });
 
-        // === 2. Add Contacts to a GHL Workflow in Concurrent Batches ===
-        let successCount = 0;
-        const BATCH_SIZE = 100; // 100 is the sweet spot before GHL rate-limiting kicks in
+        // 25 contacts per batch completes in ~2 seconds, safely below Vercel's limit
+        const BATCH_SIZE = 25;
+        const workerUrl = `${siteUrl}/api/notify-subscriber/process-batch`;
+        const batchRequests = [];
 
         for (let i = 0; i < allContacts.length; i += BATCH_SIZE) {
             const batch = allContacts.slice(i, i + BATCH_SIZE);
-            await Promise.allSettled(batch.map(async (contact) => {
-                try {
-                    // Update custom fields and enroll in workflow concurrently
-                    const [, wfRes] = await Promise.all([
-                        fetch(`https://services.leadconnectorhq.com/contacts/${contact.id}`, {
-                            method: 'PUT',
-                            headers: {
-                                'Authorization': `Bearer ${ghlApiKey}`,
-                                'Version': '2021-07-28',
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({
-                                customFields: customFieldsPayload
-                            }),
-                        }),
-                        fetch(`https://services.leadconnectorhq.com/contacts/${contact.id}/workflow/${ghlWorkflowId}`, {
-                            method: 'POST',
-                            headers: {
-                                'Authorization': `Bearer ${ghlApiKey}`,
-                                'Version': '2021-07-28',
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({})
-                        })
-                    ]);
+            const batchIndex = Math.floor(i / BATCH_SIZE);
 
-                    if (wfRes.ok) {
-                        successCount++;
-                    } else {
-                        const err = await wfRes.text();
-                        console.error(`Failed to enroll contact ${contact.id} into workflow:`, wfRes.status, err);
-                    }
-                } catch (contactErr) {
-                    console.error(`Error processing contact ${contact.id}:`, contactErr);
-                }
-            }));
+            batchRequests.push({
+                url: workerUrl,
+                body: {
+                    contacts: batch,
+                    titleString,
+                    fullUrl,
+                    docType,
+                },
+                // Stagger deliveries by 2 seconds each (batch 0: 0s, batch 1: 2s, batch 2: 4s...)
+                // to completely protect GHL from rate limiting
+                delay: batchIndex * 2,
+                retries: 3,
+            });
         }
+
+        console.log(`Enqueuing ${batchRequests.length} batches to QStash for ${allContacts.length} contacts...`);
+        await qstash.batchJSON(batchRequests);
+        console.log(`Successfully enqueued ${batchRequests.length} batches to QStash.`);
 
         return NextResponse.json({
             success: true,
-            message: `Successfully triggered workflow for ${successCount}/${allContacts.length} contacts.`
+            message: `Successfully enqueued ${allContacts.length} contacts across ${batchRequests.length} background batches via QStash.`
         });
     } catch (error) {
         return NextResponse.json({
