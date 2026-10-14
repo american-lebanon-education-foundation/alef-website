@@ -13,11 +13,13 @@ const HouseOfCorruption = dynamic(() => import("@/app/components/HomeCom/HouseOf
 const HouseOfCards = dynamic(() => import("@/app/components/HomeCom/HouseOfCards"));
 const Media = dynamic(() => import("@/app/components/HomeCom/Media"));
 const CTASection = dynamic(() => import("@/app/components/CommonCom/CTASection"));
+const JoinAlefModal = dynamic(() => import("@/app/components/HomeCom/JoinAlefModal"));
 
 export default function Home() {
   return (
     <main>
       <Hero />
+      <JoinAlefModal />
       <Suspense fallback={null}>
         <PresidentialLetter />
         <ChairmanMessage />

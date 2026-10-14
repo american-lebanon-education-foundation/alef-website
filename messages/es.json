@@ -414,10 +414,10 @@
     "tag": "Sé parte de la solución",
     "title": "ÚNETE AL MOVIMIENTO",
     "description": "Manténgase informado. Proporcione sus datos de contacto para unirse a nuestra lista de correo.",
-    "placeholderName": "NOMBRE COMPLETO",
-    "placeholderFirstName": "NOMBRE",
-    "placeholderLastName": "APELLIDO",
-    "placeholderEmail": "INGRESA CORREO SEGURO",
+    "placeholderName": "NOMBRE COMPLETO *",
+    "placeholderFirstName": "NOMBRE *",
+    "placeholderLastName": "APELLIDO *",
+    "placeholderEmail": "INGRESA CORREO SEGURO *",
     "placeholderPhone": "NÚMERO DE TELÉFONO (OPCIONAL)",
     "button": "ÚNETE AHORA",
     "buttonLoading": "UNIÉNDOSE...",
@@ -4063,5 +4063,22 @@
     "submitShortDesc": "Comparte contenido vertical corto y atractivo diseñado para un impacto máximo.",
     "submitPodcast": "Enviar podcast",
     "submitPodcastDesc": "Envía tus episodios de podcast o discusiones de audio para nuestra revisión editorial."
+  },
+  "JoinAlefModal": {
+    "badge": "ÚNETE A ALEF",
+    "title": "SÉ PARTE DE LA SOLUCIÓN",
+    "subtitle": "Únase a una red global de líderes, profesionales y ciudadanos dedicados a reconstruir la soberanía y la prosperidad del Líbano.",
+    "firstNamePlaceholder": "NOMBRE",
+    "emailPlaceholder": "INGRESA CORREO SEGURO",
+    "submitButton": "ÚNETE A ALEF AHORA",
+    "submittingButton": "UNIÉNDOSE...",
+    "dismissButton": "Quizás más tarde",
+    "alreadyMember": "¿Ya eres miembro?",
+    "whyJoin": "¿Por qué unirse a nosotros? Saber más",
+    "privacyNote": "Tu información está segura. Cero spam.",
+    "successTitle": "BIENVENIDO AL EQUIPO",
+    "successMessage": "Te has unido al movimiento con éxito. Mantente atento a tu bandeja de entrada para actualizaciones exclusivas.",
+    "successClose": "Continuar al sitio",
+    "errorGeneric": "Error al conectar. Por favor intenta de nuevo."
   }
 }

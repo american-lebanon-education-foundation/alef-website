@@ -414,10 +414,10 @@
     "tag": "كن جزءًا من الحل",
     "title": "انضم إلى الحركة",
     "description": "ابق على اطلاع. قدم تفاصيل الاتصال الخاصة بك للانضمام إلى قائمتنا البريدية.",
-    "placeholderName": "الاسم الكامل",
-    "placeholderFirstName": "الاسم الأول",
-    "placeholderLastName": "اسم العائلة",
-    "placeholderEmail": "أدخل بريدًا إلكترونيًا آمنًا",
+    "placeholderName": "الاسم الكامل *",
+    "placeholderFirstName": "الاسم الأول *",
+    "placeholderLastName": "اسم العائلة *",
+    "placeholderEmail": "أدخل بريدًا إلكترونيًا آمنًا *",
     "placeholderPhone": "رقم الهاتف (اختياري)",
     "button": "انضم الآن",
     "buttonLoading": "جاري الانضمام...",
@@ -4097,5 +4097,22 @@
     "submitShortDesc": "شارك محتوى عمودي قصير وجذاب مصمم لتحقيق أقصى تأثير.",
     "submitPodcast": "أرسل البودكاست الخاص بك",
     "submitPodcastDesc": "أرسل حلقات البودكاست أو النقاشات الصوتية الخاصة بك للمراجعة من قبل هيئة التحرير لدينا."
+  },
+  "JoinAlefModal": {
+    "badge": "انضم إلى ALEF",
+    "title": "كن جزءًا من الحل",
+    "subtitle": "انضم إلى شبكة عالمية من القادة والمهنيين والمواطنين المكرسين لاستعادة سيادة لبنان وازدهاره.",
+    "firstNamePlaceholder": "الاسم الأول",
+    "emailPlaceholder": "أدخل بريدًا إلكترونيًا آمنًا",
+    "submitButton": "انضم إلى ALEF الآن",
+    "submittingButton": "جاري الانضمام...",
+    "dismissButton": "ربما لاحقًا",
+    "alreadyMember": "عضو بالفعل؟",
+    "whyJoin": "لماذا تنضم إلينا؟ اكتشف المزيد",
+    "privacyNote": "معلوماتك آمنة ولن يتم مشاركتها أبداً.",
+    "successTitle": "مرحبًا بك في الفريق",
+    "successMessage": "لقد انضممت بنجاح إلى الحركة. راقب صندوق الوارد الخاص بك للحصول على تحديثات حصرية.",
+    "successClose": "المتابعة إلى الموقع",
+    "errorGeneric": "فشل الاتصال. يرجى المحاولة مرة أخرى."
   }
 }

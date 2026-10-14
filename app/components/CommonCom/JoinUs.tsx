@@ -38,6 +38,9 @@ export default function JoinUs() {
             if (res.ok) {
                 setStatus('success');
                 setMessage(t('successMessage'));
+                if (typeof window !== 'undefined') {
+                    localStorage.setItem('alef_already_member', 'true');
+                }
                 sendGAEvent('event', 'generate_lead', {
                     event_category: 'engagement',
                     event_label: 'join_us_form',

@@ -413,10 +413,10 @@
     "tag": "Be Part of the Solution",
     "title": "JOIN THE MOVEMENT",
     "description": "Stay informed. Provide your contact details to join our mailing list.",
-    "placeholderName": "FULL NAME",
-    "placeholderFirstName": "FIRST NAME",
-    "placeholderLastName": "LAST NAME",
-    "placeholderEmail": "ENTER SECURE EMAIL",
+    "placeholderName": "FULL NAME *",
+    "placeholderFirstName": "FIRST NAME *",
+    "placeholderLastName": "LAST NAME *",
+    "placeholderEmail": "ENTER SECURE EMAIL *",
     "placeholderPhone": "PHONE NUMBER (OPTIONAL)",
     "button": "JOIN NOW",
     "buttonLoading": "JOINING...",
@@ -4088,5 +4088,23 @@
     "submitShortDesc": "Share quick, engaging vertical short-form content designed for maximum impact.",
     "submitPodcast": "Submit Podcast",
     "submitPodcastDesc": "Submit your podcast episodes or audio discussions for our editorial review."
+  },
+  "JoinAlefModal": {
+    "badge": "JOIN ALEF",
+    "title": "BE PART OF THE SOLUTION",
+    "subtitle": "Join a global network of leaders, professionals, and citizens dedicated to rebuilding Lebanon's sovereignty and prosperity.",
+    "firstNamePlaceholder": "FIRST NAME",
+    "emailPlaceholder": "ENTER SECURE EMAIL",
+    "submitButton": "JOIN ALEF NOW",
+    "submittingButton": "JOINING...",
+    "dismissButton": "Maybe Later",
+    "alreadyMember": "Already a member?",
+    "whyJoin": "Why Join Us? Learn More",
+    "privacyNote": "Your information is secure. No spam, ever.",
+    "successTitle": "WELCOME TO THE TEAM",
+    "successMessage": "You have successfully joined the movement. Keep an eye on your inbox for exclusive updates.",
+    "successClose": "Continue to Site",
+    "errorGeneric": "Failed to connect. Please try again."
   }
 }
+

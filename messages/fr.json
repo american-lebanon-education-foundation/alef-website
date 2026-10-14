@@ -413,10 +413,10 @@
     "tag": "Faites partie de la solution",
     "title": "REJOIGNEZ LE MOUVEMENT",
     "description": "Soyez informé. Fournissez vos coordonnées pour rejoindre notre liste de diffusion.",
-    "placeholderName": "NOM COMPLET",
-    "placeholderFirstName": "PRÉNOM",
-    "placeholderLastName": "NOM DE FAMILLE",
-    "placeholderEmail": "ENTREZ UN EMAIL SÉCURISÉ",
+    "placeholderName": "NOM COMPLET *",
+    "placeholderFirstName": "PRÉNOM *",
+    "placeholderLastName": "NOM DE FAMILLE *",
+    "placeholderEmail": "ENTREZ UN EMAIL SÉCURISÉ *",
     "placeholderPhone": "NUMÉRO DE TÉLÉPHONE (OPTIONNEL)",
     "button": "REJOINDRE MAINTENANT",
     "buttonLoading": "INSCRIPTION...",
@@ -4078,5 +4078,22 @@
     "submitShortDesc": "Partagez des contenus courts et engageants au format vertical conçus pour un impact maximal.",
     "submitPodcast": "Soumettre un podcast",
     "submitPodcastDesc": "Soumettez vos épisodes de podcast ou vos discussions audio pour examen par notre comité de rédaction."
+  },
+  "JoinAlefModal": {
+    "badge": "REJOIGNEZ ALEF",
+    "title": "FAITES PARTIE DE LA SOLUTION",
+    "subtitle": "Rejoignez un réseau mondial de dirigeants, de professionnels et de citoyens dédiés à la reconstruction de la souveraineté et de la prospérité du Liban.",
+    "firstNamePlaceholder": "PRÉNOM",
+    "emailPlaceholder": "ENTREZ UN EMAIL SÉCURISÉ",
+    "submitButton": "REJOIGNEZ ALEF MAINTENANT",
+    "submittingButton": "INSCRIPTION...",
+    "dismissButton": "Plus tard",
+    "alreadyMember": "Déjà membre ?",
+    "whyJoin": "Pourquoi nous rejoindre ? En savoir plus",
+    "privacyNote": "Vos informations sont sécurisées. Aucun spam, jamais.",
+    "successTitle": "BIENVENUE DANS L'ÉQUIPE",
+    "successMessage": "Vous avez rejoint le mouvement avec succès. Surveillez votre boîte de réception pour des mises à jour exclusives.",
+    "successClose": "Continuer sur le site",
+    "errorGeneric": "Échec de la connexion. Veuillez réessayer."
   }
 }
