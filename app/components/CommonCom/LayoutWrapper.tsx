@@ -9,6 +9,7 @@ import { ThemeProvider } from "./ThemeProvider";
 
 const SmoothScroll = dynamic(() => import("./SmoothScroll"), { ssr: false });
 const UploadFAB = dynamic(() => import("./UploadFAB"), { ssr: false });
+const CampaignAnnouncementButton = dynamic(() => import("./CampaignAnnouncementButton"), { ssr: false });
 
 export default function LayoutWrapper({
     children,
@@ -36,6 +37,7 @@ export default function LayoutWrapper({
             <SmoothScroll />
             <Navbar />
             <UploadFAB />
+            <CampaignAnnouncementButton />
             {children}
             {!isProfilePage && <JoinUs />}
             {!isProfilePage && <Footer />}

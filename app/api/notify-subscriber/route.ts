@@ -166,8 +166,8 @@ export async function POST(req: NextRequest) {
             baseUrl: process.env.QSTASH_URL,
         });
 
-        // 25 contacts per batch completes in ~2 seconds, safely below Vercel's limit
-        const BATCH_SIZE = 25;
+        // 20 contacts per batch processed in micro-chunks, safely below Vercel's limit
+        const BATCH_SIZE = 20;
         const workerUrl = `${siteUrl}/api/notify-subscriber/process-batch`;
         const batchRequests = [];
 
@@ -183,9 +183,9 @@ export async function POST(req: NextRequest) {
                     fullUrl,
                     docType,
                 },
-                // Stagger deliveries by 2 seconds each (batch 0: 0s, batch 1: 2s, batch 2: 4s...)
-                // to completely protect GHL from rate limiting
-                delay: batchIndex * 2,
+                // Stagger deliveries by 5 seconds each (batch 0: 0s, batch 1: 5s, batch 2: 10s...)
+                // to completely protect GHL from burst rate limits (100 requests per 10s)
+                delay: batchIndex * 5,
                 retries: 3,
             });
         }
