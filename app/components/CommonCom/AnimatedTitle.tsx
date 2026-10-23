@@ -79,7 +79,7 @@ export default function AnimatedTitle({ text, className = "", as = "div" }: Anim
     const Component = as;
 
     return (
-        <Component ref={containerRef} className={finalClassName} aria-label={text} dir={isArabic ? "rtl" : undefined}>
+        <Component ref={containerRef} className={finalClassName} aria-label={text} dir={isArabic ? "rtl" : "ltr"}>
             {words.map((word, wIdx) => (
                 <span key={wIdx} className="inline-block whitespace-nowrap">
                     {isArabic ? (

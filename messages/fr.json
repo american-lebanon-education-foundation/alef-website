@@ -40,6 +40,7 @@
       "shorts": "Shorts",
       "podcasts": "Podcasts",
       "events": "Événements",
+      "campaigns": "Campagnes",
       "getInTouch": "Contactez-nous",
       "getInvolved": "S'Impliquer",
       "faq": "FAQ",
@@ -2977,6 +2978,9 @@
     "submitDesc": "Partagez votre podcast avec notre comité de rédaction pour examen."
   },
   "EventsPage": {
+    "pageSubtitle": "ARCHIVES MÉDIAS",
+    "pageTitle": "ÉVÉNEMENTS & RENCONTRES",
+    "pageDescription": "Rejoignez-nous pour des rassemblements historiques, des conférences et des débats citoyens qui façonnent la politique et l'action pour le Liban.",
     "header": {
       "tagline": "Célébration d'Inauguration",
       "title": "RASSEMBLEMENT POUR UN NOUVEAU LIBAN",
@@ -3192,6 +3196,60 @@
       "eventVideo": "Vidéo de l'Événement",
       "photoGallery": "Galerie Photos",
       "backToEvents": "Retour aux Archives des Événements"
+    }
+  },
+  "CampaignsPage": {
+    "pageSubtitle": "ARCHIVES MÉDIAS",
+    "pageTitle": "CAMPAGNES & INITIATIVES",
+    "pageDescription": "Encourager l'éducation civique, la responsabilité et le leadership des jeunes pour bâtir un Liban libre, prospère et souverain.",
+    "tabs": {
+      "ongoing": "Campagnes en cours",
+      "past": "Campagnes passées",
+      "noOngoing": "Aucune campagne en cours",
+      "noPast": "Aucune campagne passée",
+      "stayTuned": "Restez à l'écoute pour de futures campagnes et initiatives de mobilisation."
+    },
+    "card": {
+      "tag": "Annonce officielle de l'initiative",
+      "titlePart1": "ACADÉMIE ALEF POUR LA SOUVERAINETÉ",
+      "titlePart2": "DE LA JEUNESSE",
+      "description": "L'objectif est simple : donner aux jeunes Libano-Américains les connaissances et les compétences de leadership nécessaires pour défendre un Liban libre et souverain.",
+      "goal": "35 000 $ SUR CROWDFUNDER",
+      "secondaryNote": "SORTIE DU LIVRE « CHILDREN OF HEZBOLLAH »",
+      "learnMore": "EN SAVOIR PLUS"
+    },
+    "academy": {
+      "tag": "Annonce officielle de l'initiative",
+      "title1": "À PROPOS DE NOTRE DERNIER PROJET :",
+      "title2": "L'ACADÉMIE ALEF POUR LA SOUVERAINETÉ DE LA JEUNESSE",
+      "dearFriends": "Chers amis, sponsors, partisans et partenaires,",
+      "p1": "Je tenais à m'adresser personnellement à vous pour partager nos dernières nouvelles.",
+      "p2": "L'American Lebanon Education Foundation lance aujourd'hui un nouveau projet à New York : l'Académie ALEF pour la souveraineté de la jeunesse.",
+      "p3": "L'objectif est simple : donner aux jeunes Libano-Américains les connaissances et les compétences de leadership nécessaires pour défendre un Liban libre et souverain.",
+      "p4": "Cela signifie des ateliers, des modules d'apprentissage en ligne et une éducation civique concrète fondée sur la transparence, l'État de droit et le mérite, y compris la traduction anglaise, la publication et la distribution mondiale du livre « Children of Hezbollah ».",
+      "p5": "À cet effet, nous levons 35 000 $ sur Crowdfunder pour lancer la première promotion. Crowdfunder est sans frais, donc chaque dollar va directement au programme nowhere else..",
+      "participantsTitle": "Grâce à des ateliers en présentiel, des modules numériques et du mentorat, les participants vont :",
+      "bullet1": "Développer un programme d'études complet fondé sur des valeurs et des modules numériques",
+      "bullet2": "Organiser 6 à 8 ateliers et événements communautaires à New York et ailleurs",
+      "bullet3": "Produire du contenu vidéo éducatif professionnel accessible à la diaspora libanaise",
+      "bullet4": "Fournir du matériel, des certificats et un soutien aux jeunes participants",
+      "bullet5": "Mesurer l'impact et publier les résultats en toute transparence",
+      "p6Part1": "L'ALEF a déjà développé une capacité de recherche majeure, lancé une ",
+      "speakerSeries": "série de conférences",
+      "p6Part2": ", et engagé des décideurs à plusieurs niveaux comme en témoignent nos webinaires tout au long de l'année",
+      "p7Part1": "Si cette mission vous tient à cœur, découvrez les détails de la campagne sur ",
+      "p7Link": "l'Académie ALEF pour la souveraineté de la jeunesse",
+      "p8": "Que vous donniez 100 $, 500 $, 1 000 $ ou 5 000 $, votre soutien aide l'ALEF à élargir ses efforts de recherche, d'éducation, de plaidoyer et de sensibilisation.",
+      "p9": "En fin de compte, la philanthropie doit aller au-delà de l'aide immédiate : elle doit créer les conditions permettant à toute une nation de prospérer demain.",
+      "p10": "Telle est la mission de l'American Lebanon Education Foundation (ALEF).",
+      "thanks": "Merci d'avance de faire la différence",
+      "chairmanName": "ZIAD K. ABDELNOUR",
+      "chairmanRole": "PRÉSIDENT FONDATEUR",
+      "supportBtn": "SOUTENIR LA CAMPAGNE",
+      "shareBtn": "PARTAGER",
+      "copied": "COPIÉ",
+      "backToCampaigns": "RETOUR AUX ARCHIVES DES CAMPAGNES",
+      "foundationNotice": "American Lebanon Education Foundation • 501(c)(3)"
     }
   },
   "MediaFeed": {

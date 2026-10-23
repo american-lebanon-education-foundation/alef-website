@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { ArrowRight, Calendar, MapPin } from "lucide-react";
 import { useState, useEffect } from "react";
 import { client } from "@/sanity/lib/client";
+import AnimatedTitle from "@/app/components/CommonCom/AnimatedTitle";
 
 const GatheringEventCard = ({ t }: { t: ReturnType<typeof useTranslations> }) => (
     <div className="w-full bg-blue text-white relative overflow-hidden border border-red/30 rounded-xl shadow-2xl transition-all">
@@ -99,22 +100,50 @@ export default function EventsPage() {
     const showGatheringUpcoming = upcomingEvents.some((e) => e.slug === "gathering-for-a-new-lebanon");
     const showGatheringPast = pastEvents.some((e) => e.slug === "gathering-for-a-new-lebanon");
 
+    const upcomingCount = showGatheringUpcoming ? Math.max(1, upcomingEvents.length) : upcomingEvents.length;
+    const pastCount = showGatheringPast ? Math.max(1, pastEvents.length) : pastEvents.length;
+
     return (
         <main className="min-h-screen bg-background pt-32 pb-24 px-6 md:px-12 lg:px-24 flex flex-col items-center">
+
+            {/* ── PAGE HEADER ── */}
+            <div className="mb-16 text-center max-w-5xl mx-auto">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                    <span className="w-2 h-2 bg-red rounded-full animate-pulse"></span>
+                    <span className="font-oswald text-xs tracking-[0.3em] text-red uppercase">
+                        {t("pageSubtitle")}
+                    </span>
+                </div>
+
+                <AnimatedTitle
+                    text={t("pageTitle")}
+                    className="text-5xl mb-4 md:text-7xl lg:text-8xl font-bold font-bebas text-foreground uppercase leading-none"
+                />
+
+                <p className="font-oswald text-lg md:text-xl text-foreground/60 leading-relaxed max-w-3xl mx-auto text-center">
+                    {t("pageDescription")}
+                </p>
+            </div>
 
             {/* TABS */}
             <div className="relative flex w-full max-w-xl mx-auto border-b border-foreground/10 mb-16">
                 <button
                     onClick={() => setActiveTab("upcoming")}
-                    className={`w-1/2 pb-4 text-2xl md:text-3xl font-bebas uppercase tracking-wider transition-colors z-10 text-center cursor-pointer ${activeTab === 'upcoming' ? 'text-foreground' : 'text-foreground/40 hover:text-foreground/80'}`}
+                    className={`w-1/2 pb-4 text-2xl md:text-3xl font-bebas uppercase tracking-wider transition-colors z-10 text-center cursor-pointer flex items-center justify-center gap-2 ${activeTab === 'upcoming' ? 'text-foreground' : 'text-foreground/40 hover:text-foreground/80'}`}
                 >
-                    {t("tabs.upcoming")}
+                    <span>{t("tabs.upcoming")}</span>
+                    <span className={`text-xs font-oswald px-2 py-0.5 rounded-full ${upcomingCount > 0 ? 'bg-red text-white' : 'bg-foreground/10 text-foreground/70'}`}>
+                        {upcomingCount}
+                    </span>
                 </button>
                 <button
                     onClick={() => setActiveTab("past")}
-                    className={`w-1/2 pb-4 text-2xl md:text-3xl font-bebas uppercase tracking-wider transition-colors z-10 text-center cursor-pointer ${activeTab === 'past' ? 'text-foreground' : 'text-foreground/40 hover:text-foreground/80'}`}
+                    className={`w-1/2 pb-4 text-2xl md:text-3xl font-bebas uppercase tracking-wider transition-colors z-10 text-center cursor-pointer flex items-center justify-center gap-2 ${activeTab === 'past' ? 'text-foreground' : 'text-foreground/40 hover:text-foreground/80'}`}
                 >
-                    {t("tabs.past")}
+                    <span>{t("tabs.past")}</span>
+                    <span className={`text-xs font-oswald px-2 py-0.5 rounded-full ${pastCount > 0 ? 'bg-red text-white' : 'bg-foreground/10 text-foreground/70'}`}>
+                        {pastCount}
+                    </span>
                 </button>
 
                 {/* Animated Underline */}

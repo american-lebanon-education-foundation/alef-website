@@ -40,6 +40,7 @@
       "shorts": "Shorts",
       "podcasts": "Podcasts",
       "events": "Events",
+      "campaigns": "Campaigns",
       "getInTouch": "Get in Touch",
       "getInvolved": "Get Involved",
       "faq": "FAQ",
@@ -2987,6 +2988,9 @@
     "submitDesc": "Share your podcast with our editorial board for review."
   },
   "EventsPage": {
+    "pageSubtitle": "MEDIA ARCHIVE",
+    "pageTitle": "EVENTS & GATHERINGS",
+    "pageDescription": "Join us for historic gatherings, conferences, and community discussions shaping policy and action for Lebanon.",
     "header": {
       "tagline": "Inauguration Celebration",
       "title": "GATHERING FOR A NEW LEBANON",
@@ -3202,6 +3206,60 @@
       "eventVideo": "Event Video",
       "photoGallery": "Photo Gallery",
       "backToEvents": "Back To Events Archive"
+    }
+  },
+  "CampaignsPage": {
+    "pageSubtitle": "MEDIA ARCHIVE",
+    "pageTitle": "CAMPAIGNS & INITIATIVES",
+    "pageDescription": "Driving civic education, accountability, and youth leadership to build a free, prosperous, and sovereign Lebanon.",
+    "tabs": {
+      "ongoing": "Ongoing Campaigns",
+      "past": "Past Campaigns",
+      "noOngoing": "No Ongoing Campaigns",
+      "noPast": "No Past Campaigns",
+      "stayTuned": "Stay tuned for future campaigns and mobilization initiatives."
+    },
+    "card": {
+      "tag": "Official Initiative Announcement",
+      "titlePart1": "ALEF YOUTH SOVEREIGNTY",
+      "titlePart2": "ACADEMY",
+      "description": "The goal is simple. Give Lebanese American youth the knowledge and leadership skills they need to stand for a free and sovereign Lebanon.",
+      "goal": "$35,000 ON CROWDFUNDER",
+      "secondaryNote": "“CHILDREN OF HEZBOLLAH” BOOK RELEASE",
+      "learnMore": "LEARN MORE"
+    },
+    "academy": {
+      "tag": "Official Initiative Announcement",
+      "title1": "ABOUT OUR LATEST PROJECT:",
+      "title2": "THE ALEF YOUTH SOVEREIGNTY ACADEMY",
+      "dearFriends": "Dear Friends, Sponsors, Supporters and Partners",
+      "p1": "I wanted to reach out personally and share with you our latest.",
+      "p2": "The American Lebanon Education Foundation is launching as of today a new project in New York: the ALEF Youth Sovereignty Academy.",
+      "p3": "The goal is simple. Give Lebanese American youth the knowledge and leadership skills they need to stand for a free and sovereign Lebanon.",
+      "p4": "That means workshops, digital learning modules, and practical civic education grounded in transparency, rule of law, and merit including but not limited to the English translation, publication, release and world distribution of the book “Children of Hezbollah”",
+      "p5": "To that effect, we are raising $35,000 on Crowdfunder to launch the first cohort. Crowdfunder is fee-free, so every dollar goes to the program nowhere else..",
+      "participantsTitle": "Through in-person workshops, high-quality digital modules, and mentorship, participants will :",
+      "bullet1": "Develop a complete, values-based curriculum and digital learning modules",
+      "bullet2": "Host 6 to 8 high-quality workshops and community events in New York City and elsewhere",
+      "bullet3": "Produce professional educational video content accessible to the global Lebanese diaspora",
+      "bullet4": "Provide materials, certificates, and modest support for participating youth",
+      "bullet5": "Measure impact and publicly report results with full transparency",
+      "p6Part1": "ALEF has already built a significant research capacity, launched a ",
+      "speakerSeries": "speaker series",
+      "p6Part2": ", and engaged policymakers at various levels as witnessed by our webinars conducted throughout the year",
+      "p7Part1": "If this mission matters to you, check out campaign details as per ",
+      "p7Link": "ALEF Youth Sovereignty Academy",
+      "p8": "Whether you give $100, 500. $1,000 or $5,000, your support helps ALEF expand its research, education, advocacy, and public-awareness efforts and reach the people and decisionmakers who can help shape Lebanon's future.",
+      "p9": "At the end of the day, and as we all know, there comes a time when philanthropy must go beyond helping people survive the problems of today—it must help build the conditions that allow an entire nation to thrive tomorrow.",
+      "p10": "That is the mission of the American Lebanon Education Foundation (ALEF).",
+      "thanks": "Thanks in advance for making a difference",
+      "chairmanName": "ZIAD K. ABDELNOUR",
+      "chairmanRole": "FOUNDING CHAIRMAN",
+      "supportBtn": "SUPPORT CAMPAIGN",
+      "shareBtn": "SHARE",
+      "copied": "COPIED",
+      "backToCampaigns": "BACK TO CAMPAIGNS ARCHIVE",
+      "foundationNotice": "American Lebanon Education Foundation • 501(c)(3)"
     }
   },
   "MediaFeed": {
