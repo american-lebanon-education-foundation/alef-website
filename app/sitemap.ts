@@ -54,6 +54,8 @@ const staticRoutes = [
   { path: '/webinars', priority: 0.7 },
   { path: '/events', priority: 0.7 },
   { path: '/events/gathering-for-a-new-lebanon', priority: 0.6 },
+  { path: '/campaigns', priority: 0.8 },
+  { path: '/assassinated-leaders', priority: 0.7 },
   { path: '/contact', priority: 0.7 },
   { path: '/faq', priority: 0.7 },
   { path: '/donate', priority: 0.8 },

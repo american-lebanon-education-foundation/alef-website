@@ -3873,8 +3873,20 @@
         "description": "Explorez les rapports, médias et résumés du rassemblement historique d'ALEF pour un nouveau Liban à New York."
       },
       "assassinated-leaders": {
-        "title": "Dirigeants Assassinés — Documentation Historique",
-        "description": "Documentation historique et conclusions de tribunaux officiels sur les dirigeants libanais victimes de violences politiques."
+        "title": "Dirigeants Assassinés du Liban — Mémorial de la Souveraineté | ALEF",
+        "description": "Documentation historique et conclusions de tribunaux officiels sur les dirigeants, journalistes et patriotes libanais victimes de violences politiques."
+      },
+      "get-involved": {
+        "title": "Engagement de la Diaspora Libanaise & Plaidoyer Civique | USALEF",
+        "description": "Mobiliser la diaspora libanaise mondiale pour l'action civique, le plaidoyer législatif et la reconstruction démocratique du Liban."
+      },
+      "campaigns": {
+        "title": "Campagnes de Plaidoyer & Action de la Diaspora pour le Liban | ALEF",
+        "description": "Campagnes citoyennes, pétitions internationales et initiatives éducatives en faveur de la souveraineté et de l'intégrité au Liban."
+      },
+      "faq": {
+        "title": "FAQ — Réforme Politique, Souveraineté & Plaidoyer au Liban | ALEF",
+        "description": "Réponses aux questions fréquentes concernant l'American Lebanon Education Foundation (USALEF), nos missions et nos recherches politiques."
       }
     }
   },

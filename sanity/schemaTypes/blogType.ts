@@ -65,6 +65,46 @@ export const blogType = defineType({
       name: 'body',
       type: 'localizedBlockContent',
     }),
+    defineField({
+      name: 'category',
+      title: 'Topic Category (SEO Pillar)',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Lebanon Sovereignty & Political Reform', value: 'Lebanon sovereignty and political reform' },
+          { title: 'Government Transparency & Accountability', value: 'Lebanon government transparency and accountability' },
+          { title: 'Anti-Corruption Initiatives in Lebanon', value: 'Anti-corruption initiatives in Lebanon' },
+          { title: 'Economic Reform & Recovery', value: 'Lebanon economic reform and recovery' },
+          { title: 'Political Analysis & Policy Research', value: 'Lebanon political analysis and policy research' },
+          { title: 'Hezbollah Accountability & Security', value: 'Hezbollah accountability and Lebanon security' },
+          { title: 'Lebanese Diaspora Engagement & Advocacy', value: 'Lebanese diaspora engagement and advocacy' },
+          { title: 'Educational Resources & Policy Briefs', value: 'Educational resources on Lebanon\'s political and economic challenges' },
+        ],
+      },
+      description: 'Select the primary keyword theme for search indexing and categorization.',
+    }),
+    defineField({
+      name: 'seoTitle',
+      title: 'Custom SEO Title (Optional)',
+      type: 'localizedString',
+      description: 'Overrides standard post title in Google search results (recommended: 50-60 characters).',
+    }),
+    defineField({
+      name: 'seoDescription',
+      title: 'Custom SEO Meta Description (Optional)',
+      type: 'localizedText',
+      description: 'Overrides standard excerpt in Google search results (recommended: 140-160 characters).',
+    }),
+    defineField({
+      name: 'keywords',
+      title: 'Target Search Keywords',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: {
+        layout: 'tags',
+      },
+      description: 'Add specific keywords for search visibility (e.g., "Lebanon banking crisis", "UN Resolution 1701").',
+    }),
   ],
   preview: {
     select: {

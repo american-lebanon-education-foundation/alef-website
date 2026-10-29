@@ -3858,8 +3858,20 @@
         "description": "Explore informes, medios y resúmenes del histórico evento Reunión por un nuevo Líbano de ALEF en la ciudad de Nueva York."
       },
       "assassinated-leaders": {
-        "title": "Líderes Asesinados — Documentación Histórica",
-        "description": "Documentación histórica y conclusiones de tribunales oficiales sobre los líderes libaneses víctimas de violencia política."
+        "title": "Líderes Asesinados del Líbano — Archivo Histórico de Soberanía | ALEF",
+        "description": "Documentación histórica y conclusiones de tribunales oficiales sobre los líderes libaneses y patriotas víctimas de violencia política."
+      },
+      "get-involved": {
+        "title": "Compromiso de la Diáspora Libanesa y Defensa Cívica | USALEF",
+        "description": "Movilizando a la diáspora libanesa mundial para la participación cívica, la incidencia legislativa y las reformas democráticas en el Líbano."
+      },
+      "campaigns": {
+        "title": "Campañas de Incidencia y Acción de la Diáspora para el Líbano | ALEF",
+        "description": "Campañas ciudadanas, peticiones internacionales e iniciativas educativas que defienden la soberanía y la transparencia en el Líbano."
+      },
+      "faq": {
+        "title": "Preguntas Frecuentes — Reforma Política, Soberanía y Defensa | ALEF",
+        "description": "Preguntas frecuentes sobre la American Lebanon Education Foundation (USALEF), nuestra misión y nuestras iniciativas de investigación política."
       }
     }
   },

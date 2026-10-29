@@ -85,6 +85,18 @@ export async function generateMetadata({
 
   let title = "American Lebanon Education Foundation (ALEF)";
   let description = "ALEF is a global, non-partisan initiative advocating for a free, sovereign Lebanon — exposing corruption, combating Hezbollah, and driving policy reform.";
+  let keywords: string[] = [
+    "Lebanon sovereignty and political reform",
+    "Lebanon government transparency and accountability",
+    "Anti-corruption initiatives in Lebanon",
+    "Lebanon economic reform and recovery",
+    "Lebanon political analysis and policy research",
+    "Hezbollah accountability and Lebanon security",
+    "Lebanese diaspora engagement and advocacy",
+    "Educational resources on Lebanon",
+    "American Lebanon Education Foundation",
+    "USALEF"
+  ];
 
   try {
     const t = await getTranslations({ locale: currentLocale, namespace: 'Metadata' });
@@ -97,6 +109,13 @@ export async function generateMetadata({
       title = t('defaultTitle');
       description = t('defaultDescription');
     }
+
+    if (t.has(`pages.${pageKey}.keywords`)) {
+      const pageKeywords = t(`pages.${pageKey}.keywords`);
+      if (pageKeywords) {
+        keywords = pageKeywords.split(',').map((k: string) => k.trim()).filter(Boolean);
+      }
+    }
   } catch {
     // Fail-safe default fallback
   }
@@ -104,6 +123,7 @@ export async function generateMetadata({
   return {
     title,
     description,
+    keywords,
     robots,
     alternates,
     icons: {
@@ -200,8 +220,21 @@ export async function generateMetadata({
               "@context": "https://schema.org",
               "@type": "NonprofitOrganization",
               "name": "American Lebanon Education Foundation (ALEF)",
+              "alternateName": ["USALEF", "ALEF"],
               "url": "https://www.usalef.org",
               "logo": "https://www.usalef.org/home/logo.png",
+              "description": "ALEF is a global, non-partisan initiative advocating for a free, sovereign Lebanon — exposing corruption, combating Hezbollah, and driving policy reform.",
+              "knowsAbout": [
+                "Lebanon sovereignty and political reform",
+                "Lebanon government transparency and accountability",
+                "Anti-corruption initiatives in Lebanon",
+                "Lebanon economic reform and recovery",
+                "Lebanon political analysis and policy research",
+                "Hezbollah accountability and Lebanon security",
+                "Lebanese diaspora engagement and advocacy",
+                "Educational resources on Lebanon's political and economic challenges"
+              ],
+              "areaServed": ["Lebanon", "United States", "Global"],
               "sameAs": [
                 "https://twitter.com/usalef",
                 "https://www.facebook.com/usalef",

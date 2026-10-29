@@ -19,6 +19,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     *[_type == "blog" && slug.current == $slug][0] {
       "title": coalesce(title[$locale], title.en, title),
       "excerpt": coalesce(excerpt[$locale], excerpt.en, excerpt),
+      "seoTitle": coalesce(seoTitle[$locale], seoTitle.en, seoTitle),
+      "seoDescription": coalesce(seoDescription[$locale], seoDescription.en, seoDescription),
+      category,
+      keywords,
       mainImage
     }
   `;
@@ -28,13 +32,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         return {};
     }
 
-    const title = `${post.title} — ALEF`;
-    const description = post.excerpt || `Read the latest analysis from American Lebanon Education Foundation regarding: ${post.title}`;
+    const title = post.seoTitle ? `${post.seoTitle} | ALEF` : `${post.title} — ALEF`;
+    const description = post.seoDescription || post.excerpt || `Read the latest analysis from American Lebanon Education Foundation regarding: ${post.title}`;
     const imageUrl = post.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : undefined;
+    const keywords = Array.isArray(post.keywords) && post.keywords.length > 0 
+        ? post.keywords 
+        : (post.category ? [post.category, "Lebanon policy research", "Lebanon political analysis", "USALEF"] : undefined);
 
     return {
         title,
         description,
+        keywords,
         openGraph: {
             title,
             description,

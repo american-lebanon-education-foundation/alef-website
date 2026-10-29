@@ -3771,120 +3771,163 @@
     }
   },
   "Metadata": {
-    "defaultTitle": "American Lebanon Education Foundation (ALEF)",
-    "defaultDescription": "ALEF is a global, non-partisan initiative advocating for a free, sovereign Lebanon — exposing corruption, combating Hezbollah, and driving policy reform.",
+    "defaultTitle": "American Lebanon Education Foundation (ALEF) — Sovereignty & Reform",
+    "defaultDescription": "ALEF is a global non-partisan foundation advocating for Lebanon's sovereignty, government transparency, economic recovery, and anti-corruption policy reform.",
     "pages": {
       "home": {
-        "title": "American Lebanon Education Foundation (ALEF) — Home",
-        "description": "ALEF is a global, non-partisan initiative advocating for a free, sovereign Lebanon — exposing corruption, combating Hezbollah, and driving policy reform. Anyone who supports the cause can donate and participate."
+        "title": "Lebanon Sovereignty & Political Reform | American Lebanon Education Foundation",
+        "description": "Advancing Lebanon sovereignty, political reform, government transparency, and anti-corruption initiatives. Dedicated to a free, democratic, and sovereign Lebanon.",
+        "keywords": "Lebanon sovereignty and political reform, Lebanon government transparency and accountability, anti-corruption initiatives in Lebanon, American Lebanon Education Foundation, USALEF"
       },
       "alef-profile": {
-        "title": "ALEF Profile — About The Foundation",
-        "description": "A global force of professionals, activists, and policy experts committed to dismantling corruption, restoring governance, and advocating for Lebanon's rightful place."
+        "title": "About USALEF — Advocating for Lebanon Sovereignty & Policy Reform",
+        "description": "Learn about the American Lebanon Education Foundation (USALEF) — a non-partisan policy and advocacy organization advancing governance, sovereignty, and rule of law in Lebanon.",
+        "keywords": "USALEF, Lebanon policy reform, Lebanon advocacy, Lebanon governance, civil society Lebanon, Lebanon sovereignty"
       },
       "core-values": {
-        "title": "Core Values & Mission — ALEF",
-        "description": "Sovereignty, Transparency, Economic Freedom, Rule of Law, and Meritocracy. Learn about our core principles."
+        "title": "Core Values & Principles — Lebanon Sovereignty & Rule of Law | ALEF",
+        "description": "Sovereignty, government transparency, economic freedom, and rule of law. Explore USALEF's core principles for systemic political reform in Lebanon.",
+        "keywords": "Lebanon sovereignty, rule of law Lebanon, transparency, anti-corruption, civic reform Lebanon, meritocracy"
       },
       "strategic-plan": {
-        "title": "Strategic Plan — Rebuilding Lebanon",
-        "description": "Our roadmap to recovery: rebuilding investor confidence in Lebanon, security guarantees, anti-corruption, and diaspora involvement."
+        "title": "Lebanon Economic Reform & Recovery: Strategic Roadmap | ALEF",
+        "description": "Comprehensive strategic roadmap for Lebanon's economic recovery, institutional transparency, financial sector restructuring, and diaspora-backed governance reform.",
+        "keywords": "Lebanon economic reform and recovery, financial restructuring Lebanon, diaspora investment Lebanon, governance reform, economic recovery"
       },
       "experts-corner": {
-        "title": "Experts Corner — ALEF Leadership",
-        "description": "Meet the dedicated officers, directors, and advisors driving our mission forward, led by Ziad K. Abdelnour."
+        "title": "Experts Corner — Policy Leadership & Research Directors | ALEF",
+        "description": "Meet the dedicated directors, economists, and legal policy experts leading USALEF's research and advocacy for a sovereign Lebanon, led by Ziad K. Abdelnour.",
+        "keywords": "Lebanon policy experts, Ziad Abdelnour, Lebanon political analysis, Middle East policy directors, governance leadership"
       },
       "sponsors": {
-        "title": "Our Sponsors & Partners — ALEF",
-        "description": "We are supported by allied organizations and key stakeholders working towards a free and sovereign Lebanon."
+        "title": "Our Sponsors & Partners — Allied for a Sovereign Lebanon | ALEF",
+        "description": "Supported by global institutions, philanthropic partners, and allied organizations committed to anti-corruption and Lebanese sovereignty.",
+        "keywords": "ALEF sponsors, NGO partners Lebanon, civil society allies, diaspora foundations"
       },
       "testimonials": {
-        "title": "Testimonials & Voices — ALEF",
-        "description": "See what community leaders, activists, and citizens say about the American Lebanon Education Foundation."
+        "title": "Testimonials & Global Voices for Lebanon Reform | ALEF",
+        "description": "Endorsements and testimonials from international leaders, policy researchers, and diaspora activists supporting USALEF's reform agenda.",
+        "keywords": "ALEF testimonials, Lebanon civic endorsements, community voices Lebanon, reform reviews"
       },
       "congressional-advocacy": {
-        "title": "Congressional Advocacy — Legislative Updates",
-        "description": "Track latest legislative updates against Hezbollah and policies supporting a sovereign Lebanon in the US Congress."
+        "title": "Congressional Advocacy & Lebanon Policy Research Briefings | ALEF",
+        "description": "US-Lebanon policy briefings, Congressional hearings, and legislative initiatives supporting Lebanese sovereignty, regional security, and anti-corruption measures.",
+        "keywords": "Lebanon political analysis and policy research, US Congress Lebanon policy, Lebanon sovereignty, Washington Lebanon advocacy, US foreign policy Lebanon"
       },
       "blogs-and-articles": {
-        "title": "Blogs & Articles — Latest Analyses",
-        "description": "Read our latest briefings, forensic reports, and strategic intelligence regarding political and economic reform in Lebanon."
+        "title": "Lebanon Political Analysis & Policy Research Briefings | ALEF",
+        "description": "Authoritative policy briefs, forensic investigations, and political analysis on Lebanon's sovereignty, economic reform, governance challenges, and regional security.",
+        "keywords": "Lebanon political analysis and policy research, Lebanon economic reform and recovery, Lebanon security analysis, Middle East policy briefs"
       },
       "house-of-corruption": {
-        "title": "House of Corruption — The $1 Trillion Heist",
-        "description": "Exposing the systematic transfer of wealth, embezzlement, offshore money laundering, and the human cost of Lebanon's economic collapse."
+        "title": "Anti-Corruption Initiatives & Government Transparency in Lebanon | ALEF",
+        "description": "Investigating state capture, embezzlement, and illicit financial flows. USALEF's anti-corruption initiative documenting financial crimes and promoting government transparency in Lebanon.",
+        "keywords": "anti-corruption initiatives in Lebanon, Lebanon government transparency and accountability, Lebanon financial collapse, forensic audit Lebanon, illicit financial flows"
       },
       "house-of-cards": {
-        "title": "House of Cards — Profiles of Influence",
-        "description": "Archive of profiles tracing the key actors, enablers, and proxies behind the institutional capture of Lebanon."
+        "title": "House of Cards — Tracking Corruption & Political Accountability in Lebanon | ALEF",
+        "description": "Interactive dossier mapping the political elite, financial oligarchs, and proxy networks responsible for institutional corruption and state capture in Lebanon.",
+        "keywords": "anti-corruption initiatives in Lebanon, political accountability Lebanon, corruption database Lebanon, Lebanese oligarchs, political capture"
       },
       "archives": {
-        "title": "Historical Archives — ALEF",
-        "description": "Review official documents, policy papers, and campaign records from our history of advocacy."
+        "title": "Lebanon Government Transparency & Declassified Historical Archives | ALEF",
+        "description": "Primary documents, policy memorandums, and historical records detailing key milestones in Lebanon's sovereignty and civic resistance.",
+        "keywords": "Lebanon government transparency, historical archives Lebanon, Lebanon declassified documents, policy records, Lebanon sovereignty history"
       },
       "book-recommendations": {
-        "title": "Recommended Readings — ALEF",
-        "description": "A curated collection of books and studies concerning Lebanon, geopolitics, and fighting corruption."
+        "title": "Educational Resources & Curated Books on Lebanon's History & Politics | ALEF",
+        "description": "Curated library of essential literature and scholarly research exploring Lebanon's modern political history, economic collapse, sectarianism, and reform movements.",
+        "keywords": "educational resources on Lebanon's political and economic challenges, books on Lebanese politics, Lebanese history, Lebanon economic crisis literature"
       },
       "fallen-martyrs": {
-        "title": "Fallen Martyrs — In Honor of the Brave",
-        "description": "Remembering and honoring those who sacrificed their lives fighting for a free, sovereign, and independent Lebanon."
+        "title": "Fallen Martyrs — Honoring Defenders of Lebanon's Sovereignty | ALEF",
+        "description": "Remembering and honoring those who sacrificed their lives resisting tyranny and fighting for a free, sovereign, and democratic Lebanon.",
+        "keywords": "Lebanon sovereignty martyrs, fallen heroes Lebanon, Lebanese independence heroes, freedom defenders"
       },
       "videos": {
-        "title": "Videos & Documentaries — ALEF Media",
-        "description": "Watch our latest documentaries, high-profile interviews, and visual investigations on Lebanon's sovereignty."
+        "title": "Investigative Documentaries & Media on Lebanon Sovereignty | ALEF",
+        "description": "Documentaries, high-profile interviews, and investigative visual briefings examining state capture, Hezbollah accountability, and reform in Lebanon.",
+        "keywords": "Lebanon video documentaries, Lebanon investigative journalism, political interviews Lebanon, USALEF media"
       },
       "shorts": {
-        "title": "Shorts & Quick Intel — ALEF Media",
-        "description": "Rapid-fire insights and updates. The truth explained in under 60 seconds."
+        "title": "Quick Policy Intel & Video Briefings | ALEF Media",
+        "description": "Rapid-fire visual briefings and 60-second updates breaking down political corruption, policy developments, and economic updates in Lebanon.",
+        "keywords": "Lebanon political updates, Lebanon news shorts, quick intel Lebanon, USALEF shorts"
       },
       "podcasts": {
-        "title": "Podcasts & Briefings — ALEF Media",
-        "description": "Listen to deep-dive audio discussions and briefings with policy experts, intelligence analysts, and reformers."
+        "title": "Educational Podcasts on Lebanon's Political & Economic Challenges | ALEF",
+        "description": "In-depth audio discussions and briefings with economists, intelligence analysts, diplomats, and reformers examining Lebanon's future.",
+        "keywords": "educational resources on Lebanon's political and economic challenges, Lebanon podcast, Lebanese politics podcast, Middle East policy audio"
       },
       "webinars": {
-        "title": "Webinars & Digital Events — ALEF",
-        "description": "Join our virtual panel discussions, interactive briefings, and live events with global experts."
+        "title": "Educational Webinars on Lebanon Political & Economic Recovery | ALEF",
+        "description": "Virtual policy roundtables and educational seminars analyzing governance reform, banking crisis solutions, and security frameworks for a free Lebanon.",
+        "keywords": "educational resources on Lebanon's political and economic challenges, Lebanon webinars, Lebanon economic recovery panels, policy discussions Lebanon"
       },
       "events": {
-        "title": "Events & Campaigns — ALEF Media",
-        "description": "Photo documentation and field reports from our global advocacy events and grassroots campaigns."
-      },
-      "contact": {
-        "title": "Contact Us — Get in Touch",
-        "description": "Reach out to the American Lebanon Education Foundation. Send us a secure message or schedule a consultation."
-      },
-      "donate": {
-        "title": "Fuel the Fight for Freedom — Donate to ALEF",
-        "description": "Your contribution directly supports our advocacy for a sovereign Lebanon, anti-corruption campaigns, and policy reform."
-      },
-      "login": {
-        "title": "Login / Register — ALEF Portal",
-        "description": "Sign in or create a secure account to manage your profile, track impact, and support our mission."
-      },
-      "profile": {
-        "title": "My Profile — Member Dashboard",
-        "description": "Manage your membership, view donation history, track your tier badge, and engage with our advocacy network."
-      },
-      "hezbollah-accountability-act": {
-        "title": "Hezbollah Accountability Initiative — Research & Policy Options",
-        "description": "Policy Research & Education Initiative examining options to counter Hezbollah's influence, support Lebanese sovereignty, and inform public understanding of accountability measures."
-      },
-      "why-join-us": {
-        "title": "Why Join Us — Support the Cause | ALEF",
-        "description": "Discover why global leaders, activists, and policy experts join ALEF to dismantle corruption, fight terrorism, and rebuild Lebanon."
-      },
-      "alef-in-the-news": {
-        "title": "ALEF in the News — Press Coverage & Reports",
-        "description": "Read the latest press releases, media coverage, and public announcements about ALEF's campaigns and international policy influence."
+        "title": "Events & Global Advocacy Summits for Lebanon | ALEF",
+        "description": "Photo documentation, summit reports, and briefings from our international advocacy events and diaspora conferences.",
+        "keywords": "Lebanon advocacy events, diaspora conferences Lebanon, ALEF summits, New York Lebanon conference"
       },
       "events-gathering-for-a-new-lebanon": {
-        "title": "Gathering for a New Lebanon — Inaugural Event | ALEF",
-        "description": "Explore reports, media, and summaries from ALEF's historic Gathering for a New Lebanon event in New York City."
+        "title": "Gathering for a New Lebanon — Inaugural Global Summit | ALEF",
+        "description": "Explore reports, media, and key outcomes from ALEF's historic Gathering for a New Lebanon summit in New York City.",
+        "keywords": "Gathering for a New Lebanon, NYC Lebanon summit, diaspora leadership, sovereign Lebanon conference"
+      },
+      "get-involved": {
+        "title": "Lebanese Diaspora Engagement & Civic Advocacy | USALEF",
+        "description": "Mobilizing the global Lebanese diaspora for civic engagement, legislative advocacy, and sovereign reform initiatives to rebuild Lebanon.",
+        "keywords": "Lebanese diaspora engagement and advocacy, Lebanese diaspora worldwide, civic engagement Lebanon, advocate for Lebanon, Lebanon reform movement"
+      },
+      "campaigns": {
+        "title": "Advocacy Campaigns & Diaspora Action for Lebanon | ALEF",
+        "description": "Active grassroots advocacy campaigns, international petitions, and educational initiatives championing sovereignty, accountability, and reform in Lebanon.",
+        "keywords": "Lebanon advocacy campaigns, diaspora action Lebanon, sign petition Lebanon, civic reform initiatives, Lebanon sovereignty campaign"
+      },
+      "contact": {
+        "title": "Contact Us — Connect with USALEF Leadership & Policy Teams",
+        "description": "Reach out to the American Lebanon Education Foundation for press inquiries, research collaboration, Congressional briefings, and partnerships.",
+        "keywords": "contact USALEF, press contact Lebanon, Washington policy outreach, ALEF office"
+      },
+      "faq": {
+        "title": "FAQ — Lebanon Political Reform, Sovereignty & Advocacy | ALEF",
+        "description": "Frequently asked questions regarding the American Lebanon Education Foundation (USALEF), our non-profit status, research methodology, and campaigns.",
+        "keywords": "USALEF FAQ, questions about Lebanon reform, Lebanon advocacy FAQ, non-partisan Lebanon foundation"
+      },
+      "donate": {
+        "title": "Support Lebanon's Sovereignty & Reform — Donate to ALEF",
+        "description": "Your 501(c)(3) tax-deductible contribution powers independent policy research, anti-corruption investigations, and international advocacy for Lebanon.",
+        "keywords": "donate to Lebanon reform, support USALEF, non-profit 501c3 Lebanon, charitable donation Lebanon advocacy"
+      },
+      "login": {
+        "title": "Login / Register — ALEF Member Portal",
+        "description": "Sign in or create a secure account to access exclusive policy reports, track impact, and participate in diaspora initiatives.",
+        "keywords": "ALEF login, member portal, Lebanon advocate login"
+      },
+      "profile": {
+        "title": "My Profile — Member & Advocate Dashboard | ALEF",
+        "description": "Manage your membership, track your participation tier, view donation history, and connect with global advocacy campaigns.",
+        "keywords": "ALEF profile, dashboard, advocacy tier"
+      },
+      "hezbollah-accountability-act": {
+        "title": "Hezbollah Accountability & Lebanon Security Initiative | USALEF",
+        "description": "Policy research and international legal accountability measures countering militia dominance, upholding UN resolutions, and securing Lebanon's sovereign independence.",
+        "keywords": "Hezbollah accountability and Lebanon security, Hezbollah sanctions, UN Resolution 1701, Lebanon national defense, Lebanon security policy"
+      },
+      "why-join-us": {
+        "title": "Why Join Us — Championing Sovereignty & Reform | ALEF",
+        "description": "Join global policy leaders, scholars, and diaspora champions committed to dismantling corruption, countering terrorism, and revitalizing Lebanon.",
+        "keywords": "join USALEF, Lebanon diaspora network, civic advocacy membership, support Lebanese sovereignty"
+      },
+      "alef-in-the-news": {
+        "title": "ALEF in the News — Press Coverage & International Policy Impact",
+        "description": "Latest media appearances, international press coverage, and policy citations highlighting USALEF's investigations and reform campaigns.",
+        "keywords": "ALEF press coverage, Lebanon news analysis, media mentions USALEF, policy citations"
       },
       "assassinated-leaders": {
-        "title": "Assassinated Leaders — Historical Documentation",
-        "description": "Historical documentation and public tribunal findings honoring Lebanese leaders and public figures lost to political violence."
+        "title": "Assassinated Leaders of Lebanon — Historical Documentation & Sovereignty Memorial | ALEF",
+        "description": "Historical documentation, archives, and public tribunal findings honoring Lebanese patriots, journalists, and public leaders lost to political assassinations.",
+        "keywords": "Assassinated leaders Lebanon, political assassinations Lebanon, March 14 martyrs, Lebanon sovereignty history, tribunals"
       }
     }
   },
