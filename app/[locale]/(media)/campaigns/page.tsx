@@ -30,63 +30,69 @@ const CampaignCard = ({
   t: ReturnType<typeof useTranslations>;
   campaign: CampaignItem;
 }) => (
-  <div className="w-full bg-blue text-white relative overflow-hidden border border-red/30 rounded-xl transition-all">
-    {/* Background Image with Smooth Gradient Overlay */}
-    <div className="absolute inset-0 z-0 bg-blue">
-      <SkeletonImage
-        src={campaign.image}
-        alt={t("card.titlePart1")}
-        width={1200}
-        height={600}
-        style={{ width: "100%", height: "100%" }}
-        className="object-cover object-right opacity-35 saturate-50 transition-all duration-1000"
-      />
-      <div className="absolute inset-0 bg-linear-to-r from-blue via-blue/85 to-blue/30 pointer-events-none" />
+  <div className="w-full bg-blue text-white relative overflow-hidden border border-white/15 rounded-xl shadow-2xl transition-all group">
+    {/* Full Card Background Image with Smooth Gradient Overlay */}
+    <div className="absolute inset-0 z-0 bg-blue overflow-hidden pointer-events-none">
+      <div className="w-full h-full relative transform transition-transform duration-1000 ease-out group-hover:scale-105">
+        <SkeletonImage
+          src={campaign.image}
+          alt={t("card.titlePart1")}
+          width={1200}
+          height={600}
+          style={{ width: "100%", height: "100%" }}
+          className="object-cover object-right opacity-40 transition-opacity duration-700"
+        />
+      </div>
+      <div className="absolute inset-0 bg-linear-to-r from-blue via-blue/85 to-blue/20 pointer-events-none" />
     </div>
 
-    <div className="relative z-10 px-6 py-12 md:p-16 flex flex-col lg:flex-row items-center gap-12">
-      {/* Content Side */}
-      <div className="flex-1 space-y-6 md:space-y-8 w-full">
-        <div className="inline-flex items-center gap-3 bg-red/20 px-4 py-2 border border-red/30 backdrop-blur-xs">
-          <span className="w-2 h-2 bg-red rounded-full" />
-          <span className="font-oswald text-red tracking-[0.3em] uppercase text-xs font-bold leading-none">
-            {t("card.tag")}
-          </span>
-        </div>
+    {/* Content Side over Background */}
+    <div className="relative z-10 px-6 py-10 sm:px-10 sm:py-12 md:p-16 flex flex-col items-start space-y-6 md:space-y-7 max-w-4xl w-full">
+      {/* Tag Badge: Clean subtle style matching events cards */}
+      <div>
+        <span className="inline-flex items-center gap-2 font-oswald text-xs uppercase tracking-[0.25em] font-medium px-3 py-1 rounded-sm bg-white/10 text-white border border-white/20">
+          <span className="w-1.5 h-1.5 rounded-full bg-red animate-pulse" />
+          {t("card.tag")}
+        </span>
+      </div>
 
-        <div>
-          <h2 className="text-3xl md:text-5xl lg:text-7xl font-bebas text-white leading-none mb-4">
-            {t("card.titlePart1")} <span className="text-red">{t("card.titlePart2")}</span>
-          </h2>
-          <p className="font-oswald text-white/80 text-base md:text-xl leading-relaxed max-w-2xl border-l-2 border-red pl-4">
-            {t("card.description")}
-          </p>
-        </div>
+      {/* Title: Pure crisp white, single line on tablet & desktop */}
+      <div>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas text-white tracking-wide leading-none md:whitespace-nowrap">
+          {t("card.titlePart1")} {t("card.titlePart2")}
+        </h2>
+      </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 font-bebas text-lg md:text-2xl pt-2">
-          <div className="flex items-center gap-3">
-            <Target className="text-red w-5 h-5 md:w-6 md:h-6" />
-            <span>{t("card.goal")}</span>
+      {/* Description */}
+      <p className="font-oswald text-white/80 text-base md:text-lg leading-relaxed max-w-2xl border-l-2 border-white/30 pl-4">
+        {t("card.description")}
+      </p>
+
+      {/* Key Details Row */}
+      <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 font-bebas text-base sm:text-lg pt-1 text-white/90">
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-sm bg-white/10 flex items-center justify-center shrink-0">
+            <Target className="w-4 h-4 text-white" />
           </div>
-          <div className="hidden sm:block text-red/50">•</div>
-          <div className="flex items-center gap-3">
-            <BookOpen className="text-red w-5 h-5 md:w-6 md:h-6" />
-            <span>{t("card.secondaryNote")}</span>
+          <span>{t("card.goal")}</span>
+        </div>
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-sm bg-white/10 flex items-center justify-center shrink-0">
+            <BookOpen className="w-4 h-4 text-white" />
           </div>
+          <span>{t("card.secondaryNote")}</span>
         </div>
+      </div>
 
-        <div className="pt-6 md:pt-8 flex flex-wrap gap-4">
-          <Link
-            href={`/campaigns/${campaign.slug}`}
-            className="group/link relative bg-transparent border border-white/70 text-white px-6 py-4 md:px-8 md:py-5 text-lg md:text-xl font-bold tracking-[0.2em] font-bebas overflow-hidden transition-all hover:border-white/50 isolate cursor-pointer flex items-center gap-4 uppercase w-fit"
-          >
-            <span className="relative z-10 group-hover/link:text-blue transition-colors duration-300 flex items-center gap-4">
-              {t("card.learnMore")}
-              <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover/link:translate-x-2 transition-transform" />
-            </span>
-            <div className="absolute inset-0 bg-white transform scale-y-0 origin-top group-hover/link:scale-y-100 group-hover/link:origin-bottom transition-transform duration-500 ease-out -z-10" />
-          </Link>
-        </div>
+      {/* CTA Action Button */}
+      <div className="pt-2 flex flex-wrap items-center gap-4">
+        <Link
+          href={`/campaigns/${campaign.slug}`}
+          className="group/link inline-flex items-center gap-3 bg-red hover:bg-[#a00827] text-white px-8 py-3.5 text-base font-bold tracking-[0.2em] font-bebas uppercase transition-all shadow-xl rounded-sm cursor-pointer"
+        >
+          <span>{t("card.learnMore")}</span>
+          <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+        </Link>
       </div>
     </div>
   </div>

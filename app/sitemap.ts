@@ -53,6 +53,7 @@ const staticRoutes = [
   { path: '/podcasts', priority: 0.7 },
   { path: '/webinars', priority: 0.7 },
   { path: '/events', priority: 0.7 },
+  { path: '/events/children-of-hezbollah', priority: 0.7 },
   { path: '/events/gathering-for-a-new-lebanon', priority: 0.6 },
   { path: '/campaigns', priority: 0.8 },
   { path: '/assassinated-leaders', priority: 0.7 },

@@ -19,6 +19,7 @@ export function Skeleton({ className = "" }: SkeletonProps) {
 
 export default function SkeletonImage({ className = "", onLoad, alt = "", ...props }: ImageProps) {
     const [isLoading, setIsLoading] = useState(true);
+    const hasCustomTransition = /\btransition(-[a-z]+)?\b/.test(className);
 
     return (
         <>
@@ -26,7 +27,7 @@ export default function SkeletonImage({ className = "", onLoad, alt = "", ...pro
             <Image
                 alt={alt}
                 {...props}
-                className={`${className} transition-opacity duration-500 ${isLoading ? "opacity-0" : "opacity-100"}`}
+                className={`${!hasCustomTransition ? "transition-opacity duration-500" : ""} ${className} ${isLoading ? "opacity-0" : "opacity-100"}`}
                 onLoad={(e) => {
                     setIsLoading(false);
                     if (onLoad) onLoad(e);

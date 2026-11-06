@@ -5,39 +5,11 @@ import { Calendar, MapPin, Clock, Mic, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useState, useEffect } from "react";
-import { client } from "@/sanity/lib/client";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function GatheringForNewLebanonPage() {
     const t = useTranslations("EventsPage");
-    const [isLoading, setIsLoading] = useState(true);
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
-    const router = useRouter();
-
-    useEffect(() => {
-        const checkEvent = async () => {
-            try {
-                const event = await client.fetch(`*[_type == "event" && slug.current == "gathering-for-a-new-lebanon" && isArchived != true][0]`);
-                if (!event) {
-                    router.push("/events");
-                } else {
-                    setIsLoading(false);
-                }
-            } catch {
-                router.push("/events");
-            }
-        };
-        checkEvent();
-    }, [router]);
-
-    if (isLoading) {
-        return (
-            <div className="min-h-screen bg-background flex justify-center items-center">
-                <div className="w-12 h-12 border-4 border-red border-t-transparent rounded-full animate-spin"></div>
-            </div>
-        );
-    }
 
     const eventSchema = {
         "@context": "https://schema.org",

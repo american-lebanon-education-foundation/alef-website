@@ -4,104 +4,134 @@ import SkeletonImage from "@/app/components/CommonCom/SkeletonImage";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { ArrowRight, Calendar, MapPin } from "lucide-react";
-import { useState, useEffect } from "react";
-import { client } from "@/sanity/lib/client";
+import { useState, useMemo } from "react";
 import AnimatedTitle from "@/app/components/CommonCom/AnimatedTitle";
+import { EVENTS, EventData } from "@/lib/eventsData";
 
-const GatheringEventCard = ({ t }: { t: ReturnType<typeof useTranslations> }) => (
-    <div className="w-full bg-blue text-white relative overflow-hidden border border-red/30 rounded-xl shadow-2xl transition-all">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0 z-0 bg-blue">
-            <SkeletonImage
-                src="/events/Event_Image.jpg"
-                alt="ALEF Event Promo"
-                width={1200}
-                height={600}
-                style={{ width: "100%", height: "100%" }}
-                className="object-cover object-right opacity-60 saturate-0 transition-all duration-1000"
-            />
-            <div className="absolute inset-0 bg-linear-to-r from-blue via-blue/80 to-blue/20 pointer-events-none"></div>
+const EventCard = ({
+    event,
+    isPast,
+    t,
+}: {
+    event: EventData;
+    isPast: boolean;
+    t: ReturnType<typeof useTranslations>;
+}) => (
+    <div className="w-full bg-blue text-white relative overflow-hidden border border-white/15 rounded-xl shadow-2xl transition-all group">
+        {/* Full Card Background Image with Gradient Overlay */}
+        <div className="absolute inset-0 z-0 bg-blue overflow-hidden pointer-events-none">
+            <div className="w-full h-full relative transform transition-transform duration-1000 ease-out group-hover:scale-105">
+                <SkeletonImage
+                    src={event.image}
+                    alt={`${event.titlePart1} ${event.titlePart2}`}
+                    width={1200}
+                    height={600}
+                    style={{ width: "100%", height: "100%" }}
+                    className="object-cover object-right opacity-60 transition-opacity duration-700"
+                />
+            </div>
+            <div className="absolute inset-0 bg-linear-to-r from-blue via-blue/85 to-blue/20 pointer-events-none"></div>
         </div>
 
-        <div className="relative z-10 px-6 py-12 md:p-16 flex flex-col lg:flex-row items-center gap-12">
-            {/* Content Side */}
-            <div className="flex-1 space-y-6 md:space-y-8 w-full">
-                <div className="inline-flex items-center gap-3 bg-red/20 px-4 py-2 border border-red/30 shadow-[0_0_15px_rgba(196,21,28,0.3)] backdrop-blur-xs">
-                    <span className="w-2 h-2 bg-red rounded-full animate-none"></span>
-                    <span className="font-oswald text-red tracking-[0.3em] uppercase text-xs font-bold leading-none">
-                        {t("tabs.eventArchiveTag")}
+        {/* Content Side over Background */}
+        <div className="relative z-10 px-6 py-10 sm:px-10 sm:py-12 md:p-16 flex flex-col items-start space-y-6 md:space-y-7 max-w-4xl w-full">
+            {/* Tag Badge: Clean subtle style matching past event card */}
+            <div>
+                <span className="inline-flex items-center gap-2 font-oswald text-xs uppercase tracking-[0.25em] font-medium px-3 py-1 rounded-sm bg-white/10 text-white border border-white/20">
+                    {!isPast && <span className="w-1.5 h-1.5 rounded-full bg-red animate-pulse"></span>}
+                    {isPast ? t("tabs.eventArchiveTag") : event.tagline || t("tabs.upcoming")}
+                </span>
+            </div>
+
+            {/* Title: Pure crisp white, single line across tablet and desktop */}
+            <div>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas text-white tracking-wide leading-none md:whitespace-nowrap">
+                    {event.titlePart1} {event.titlePart2}
+                </h2>
+                {event.subtitle && (
+                    <p className="font-oswald text-white/90 text-sm sm:text-base font-medium tracking-wider uppercase mt-3">
+                        {event.subtitle}
+                    </p>
+                )}
+            </div>
+
+            {/* Description */}
+            <p className="font-oswald text-white/80 text-base md:text-lg leading-relaxed max-w-2xl border-l-2 border-white/30 pl-4">
+                {event.description}
+            </p>
+
+            {/* Logistics */}
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 font-bebas text-base sm:text-lg pt-1 text-white/90">
+                <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-sm bg-white/10 flex items-center justify-center shrink-0">
+                        <Calendar className="w-4 h-4 text-white" />
+                    </div>
+                    <span>
+                        {event.displayDate} {event.time ? `• ${event.time}` : ""}
                     </span>
                 </div>
-
-                <div>
-                    <h2 className="text-3xl md:text-5xl lg:text-7xl font-bebas text-white leading-none mb-4">
-                        {t("hero.titlePart1")} <span className="text-red">{t("hero.titlePart2")}</span>
-                    </h2>
-                    <p className="font-oswald text-white/80 text-base md:text-xl leading-relaxed max-w-2xl border-l-2 border-red pl-4">
-                        {t("hero.descriptionPart1")} {t("hero.descriptionPart2")}
-                    </p>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 font-bebas text-lg md:text-2xl pt-2">
-                    <div className="flex items-center gap-3">
-                        <Calendar className="text-red w-5 h-5 md:w-6 md:h-6" />
-                        <span>{t("hero.date")}</span>
+                <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-sm bg-white/10 flex items-center justify-center shrink-0">
+                        <MapPin className="w-4 h-4 text-white" />
                     </div>
-                    <div className="hidden sm:block text-red/50">•</div>
-                    <div className="flex items-center gap-3">
-                        <MapPin className="text-red w-5 h-5 md:w-6 md:h-6" />
-                        <span className="transition-colors duration-200">{t("hero.venueName")}</span>
-                    </div>
+                    <span>{event.venueName}</span>
                 </div>
+            </div>
 
-                <div className="pt-6 md:pt-8 flex flex-wrap gap-4">
-                    <Link
-                        href="/events/gathering-for-a-new-lebanon"
-                        className="group/link relative bg-transparent border border-white/70 text-white px-6 py-4 md:px-8 md:py-5 text-lg md:text-xl font-bold tracking-[0.2em] font-bebas overflow-hidden transition-all hover:border-white/50 isolate cursor-pointer flex items-center gap-4 uppercase shadow-xl w-fit"
-                    >
-                        <span className="relative z-10 group-hover/link:text-blue transition-colors duration-300 flex items-center gap-4">
-                            {t("tabs.learnMore")}
-                            <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover/link:translate-x-2 transition-transform" />
+            {/* Pricing / Contribution Badges if available */}
+            {(event.admission || event.sponsorship) && (
+                <div className="flex flex-wrap gap-2.5 pt-1">
+                    {event.admission && (
+                        <span className="font-oswald text-xs tracking-wider uppercase px-3.5 py-1.5 bg-white/10 border border-white/15 text-white rounded-sm font-medium">
+                            Admission: <strong className="text-white font-bold">{event.admission}</strong>
                         </span>
-                        <div className="absolute inset-0 bg-white transform scale-y-0 origin-top group-hover/link:scale-y-100 group-hover/link:origin-bottom transition-transform duration-500 ease-out -z-10"></div>
-                    </Link>
+                    )}
+                    {event.sponsorship && (
+                        <span className="font-oswald text-xs tracking-wider uppercase px-3.5 py-1.5 bg-white/10 border border-white/15 text-white rounded-sm font-medium">
+                            Sponsorship: <strong className="text-white font-bold">{event.sponsorship}</strong>
+                        </span>
+                    )}
                 </div>
+            )}
+
+            {/* CTA Action */}
+            <div className="pt-2 flex flex-wrap items-center gap-4">
+                <Link
+                    href={event.href}
+                    className="group/link inline-flex items-center gap-3 bg-red hover:bg-[#a00827] text-white px-8 py-3.5 text-base font-bold tracking-[0.2em] font-bebas uppercase transition-all shadow-xl rounded-sm cursor-pointer"
+                >
+                    <span>{t("tabs.learnMore")}</span>
+                    <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                </Link>
             </div>
         </div>
     </div>
 );
 
-interface SanityEvent {
-    slug: string;
-    eventDate: string;
-}
-
 export default function EventsPage() {
     const t = useTranslations("EventsPage");
     const [activeTab, setActiveTab] = useState<"upcoming" | "past">("upcoming");
-    const [events, setEvents] = useState<SanityEvent[]>([]);
 
-    useEffect(() => {
-        const fetchEvents = async () => {
-            try {
-                const data = await client.fetch(`*[_type == "event" && isArchived != true]{ "slug": slug.current, eventDate }`);
-                setEvents(data);
-            } catch (error) {
-                console.error("Failed to fetch events", error);
+    // Automatically categorize events based on date comparison against current time
+    const { upcomingEvents, pastEvents } = useMemo(() => {
+        const now = new Date();
+        const upcoming: EventData[] = [];
+        const past: EventData[] = [];
+
+        EVENTS.forEach((event) => {
+            const eventDate = new Date(event.date);
+            if (eventDate >= now) {
+                upcoming.push(event);
+            } else {
+                past.push(event);
             }
-        };
-        fetchEvents();
+        });
+
+        return { upcomingEvents: upcoming, pastEvents: past };
     }, []);
 
-    const now = new Date();
-    const upcomingEvents = events.filter((e) => new Date(e.eventDate) >= now);
-    const pastEvents = events.filter((e) => new Date(e.eventDate) < now);
-
-    const showGatheringUpcoming = upcomingEvents.some((e) => e.slug === "gathering-for-a-new-lebanon");
-    const showGatheringPast = pastEvents.some((e) => e.slug === "gathering-for-a-new-lebanon");
-
-    const upcomingCount = showGatheringUpcoming ? Math.max(1, upcomingEvents.length) : upcomingEvents.length;
-    const pastCount = showGatheringPast ? Math.max(1, pastEvents.length) : pastEvents.length;
+    const upcomingCount = upcomingEvents.length;
+    const pastCount = pastEvents.length;
 
     return (
         <main className="min-h-screen bg-background pt-32 pb-24 px-6 md:px-12 lg:px-24 flex flex-col items-center">
@@ -129,27 +159,47 @@ export default function EventsPage() {
             <div className="relative flex w-full max-w-xl mx-auto border-b border-foreground/10 mb-16">
                 <button
                     onClick={() => setActiveTab("upcoming")}
-                    className={`w-1/2 pb-4 text-2xl md:text-3xl font-bebas uppercase tracking-wider transition-colors z-10 text-center cursor-pointer flex items-center justify-center gap-2 ${activeTab === 'upcoming' ? 'text-foreground' : 'text-foreground/40 hover:text-foreground/80'}`}
+                    className={`w-1/2 pb-4 text-2xl md:text-3xl font-bebas uppercase tracking-wider transition-colors z-10 text-center cursor-pointer flex items-center justify-center gap-2 ${
+                        activeTab === "upcoming"
+                            ? "text-foreground"
+                            : "text-foreground/40 hover:text-foreground/80"
+                    }`}
                 >
                     <span>{t("tabs.upcoming")}</span>
-                    <span className={`text-xs font-oswald px-2 py-0.5 rounded-full ${upcomingCount > 0 ? 'bg-red text-white' : 'bg-foreground/10 text-foreground/70'}`}>
+                    <span
+                        className={`text-xs font-oswald px-2 py-0.5 rounded-full ${
+                            upcomingCount > 0
+                                ? "bg-red text-white"
+                                : "bg-foreground/10 text-foreground/70"
+                        }`}
+                    >
                         {upcomingCount}
                     </span>
                 </button>
                 <button
                     onClick={() => setActiveTab("past")}
-                    className={`w-1/2 pb-4 text-2xl md:text-3xl font-bebas uppercase tracking-wider transition-colors z-10 text-center cursor-pointer flex items-center justify-center gap-2 ${activeTab === 'past' ? 'text-foreground' : 'text-foreground/40 hover:text-foreground/80'}`}
+                    className={`w-1/2 pb-4 text-2xl md:text-3xl font-bebas uppercase tracking-wider transition-colors z-10 text-center cursor-pointer flex items-center justify-center gap-2 ${
+                        activeTab === "past"
+                            ? "text-foreground"
+                            : "text-foreground/40 hover:text-foreground/80"
+                    }`}
                 >
                     <span>{t("tabs.past")}</span>
-                    <span className={`text-xs font-oswald px-2 py-0.5 rounded-full ${pastCount > 0 ? 'bg-red text-white' : 'bg-foreground/10 text-foreground/70'}`}>
+                    <span
+                        className={`text-xs font-oswald px-2 py-0.5 rounded-full ${
+                            pastCount > 0
+                                ? "bg-red text-white"
+                                : "bg-foreground/10 text-foreground/70"
+                        }`}
+                    >
                         {pastCount}
                     </span>
                 </button>
 
                 {/* Animated Underline */}
-                <div 
+                <div
                     className="absolute bottom-0 h-[3px] bg-red transition-all duration-300 ease-in-out w-1/2 transform translate-y-[1.5px]"
-                    style={{ left: activeTab === 'upcoming' ? '0%' : '50%' }}
+                    style={{ left: activeTab === "upcoming" ? "0%" : "50%" }}
                 />
             </div>
 
@@ -157,9 +207,16 @@ export default function EventsPage() {
             <div className="w-full max-w-7xl mx-auto">
                 {activeTab === "upcoming" ? (
                     <div>
-                        {showGatheringUpcoming ? (
-                            <div className="grid grid-cols-1 gap-6">
-                                <GatheringEventCard t={t} />
+                        {upcomingEvents.length > 0 ? (
+                            <div className="grid grid-cols-1 gap-8">
+                                {upcomingEvents.map((event) => (
+                                    <EventCard
+                                        key={event.slug}
+                                        event={event}
+                                        isPast={false}
+                                        t={t}
+                                    />
+                                ))}
                             </div>
                         ) : (
                             <div className="text-center py-24 bg-white/5 border border-foreground/10 rounded-xl">
@@ -171,17 +228,20 @@ export default function EventsPage() {
                     </div>
                 ) : (
                     <div>
-
-
-                        {/* PAST EVENTS GRID */}
-                        {showGatheringPast ? (
-                            <div className="grid grid-cols-1 gap-6">
-                                <GatheringEventCard t={t} />
+                        {pastEvents.length > 0 ? (
+                            <div className="grid grid-cols-1 gap-8">
+                                {pastEvents.map((event) => (
+                                    <EventCard
+                                        key={event.slug}
+                                        event={event}
+                                        isPast={true}
+                                        t={t}
+                                    />
+                                ))}
                             </div>
                         ) : (
                             <div className="text-center py-24 bg-white/5 border border-foreground/10 rounded-xl">
                                 <p className="font-oswald text-foreground/70 text-lg uppercase tracking-widest">
-                                    {/* Fallback string if no translation exists for empty past, usually noUpcoming is reused or a new one */}
                                     {t("tabs.noUpcoming") || "No Past Events"}
                                 </p>
                             </div>
