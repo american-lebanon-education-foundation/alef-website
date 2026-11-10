@@ -70,6 +70,7 @@ export default function ChildrenOfHezbollahEventPage() {
                 price: "250",
                 priceCurrency: "USD",
                 availability: "https://schema.org/InStock",
+                validFrom: "2026-11-05T00:00:00-05:00",
                 url: "https://www.zeffy.com/en-US/ticketing/an-exclusive-evening-at-trump-tower-children-of-hezbollah",
             },
             {
@@ -78,6 +79,7 @@ export default function ChildrenOfHezbollahEventPage() {
                 price: "2500",
                 priceCurrency: "USD",
                 availability: "https://schema.org/InStock",
+                validFrom: "2026-11-05T00:00:00-05:00",
                 url: "https://www.zeffy.com/en-US/ticketing/an-exclusive-evening-at-trump-tower-children-of-hezbollah",
             },
         ],

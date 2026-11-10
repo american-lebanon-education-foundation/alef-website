@@ -64,7 +64,8 @@ export default function GatheringForNewLebanonPage() {
             "url": "https://www.usalef.org/events/gathering-for-a-new-lebanon",
             "price": "150",
             "priceCurrency": "USD",
-            "availability": "https://schema.org/SoldOut"
+            "availability": "https://schema.org/SoldOut",
+            "validFrom": "2026-03-01T00:00:00-05:00"
         }
     };
 
