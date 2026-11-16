@@ -79,6 +79,22 @@ export default function MediaFeed({ items, type }: MediaFeedProps) {
         validCurrentPage * ITEMS_PER_PAGE
     );
 
+    const paginationItems = useMemo(() => {
+        if (totalPages <= 7) {
+            return Array.from({ length: totalPages }, (_, i) => i + 1);
+        }
+
+        if (validCurrentPage <= 4) {
+            return [1, 2, 3, 4, 5, "ellipsis-end", totalPages];
+        }
+
+        if (validCurrentPage >= totalPages - 3) {
+            return [1, "ellipsis-start", totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+        }
+
+        return [1, "ellipsis-start", validCurrentPage - 1, validCurrentPage, validCurrentPage + 1, "ellipsis-end", totalPages];
+    }, [validCurrentPage, totalPages]);
+
     // Grid config based on type
     const gridCols = type === 'short'
         ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center"
@@ -165,7 +181,7 @@ export default function MediaFeed({ items, type }: MediaFeedProps) {
 
             {/* Pagination Controls */}
             {totalPages > 1 && (
-                <div className="flex justify-center items-center gap-6 mb-24 animate-in fade-in duration-500">
+                <div className="flex justify-center items-center gap-3 sm:gap-6 mb-24 animate-in fade-in duration-500">
                     <button
                         onClick={() => {
                             setCurrentPage(p => Math.max(1, p - 1));
@@ -178,22 +194,35 @@ export default function MediaFeed({ items, type }: MediaFeedProps) {
                         <span className="font-bebas text-lg tracking-wider hidden sm:inline">{t('previous')}</span>
                     </button>
 
-                    <div className="flex items-center gap-2">
-                        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                            <button
-                                key={page}
-                                onClick={() => {
-                                    setCurrentPage(page);
-                                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                                }}
-                                className={`w-10 h-10 rounded-full font-bebas text-lg flex items-center justify-center transition-all duration-300 cursor-pointer ${validCurrentPage === page
-                                    ? "bg-red text-white scale-110 shadow-lg"
-                                    : "bg-foreground/5 hover:bg-foreground/10 text-foreground/70"
-                                    }`}
-                            >
-                                {page}
-                            </button>
-                        ))}
+                    <div className="flex items-center gap-1.5 sm:gap-2">
+                        {paginationItems.map((item, idx) => {
+                            if (typeof item === "string") {
+                                return (
+                                    <span
+                                        key={`${item}-${idx}`}
+                                        className="w-8 sm:w-10 h-10 flex items-center justify-center font-bebas text-lg text-foreground/40 tracking-widest select-none"
+                                    >
+                                        ...
+                                    </span>
+                                );
+                            }
+
+                            return (
+                                <button
+                                    key={item}
+                                    onClick={() => {
+                                        setCurrentPage(item);
+                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                    }}
+                                    className={`w-10 h-10 rounded-full font-bebas text-lg flex items-center justify-center transition-all duration-300 cursor-pointer ${validCurrentPage === item
+                                        ? "bg-red text-white scale-110 shadow-lg"
+                                        : "bg-foreground/5 hover:bg-foreground/10 text-foreground/70"
+                                        }`}
+                                >
+                                    {item}
+                                </button>
+                            );
+                        })}
                     </div>
 
                     <button
