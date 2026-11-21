@@ -1083,6 +1083,10 @@
     },
     "tiers": {
       "sponsor": {
+        "leadership": {
+          "label": "PATROCINADOR LÍDER",
+          "desc": "Patrocine investigaciones de políticas especializadas, resúmenes e iniciativas educativas de alto impacto."
+        },
         "strategic": {
           "label": "PATROCINADOR ESTRATÉGICO",
           "desc": "Conviértete en un pilar de nuestro movimiento. Recibe informes ejecutivos trimestrales y acceso exclusivo."
@@ -1101,6 +1105,10 @@
           "label": "PARTIDARIO",
           "desc": "Apoya nuestras operaciones diarias y la creación de contenido."
         },
+        "contributor": {
+          "label": "COLABORADOR",
+          "desc": "Amplía nuestro alcance de investigación, campañas digitales y recursos educativos."
+        },
         "advocate": {
           "label": "DEFENSOR",
           "desc": "Ayuda a financiar nuestros documentos de investigación y resúmenes de políticas."
@@ -1114,8 +1122,8 @@
     "customAmount": {
       "label": "Otra Cantidad",
       "placeholder": "INTRODUCIR CANTIDAD",
-      "placeholderMin": "INTRODUCIR CANTDAD (MIN $5,000)",
-      "errorMin": "EL PATROCINIO MÍNIMO ES DE $5,000",
+      "placeholderMin": "INTRODUCIR CANTIDAD (MIN $2,500)",
+      "errorMin": "EL PATROCINIO MÍNIMO ES DE $2,500",
       "button": "Donar Ahora",
       "buttonMonthly": "Donar Mensualmente",
       "buttonWait": "Espera..."

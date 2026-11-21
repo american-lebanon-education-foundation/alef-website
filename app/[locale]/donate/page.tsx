@@ -72,7 +72,7 @@ export default function DonatePage() {
             const amount = parseFloat(customAmount);
 
             // Sponsor Validation
-            if (donationType === 'sponsor' && (!amount || amount < 5000)) {
+            if (donationType === 'sponsor' && (!amount || amount < 2500)) {
                 setIsError(true);
                 setCustomAmount('');
                 return;
@@ -212,19 +212,21 @@ export default function DonatePage() {
 
     const tiers = donationType === 'sponsor'
         ? [
+            { amount: 2500, label: t('tiers.sponsor.leadership.label'), desc: t('tiers.sponsor.leadership.desc') },
             { amount: 5000, label: t('tiers.sponsor.strategic.label'), desc: t('tiers.sponsor.strategic.desc') },
             { amount: 10000, label: t('tiers.sponsor.visionary.label'), desc: t('tiers.sponsor.visionary.desc') },
             { amount: 25000, label: t('tiers.sponsor.global.label'), desc: t('tiers.sponsor.global.desc') }
         ]
         : [
             { amount: 100, label: t('tiers.support.supporter.label'), desc: t('tiers.support.supporter.desc') },
+            { amount: 250, label: t('tiers.support.contributor.label'), desc: t('tiers.support.contributor.desc') },
             { amount: 500, label: t('tiers.support.advocate.label'), desc: t('tiers.support.advocate.desc') },
             { amount: 1000, label: t('tiers.support.champion.label'), desc: t('tiers.support.champion.desc') }
         ];
 
     return (
         <main className="min-h-screen bg-background pt-32 pb-24 px-6 md:px-12 lg:px-24">
-            <div className="max-w-4xl mx-auto space-y-16">
+            <div className="max-w-6xl mx-auto space-y-16">
 
                 {/* Header Section */}
                 <div className="text-center space-y-6">
@@ -259,13 +261,9 @@ export default function DonatePage() {
                 </div>
 
                 {/* Donation Options */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {tiers.map((tier, idx) => (
-                        <div key={idx} className="group relative p-8 border border-foreground/10 bg-foreground/5 hover:bg-blue hover:border-red/50 transition-all duration-500 rounded-xl overflow-hidden cursor-pointer">
-                            <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                <div className="w-3 h-3 bg-red rounded-full shadow-[0_0_10px_rgba(220,38,38,0.8)]"></div>
-                            </div>
-
+                        <div key={idx} className="group relative p-6 lg:p-8 border border-foreground/10 bg-foreground/5 hover:bg-blue hover:border-red/50 transition-all duration-500 rounded-xl overflow-hidden cursor-pointer">
                             <div className="relative z-10 flex flex-col items-center text-center gap-4">
                                 <span className="font-oswald text-xs tracking-widest text-foreground/50 group-hover:text-white/60 uppercase">{tier.label}</span>
                                 <span className="font-bebas text-6xl text-foreground group-hover:text-white transition-colors duration-300">

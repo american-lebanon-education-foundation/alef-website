@@ -1089,6 +1089,10 @@
     },
     "tiers": {
       "sponsor": {
+        "leadership": {
+          "label": "SPONSOR LEADER",
+          "desc": "Parrainez des recherches politiques spécialisées, des notes d'information et des initiatives éducatives à fort impact."
+        },
         "strategic": {
           "label": "SPONSOR STRATÉGIQUE",
           "desc": "Devenez un pilier de notre mouvement. Recevez des briefings exécutifs trimestriels et un accès exclusif."
@@ -1107,6 +1111,10 @@
           "label": "SUPPORTER",
           "desc": "Soutenez nos opérations quotidiennes et la création de contenu."
         },
+        "contributor": {
+          "label": "CONTRIBUTEUR",
+          "desc": "Élargissez notre portée de recherche, nos campagnes numériques et nos ressources éducatives."
+        },
         "advocate": {
           "label": "DÉFENSEUR",
           "desc": "Aidez à financer nos documents de recherche et nos notes de politique."
@@ -1120,8 +1128,8 @@
     "customAmount": {
       "label": "Autre Montant",
       "placeholder": "ENTRER LE MONTANT",
-      "placeholderMin": "ENTRER LE MONTANT (MIN 5 000 $)",
-      "errorMin": "LE PARRAINAGE MINIMUM EST DE 5 000 $",
+      "placeholderMin": "ENTRER LE MONTANT (MIN 2 500 $)",
+      "errorMin": "LE PARRAINAGE MINIMUM EST DE 2 500 $",
       "button": "Faire un Don",
       "buttonMonthly": "Don Mensuel",
       "buttonWait": "Attendez..."
